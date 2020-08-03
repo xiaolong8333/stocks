@@ -46,6 +46,9 @@ $api->group([
         // 删除token
         $api->delete('authorizations/current', 'AuthorizationsController@destroy')
             ->name('authorizations.destroy');
+        // 修改密码
+        $api->patch('authorizations/updatepass', 'AuthorizationsController@updatePass')
+            ->name('authorizations.updatepass');
         // 上传图片
         $api->post('images', 'ImagesController@store')
             ->name('images.store');
@@ -58,12 +61,31 @@ $api->group([
         //标记消息通知为已读
         $api->patch('user/read/notifications', 'NotificationsController@read')
             ->name('user.notifications.read');
+
+        // 外汇
+        //外汇列表
+        $api->get('foreignexchange/index', 'ForeignExchangeController@index')
+            ->name('foreignexchange.index');
+        // 用户自选列表
+        $api->get('foreignexchange/list', 'ForeignExchangeController@list')
+            ->name('foreignexchange.list');
+        // 用户添加自选
+        $api->post('foreignexchange/addlist', 'ForeignExchangeController@addList')
+            ->name('foreignexchange.addlist');
+
+        // 用户取消自选
+        $api->delete('foreignexchange/deletelist', 'ForeignExchangeController@deleteList')
+            ->name('foreignexchange.deleteList');
+
         //买入外汇
         $api->post('buyforeign', 'OrdersController@buy')
             ->name('orders.buy');
         //卖出外汇
         $api->patch('sellforeign/{order}', 'OrdersController@sell')
             ->name('orders.sell');
+        //撤单
+        $api->patch('removeorder/{order}', 'OrdersController@removeOrder')
+            ->name('orders.removeOrder');
         //外汇列表
         $api->get('order_index', 'OrdersController@index')
             ->name('orders.index');

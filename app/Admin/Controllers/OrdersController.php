@@ -32,7 +32,7 @@ class OrdersController extends AdminController
         $grid->column('trade_no', __('订单号'))->label();
         $grid->column('user.name', __('用户'));
         $grid->column('number', __('交易量'));
-        $grid->column('new_value', __('最新价格'));
+        $grid->column('exchangeList.rate', __('最新价格'));
         $grid->column('code_all', __('交易品种'));
         $grid->column('status_type', __('持仓状态'))
             ->using(['0' => '未持仓', '1' => '持仓'])
@@ -44,10 +44,11 @@ class OrdersController extends AdminController
             ->using(['0' => '即时买', '1' => '即时卖','2' => '委托买', '3' => '委托卖'])
             ->label('info');
         $grid->column('status', __('状态'))
-            ->using(['0' => '未完成交易', '1' => '完成交易'])
+            ->using(['0' => '未完成交易', '1' => '完成交易','2'=>'已撤单'])
             ->label([
                 0 => 'default',
                 1 => 'success',
+                2 => 'warning',
             ]);
         $grid->column('floating', __('允许浮动价格'));
         $grid->column('remark', __('备注'));

@@ -13,9 +13,29 @@ class AuthorizationRequest extends FormRequest
      */
     public function rules()
     {
+        switch($this->method()){
+            case "POST":
+            return [
+                'username' => 'required|string',
+                'password' => 'required|alpha_dash|min:6',
+            ];
+            break;
+            case "PATCH":
+                return [
+                    'oldpass' => 'required|alpha_dash|min:6',
+                    'password' => 'required|alpha_dash|min:6',
+                    'repassword' => 'required|alpha_dash|min:6'
+                ];
+                break;
+
+        }
+    }
+
+    public function attributes()
+    {
         return [
-            'username' => 'required|string',
-            'password' => 'required|alpha_dash|min:6',
+            'oldpass' => '原密码',
+            'repassword' => '重复密码'
         ];
     }
 }

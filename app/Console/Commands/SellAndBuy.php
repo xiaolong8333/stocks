@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\UserPoosition;
 use Illuminate\Console\Command;
 use App\Models\User;
 use App\Models\Configs;
@@ -56,10 +57,10 @@ class SellAndBuy extends Command
         ];
         //$countOrder =  Order::where($where)->count();
         //echo $countOrder;
-        $sellOrder = Order::where($where)->with(["user","exchangList"])->get()->toArray();
+        $sellOrder = Order::where($where)->with(["user","exchangeList"])->get()->toArray();
         //echo count($buyOrder);
         for($i=0;$i<count($sellOrder);$i++){
-            $sellPrice = $sellOrder[$i]['exchang_list']['rate']*(1-$rate);
+            $sellPrice = $sellOrder[$i]['exchange_list']['rate']*(1-$rate);
             if(substr($sellOrder[$i]['code_all'],3,3)!="USD")
                 $sellPrice = sprintf("%.5f",1/$sellPrice);
 
@@ -93,6 +94,10 @@ class SellAndBuy extends Command
             try {
                 //开启默认数据库的事务
                 DB::beginTransaction();
+                //操作持仓
+                $userPoosition = UserPoosition::where(["user_id"=>$sellOrder[$i]['user_id'],"code_all"=>$sellOrder[$i]['code_all']])->first();
+                $userPoosition->number = $userPoosition->number-$sellOrder[$i]['number'];
+                $userPoosition->save();
                 Order::where('id', $sellOrder[$i]['id'])->update([
                     'status_type'=>1,
                     'status'=>1,
@@ -123,13 +128,13 @@ class SellAndBuy extends Command
         ];
         //$countOrder =  Order::where($where)->count();
         //echo $countOrder;
-        $buyOrder = Order::where($where)->with(["user","exchangList"])->get()->toArray();
+        $buyOrder = Order::where($where)->with(["user","exchangeList"])->get()->toArray();
         //echo count($buyOrder);
 
 
         for($i=0;$i<count($buyOrder);$i++){
 
-            $sellPrice = $buyOrder[$i]['exchang_list']['rate'];
+            $sellPrice = $buyOrder[$i]['exchange_list']['rate'];
         if(substr($buyOrder[$i]['code_all'],3,3)!="USD")
             $sellPrice = sprintf("%.5f",1/$sellPrice);
 
@@ -143,8 +148,8 @@ class SellAndBuy extends Command
                 continue;
             }
 
-            $total_price = $buyOrder[$i]['exchang_list']['rate']*$buyOrder[$i]['number'];
-            $rate = sprintf("%.5f",$rate*$buyOrder[$i]['exchang_list']['rate']);
+            $total_price = $buyOrder[$i]['exchange_list']['rate']*$buyOrder[$i]['number'];
+            $rate = sprintf("%.5f",$rate*$buyOrder[$i]['exchange_list']['rate']);
             $total_price += $rate;
             if($total_price>($buyOrder[$i]['user']['balance']+$buyOrder[$i]['user']['frozen_balance'])){
                 echo "资金不足";
@@ -192,6 +197,17 @@ class SellAndBuy extends Command
             try {
                 //开启默认数据库的事务
                 DB::beginTransaction();
+                $userPoosition = UserPoosition::where(["user_id"=>$buyOrder[$i]['user']['id'],"code_all"=>$buyOrder[$i]['code_all']])->first();
+                if($userPoosition){
+                    $userPoosition->number += $buyOrder[$i]['number'];
+                    $userPoosition->save();
+                }else{
+                    $userPoosition = new UserPoosition();
+                    $userPoosition->code_all = $buyOrder[$i]['code_all'];
+                    $userPoosition->user_id = $buyOrder[$i]['user']['id'];
+                    $userPoosition->number = $buyOrder[$i]['number'];
+                    $userPoosition->save();
+                }
                 Order::where('id', $buyOrder[$i]['id'])->update([
                     'status_type'=>1,
                     'status'=>1,

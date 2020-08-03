@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50730
 File Encoding         : 65001
 
-Date: 2020-07-31 16:10:18
+Date: 2020-08-03 15:40:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -42,7 +42,7 @@ INSERT INTO `admin_menu` VALUES ('4', '2', '4', '角色', 'fa-user', 'auth/roles
 INSERT INTO `admin_menu` VALUES ('5', '2', '5', '权限', 'fa-ban', 'auth/permissions', null, null, '2020-07-15 08:21:55');
 INSERT INTO `admin_menu` VALUES ('6', '2', '6', '菜单', 'fa-bars', 'auth/menu', null, null, '2020-07-15 08:22:03');
 INSERT INTO `admin_menu` VALUES ('7', '2', '7', '操作日志', 'fa-history', 'auth/logs', null, null, '2020-07-15 08:22:12');
-INSERT INTO `admin_menu` VALUES ('8', '9', '0', '外汇列表', 'fa-server', '/foreign-exchang-lists', '*', '2020-07-16 01:22:53', '2020-07-16 02:37:10');
+INSERT INTO `admin_menu` VALUES ('8', '9', '0', '外汇列表', 'fa-server', '/foreign-exchange-lists', '*', '2020-07-16 01:22:53', '2020-08-03 11:21:54');
 INSERT INTO `admin_menu` VALUES ('9', '0', '0', '外汇', 'fa-indent', null, null, '2020-07-16 02:36:46', '2020-07-16 02:36:46');
 INSERT INTO `admin_menu` VALUES ('10', '0', '0', '用户管理', 'fa-users', '/', null, '2020-07-16 02:38:41', '2020-07-16 03:01:41');
 INSERT INTO `admin_menu` VALUES ('11', '10', '0', '用户列表', 'fa-user', '/users', null, '2020-07-16 02:58:19', '2020-07-16 03:04:59');
@@ -66,7 +66,7 @@ CREATE TABLE `admin_operation_log` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `admin_operation_log_user_id_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1040 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of admin_operation_log
@@ -1110,6 +1110,69 @@ INSERT INTO `admin_operation_log` VALUES ('1036', '1', 'admin/users', 'GET', '19
 INSERT INTO `admin_operation_log` VALUES ('1037', '1', 'admin/users', 'GET', '192.168.0.140', '[]', '2020-07-31 15:13:39', '2020-07-31 15:13:39');
 INSERT INTO `admin_operation_log` VALUES ('1038', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-07-31 15:13:44', '2020-07-31 15:13:44');
 INSERT INTO `admin_operation_log` VALUES ('1039', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-07-31 15:13:47', '2020-07-31 15:13:47');
+INSERT INTO `admin_operation_log` VALUES ('1040', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-07-31 16:59:17', '2020-07-31 16:59:17');
+INSERT INTO `admin_operation_log` VALUES ('1041', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-07-31 16:59:22', '2020-07-31 16:59:22');
+INSERT INTO `admin_operation_log` VALUES ('1042', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-07-31 16:59:24', '2020-07-31 16:59:24');
+INSERT INTO `admin_operation_log` VALUES ('1043', '1', 'admin/foreign-exchang-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-07-31 16:59:27', '2020-07-31 16:59:27');
+INSERT INTO `admin_operation_log` VALUES ('1044', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-07-31 17:11:54', '2020-07-31 17:11:54');
+INSERT INTO `admin_operation_log` VALUES ('1045', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-03 09:12:20', '2020-08-03 09:12:20');
+INSERT INTO `admin_operation_log` VALUES ('1046', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:12:28', '2020-08-03 09:12:28');
+INSERT INTO `admin_operation_log` VALUES ('1047', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:13:03', '2020-08-03 09:13:03');
+INSERT INTO `admin_operation_log` VALUES ('1048', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:15:08', '2020-08-03 09:15:08');
+INSERT INTO `admin_operation_log` VALUES ('1049', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:16:25', '2020-08-03 09:16:25');
+INSERT INTO `admin_operation_log` VALUES ('1050', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:19:25', '2020-08-03 09:19:25');
+INSERT INTO `admin_operation_log` VALUES ('1051', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:19:28', '2020-08-03 09:19:28');
+INSERT INTO `admin_operation_log` VALUES ('1052', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:21:00', '2020-08-03 09:21:00');
+INSERT INTO `admin_operation_log` VALUES ('1053', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:21:33', '2020-08-03 09:21:33');
+INSERT INTO `admin_operation_log` VALUES ('1054', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:30:40', '2020-08-03 09:30:40');
+INSERT INTO `admin_operation_log` VALUES ('1055', '1', 'admin/orders', 'GET', '192.168.0.140', '[]', '2020-08-03 09:33:52', '2020-08-03 09:33:52');
+INSERT INTO `admin_operation_log` VALUES ('1056', '1', 'admin/orders', 'GET', '192.168.0.140', '[]', '2020-08-03 09:35:36', '2020-08-03 09:35:36');
+INSERT INTO `admin_operation_log` VALUES ('1057', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:35:49', '2020-08-03 09:35:49');
+INSERT INTO `admin_operation_log` VALUES ('1058', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:36:10', '2020-08-03 09:36:10');
+INSERT INTO `admin_operation_log` VALUES ('1059', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:37:43', '2020-08-03 09:37:43');
+INSERT INTO `admin_operation_log` VALUES ('1060', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:38:11', '2020-08-03 09:38:11');
+INSERT INTO `admin_operation_log` VALUES ('1061', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:38:37', '2020-08-03 09:38:37');
+INSERT INTO `admin_operation_log` VALUES ('1062', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:38:55', '2020-08-03 09:38:55');
+INSERT INTO `admin_operation_log` VALUES ('1063', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:39:05', '2020-08-03 09:39:05');
+INSERT INTO `admin_operation_log` VALUES ('1064', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:41:14', '2020-08-03 09:41:14');
+INSERT INTO `admin_operation_log` VALUES ('1065', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 09:47:13', '2020-08-03 09:47:13');
+INSERT INTO `admin_operation_log` VALUES ('1066', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 10:09:24', '2020-08-03 10:09:24');
+INSERT INTO `admin_operation_log` VALUES ('1067', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 10:10:57', '2020-08-03 10:10:57');
+INSERT INTO `admin_operation_log` VALUES ('1068', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 10:11:00', '2020-08-03 10:11:00');
+INSERT INTO `admin_operation_log` VALUES ('1069', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 10:11:14', '2020-08-03 10:11:14');
+INSERT INTO `admin_operation_log` VALUES ('1070', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 11:00:31', '2020-08-03 11:00:31');
+INSERT INTO `admin_operation_log` VALUES ('1071', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 11:00:33', '2020-08-03 11:00:33');
+INSERT INTO `admin_operation_log` VALUES ('1072', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 11:00:36', '2020-08-03 11:00:36');
+INSERT INTO `admin_operation_log` VALUES ('1073', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 11:00:38', '2020-08-03 11:00:38');
+INSERT INTO `admin_operation_log` VALUES ('1074', '1', 'admin/auth/menu', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 11:21:11', '2020-08-03 11:21:11');
+INSERT INTO `admin_operation_log` VALUES ('1075', '1', 'admin/auth/menu', 'GET', '192.168.0.140', '[]', '2020-08-03 11:21:36', '2020-08-03 11:21:36');
+INSERT INTO `admin_operation_log` VALUES ('1076', '1', 'admin/auth/menu/8/edit', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 11:21:43', '2020-08-03 11:21:43');
+INSERT INTO `admin_operation_log` VALUES ('1077', '1', 'admin/auth/menu/8', 'PUT', '192.168.0.140', '{\"parent_id\":\"9\",\"title\":\"\\u5916\\u6c47\\u5217\\u8868\",\"icon\":\"fa-server\",\"uri\":\"\\/foreign-exchange-lists\",\"roles\":[\"1\",null],\"permission\":\"*\",\"_token\":\"8QToyLHX7s9q2L3prMfz4WuX5MfUpvCD7bgrEOnz\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/auth\\/menu\"}', '2020-08-03 11:21:54', '2020-08-03 11:21:54');
+INSERT INTO `admin_operation_log` VALUES ('1078', '1', 'admin/auth/menu', 'GET', '192.168.0.140', '[]', '2020-08-03 11:21:54', '2020-08-03 11:21:54');
+INSERT INTO `admin_operation_log` VALUES ('1079', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-03 11:22:42', '2020-08-03 11:22:42');
+INSERT INTO `admin_operation_log` VALUES ('1080', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 11:22:46', '2020-08-03 11:22:46');
+INSERT INTO `admin_operation_log` VALUES ('1081', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 11:22:47', '2020-08-03 11:22:47');
+INSERT INTO `admin_operation_log` VALUES ('1082', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 11:22:49', '2020-08-03 11:22:49');
+INSERT INTO `admin_operation_log` VALUES ('1083', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 11:24:34', '2020-08-03 11:24:34');
+INSERT INTO `admin_operation_log` VALUES ('1084', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 11:24:36', '2020-08-03 11:24:36');
+INSERT INTO `admin_operation_log` VALUES ('1085', '1', 'admin/foreign-exchange-lists/9', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 11:26:34', '2020-08-03 11:26:34');
+INSERT INTO `admin_operation_log` VALUES ('1086', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 13:01:49', '2020-08-03 13:01:49');
+INSERT INTO `admin_operation_log` VALUES ('1087', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 13:01:51', '2020-08-03 13:01:51');
+INSERT INTO `admin_operation_log` VALUES ('1088', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 13:01:52', '2020-08-03 13:01:52');
+INSERT INTO `admin_operation_log` VALUES ('1089', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 13:01:54', '2020-08-03 13:01:54');
+INSERT INTO `admin_operation_log` VALUES ('1090', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 13:01:56', '2020-08-03 13:01:56');
+INSERT INTO `admin_operation_log` VALUES ('1091', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 14:44:11', '2020-08-03 14:44:11');
+INSERT INTO `admin_operation_log` VALUES ('1092', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 14:44:44', '2020-08-03 14:44:44');
+INSERT INTO `admin_operation_log` VALUES ('1093', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 14:45:17', '2020-08-03 14:45:17');
+INSERT INTO `admin_operation_log` VALUES ('1094', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 14:47:06', '2020-08-03 14:47:06');
+INSERT INTO `admin_operation_log` VALUES ('1095', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 14:47:35', '2020-08-03 14:47:35');
+INSERT INTO `admin_operation_log` VALUES ('1096', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 14:47:41', '2020-08-03 14:47:41');
+INSERT INTO `admin_operation_log` VALUES ('1097', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 15:17:28', '2020-08-03 15:17:28');
+INSERT INTO `admin_operation_log` VALUES ('1098', '1', 'admin/orders', 'GET', '192.168.0.140', '[]', '2020-08-03 15:18:36', '2020-08-03 15:18:36');
+INSERT INTO `admin_operation_log` VALUES ('1099', '1', 'admin/orders', 'GET', '192.168.0.140', '[]', '2020-08-03 15:19:17', '2020-08-03 15:19:17');
+INSERT INTO `admin_operation_log` VALUES ('1100', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 15:26:33', '2020-08-03 15:26:33');
+INSERT INTO `admin_operation_log` VALUES ('1101', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 15:27:08', '2020-08-03 15:27:08');
+INSERT INTO `admin_operation_log` VALUES ('1102', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-03 15:31:01', '2020-08-03 15:31:01');
 
 -- ----------------------------
 -- Table structure for admin_permissions
@@ -1270,10 +1333,10 @@ INSERT INTO `configs` VALUES ('64', 'fees', '0', '手续费比例', '2020-07-30 
 INSERT INTO `configs` VALUES ('65', 'sellrate', '0', '卖出价格比例', '2020-07-30 10:19:17', '2020-07-31 15:02:58');
 
 -- ----------------------------
--- Table structure for foreign_exchang_lists
+-- Table structure for foreign_exchange_lists
 -- ----------------------------
-DROP TABLE IF EXISTS `foreign_exchang_lists`;
-CREATE TABLE `foreign_exchang_lists` (
+DROP TABLE IF EXISTS `foreign_exchange_lists`;
+CREATE TABLE `foreign_exchange_lists` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `code_all` char(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '代码全称',
   `name` char(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '名称',
@@ -1284,11 +1347,11 @@ CREATE TABLE `foreign_exchang_lists` (
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
--- Records of foreign_exchang_lists
+-- Records of foreign_exchange_lists
 -- ----------------------------
-INSERT INTO `foreign_exchang_lists` VALUES ('9', 'BTCUSD', '比特币/美元', '10856.88', '2020-07-28 02:28:53', '2020-07-28 15:50:51');
-INSERT INTO `foreign_exchang_lists` VALUES ('13', 'ETHUSD', '以太坊/美元', '50000', '2020-07-28 02:29:32', '2020-07-28 15:50:51');
-INSERT INTO `foreign_exchang_lists` VALUES ('17', 'USDCNH', '美元/人民币', '7.00789', '2020-07-28 05:45:28', '2020-07-28 15:50:50');
+INSERT INTO `foreign_exchange_lists` VALUES ('9', 'BTCUSD', '比特币/美元', '11149.9', '2020-07-28 02:28:53', '2020-08-03 11:33:33');
+INSERT INTO `foreign_exchange_lists` VALUES ('13', 'ETHUSD', '以太坊/美元', '380.648', '2020-07-28 02:29:32', '2020-08-03 11:33:39');
+INSERT INTO `foreign_exchange_lists` VALUES ('17', 'USDCNH', '美元/人民币', '6.97839', '2020-07-28 05:45:28', '2020-08-03 11:33:41');
 
 -- ----------------------------
 -- Table structure for migrations
@@ -1340,7 +1403,7 @@ CREATE TABLE `money_records` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='用户资金变动记录表';
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='用户资金变动记录表';
 
 -- ----------------------------
 -- Records of money_records
@@ -1348,6 +1411,27 @@ CREATE TABLE `money_records` (
 INSERT INTO `money_records` VALUES ('1', '0', '购买外汇-ETHUSD', 'J731794023817831', '750000.00000', '720000.00000', '0.00000', '0.00000', '0.00000', '30000.00000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-07-31 15:10:02', '2020-07-31 15:10:02');
 INSERT INTO `money_records` VALUES ('2', '3', '委托交易-ETHUSD', 'J731794369442952', '720000.00000', '720000.00000', '0.00000', '0.00000', '5000000.00000', '0.00000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-07-31 15:10:36', '2020-07-31 15:10:36');
 INSERT INTO `money_records` VALUES ('3', '3', '委托卖出外汇-ETHUSD', 'J731794369442952', '720000.00000', '5720000.00000', '0.00000', '0.00000', '0.00000', '5000000.00000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-07-31 15:12:19', '2020-07-31 15:12:19');
+INSERT INTO `money_records` VALUES ('4', '2', '撤销买入-ETHUSD', 'J731794023817831', '5720000.00000', '5720000.00000', '0.00000', '-30000.00000', '0.00000', '0.00000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 09:19:21', '2020-08-03 09:19:21');
+INSERT INTO `money_records` VALUES ('5', '2', '撤销买入-ETHUSD', 'J731794023817831', '5720000.00000', '5720000.00000', '0.00000', '0.00000', '30000.00000', '0.00000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 09:20:56', '2020-08-03 09:20:56');
+INSERT INTO `money_records` VALUES ('6', '2', '撤销买入-ETHUSD', 'J731794023817831', '5720000.00000', '5720000.00000', '30000.00000', '0.00000', '30000.00000', '0.00000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 09:21:26', '2020-08-03 09:21:26');
+INSERT INTO `money_records` VALUES ('7', '0', '购买外汇-ETHUSD', 'J803254124815436', '5720000.00000', '720000.00000', '0.00000', '0.00000', '0.00000', '5000000.00000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 11:30:12', '2020-08-03 11:30:12');
+INSERT INTO `money_records` VALUES ('8', '3', '委托交易-ETHUSD', 'J803254418181202', '720000.00000', '720000.00000', '0.00000', '0.00000', '5000000.00000', '0.00000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 11:30:41', '2020-08-03 11:30:41');
+INSERT INTO `money_records` VALUES ('9', '3', '委托卖出-ETHUSD', 'J803254418181202', '720000.00000', '5720000.00000', '0.00000', '0.00000', '0.00000', '5000000.00000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 11:32:29', '2020-08-03 11:32:29');
+INSERT INTO `money_records` VALUES ('10', '0', '购买外汇-ETHUSD', 'J803370752719074', '5720000.00000', '5681935.20000', '0.00000', '0.00000', '0.00000', '38064.80000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 14:44:35', '2020-08-03 14:44:35');
+INSERT INTO `money_records` VALUES ('11', '2', '委托交易-ETHUSD', 'J803371077006142', '5681935.20000', '5681935.20000', '0.00000', '20000.00000', '20000.00000', '0.00000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 14:45:07', '2020-08-03 14:45:07');
+INSERT INTO `money_records` VALUES ('12', '2', '委托交易-ETHUSD', 'J803371150023391', '5681935.20000', '5681935.20000', '20000.00000', '40000.00000', '20000.00000', '0.00000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 14:45:15', '2020-08-03 14:45:15');
+INSERT INTO `money_records` VALUES ('13', '2', '买入外汇-ETHUSD', 'J803371077006142', '5681935.20000', '5683870.40000', '40000.00000', '1935.20000', '40000.00000', '1935.20000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 14:47:31', '2020-08-03 14:47:31');
+INSERT INTO `money_records` VALUES ('14', '2', '买入外汇-ETHUSD', 'J803371150023391', '5681935.20000', '5683870.40000', '40000.00000', '1935.20000', '40000.00000', '1935.20000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 14:47:31', '2020-08-03 14:47:31');
+INSERT INTO `money_records` VALUES ('15', '0', '购买外汇-ETHUSD', 'J803384737658167', '5683870.40000', '5645805.60000', '1935.20000', '1935.20000', '0.00000', '38064.80000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 15:07:53', '2020-08-03 15:07:53');
+INSERT INTO `money_records` VALUES ('16', '3', '委托交易-ETHUSD', 'J803385190389500', '5645805.60000', '5645805.60000', '1935.20000', '1935.20000', '38064.80000', '0.00000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 15:08:39', '2020-08-03 15:08:39');
+INSERT INTO `money_records` VALUES ('17', '3', '委托卖出-ETHUSD', 'J803385190389500', '5645805.60000', '5683870.40000', '1935.20000', '1935.20000', '1935.20000', '38064.80000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 15:18:26', '2020-08-03 15:18:26');
+INSERT INTO `money_records` VALUES ('18', '3', '委托交易-ETHUSD', 'J803391348459198', '5683870.40000', '5683870.40000', '1935.20000', '1935.20000', '38064.80000', '0.00000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 15:18:54', '2020-08-03 15:18:54');
+INSERT INTO `money_records` VALUES ('19', '3', '委托卖出-ETHUSD', 'J803391348459198', '5683870.40000', '5721935.20000', '1935.20000', '1935.20000', '1935.20000', '38064.80000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 15:19:10', '2020-08-03 15:19:10');
+INSERT INTO `money_records` VALUES ('20', '0', '购买外汇-ETHUSD', 'J803391686430921', '5721935.20000', '5683870.40000', '1935.20000', '1935.20000', '0.00000', '38064.80000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 15:19:28', '2020-08-03 15:19:28');
+INSERT INTO `money_records` VALUES ('21', '2', '委托交易-ETHUSD', 'J803391743109154', '5683870.40000', '5683870.40000', '1935.20000', '21935.20000', '20000.00000', '0.00000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 15:19:34', '2020-08-03 15:19:34');
+INSERT INTO `money_records` VALUES ('22', '2', '买入外汇-ETHUSD', 'J803391743109154', '5683870.40000', '5645805.60000', '21935.20000', '0.00000', '21935.20000', '16129.60000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 15:19:37', '2020-08-03 15:19:37');
+INSERT INTO `money_records` VALUES ('23', '3', '委托交易-ETHUSD', 'J803396120768469', '5645805.60000', '5645805.60000', '0.00000', '0.00000', '38064.80000', '0.00000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 15:26:52', '2020-08-03 15:26:52');
+INSERT INTO `money_records` VALUES ('24', '3', '委托卖出-ETHUSD', 'J803396120768469', '5645805.60000', '5683870.40000', '0.00000', '0.00000', '0.00000', '38064.80000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-03 15:27:01', '2020-08-03 15:27:01');
 
 -- ----------------------------
 -- Table structure for orders
@@ -1378,13 +1462,24 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `trade_buys_trade_no_unique` (`trade_no`),
   KEY `trade_buys_user_id_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES ('1', 'J731794023817831', '', '1', '100', '0.00000', 'ETHUSD', '300.00000', '30000.00000', '200.00000', '5000000.00000', '0.00000', '312.00000', '317.00000', '0', '0', '1', '200.00000', '买币，，，', '2020-07-31 15:10:02', '2020-07-31 15:10:36');
-INSERT INTO `orders` VALUES ('2', 'J731794369442952', 'J731794023817831', '1', '100', '0.00000', 'ETHUSD', '0.00000', '0.00000', '200.00000', '5000000.00000', '0.00000', '0.00000', '0.00000', '3', '1', '1', '200.00000', '5449879', '2020-07-31 15:10:36', '2020-07-31 15:12:19');
+INSERT INTO `orders` VALUES ('1', 'J731794023817831', '', '1', '100', '0.00000', 'ETHUSD', '300.00000', '30000.00000', '200.00000', '5000000.00000', '0.00000', '312.00000', '317.00000', '2', '0', '1', '200.00000', '买币，，，', '2020-07-31 15:10:02', '2020-08-03 11:30:41');
+INSERT INTO `orders` VALUES ('2', 'J731794369442952', 'J731794023817831', '1', '100', '0.00000', 'ETHUSD', '0.00000', '0.00000', '200.00000', '5000000.00000', '0.00000', '0.00000', '0.00000', '3', '0', '2', '200.00000', '5449879', '2020-07-31 15:10:36', '2020-08-03 10:11:12');
+INSERT INTO `orders` VALUES ('3', 'J803254124815436', '', '1', '100', '0.00000', 'ETHUSD', '50000.00000', '5000000.00000', '200.00000', '38064.80000', '0.00000', '312.00000', '317.00000', '0', '0', '1', '200.00000', '买币，，，', '2020-08-03 11:30:12', '2020-08-03 15:18:54');
+INSERT INTO `orders` VALUES ('4', 'J803254418181202', 'J731794023817831', '1', '100', '0.00000', 'ETHUSD', '0.00000', '0.00000', '200.00000', '5000000.00000', '0.00000', '0.00000', '0.00000', '3', '1', '1', '200.00000', '5449879', '2020-08-03 11:30:41', '2020-08-03 11:32:29');
+INSERT INTO `orders` VALUES ('5', 'J803370752719074', '', '1', '100', '0.00000', 'ETHUSD', '380.64800', '38064.80000', '0.00000', '0.00000', '0.00000', '312.00000', '317.00000', '0', '1', '1', '200.00000', '买币，，，', '2020-08-03 14:44:35', '2020-08-03 14:44:35');
+INSERT INTO `orders` VALUES ('6', 'J803371077006142', '', '1', '100', '0.00000', 'ETHUSD', '200.00000', '20000.00000', '0.00000', '0.00000', '0.00000', '312.00000', '317.00000', '2', '1', '1', '200.00000', '买币，，，', '2020-08-03 14:45:07', '2020-08-03 14:47:31');
+INSERT INTO `orders` VALUES ('7', 'J803371150023391', '', '1', '100', '0.00000', 'ETHUSD', '200.00000', '20000.00000', '0.00000', '0.00000', '0.00000', '312.00000', '317.00000', '2', '1', '1', '200.00000', '买币，，，', '2020-08-03 14:45:15', '2020-08-03 14:47:31');
+INSERT INTO `orders` VALUES ('8', 'J803384737658167', '', '1', '100', '0.00000', 'ETHUSD', '380.64800', '38064.80000', '200.00000', '38064.80000', '0.00000', '312.00000', '317.00000', '0', '0', '1', '200.00000', '买币，，，', '2020-08-03 15:07:53', '2020-08-03 15:08:39');
+INSERT INTO `orders` VALUES ('9', 'J803385190389500', 'J803384737658167', '1', '100', '0.00000', 'ETHUSD', '0.00000', '0.00000', '200.00000', '38064.80000', '0.00000', '0.00000', '0.00000', '3', '1', '1', '200.00000', '5449879', '2020-08-03 15:08:39', '2020-08-03 15:18:26');
+INSERT INTO `orders` VALUES ('10', 'J803391348459198', 'J803254124815436', '1', '100', '0.00000', 'ETHUSD', '0.00000', '0.00000', '200.00000', '38064.80000', '0.00000', '0.00000', '0.00000', '3', '1', '1', '200.00000', '5449879', '2020-08-03 15:18:54', '2020-08-03 15:19:10');
+INSERT INTO `orders` VALUES ('11', 'J803391686430921', '', '1', '100', '0.00000', 'ETHUSD', '380.64800', '38064.80000', '0.00000', '0.00000', '0.00000', '312.00000', '317.00000', '0', '1', '1', '200.00000', '买币，，，', '2020-08-03 15:19:28', '2020-08-03 15:19:28');
+INSERT INTO `orders` VALUES ('12', 'J803391743109154', '', '1', '100', '0.00000', 'ETHUSD', '200.00000', '20000.00000', '200.00000', '38064.80000', '0.00000', '312.00000', '317.00000', '2', '0', '1', '200.00000', '买币，，，', '2020-08-03 15:19:34', '2020-08-03 15:26:52');
+INSERT INTO `orders` VALUES ('13', 'J803396120768469', 'J803391743109154', '1', '100', '0.00000', 'ETHUSD', '0.00000', '0.00000', '200.00000', '38064.80000', '0.00000', '0.00000', '0.00000', '3', '1', '1', '200.00000', '5449879', '2020-08-03 15:26:52', '2020-08-03 15:27:01');
 
 -- ----------------------------
 -- Table structure for password_resets
@@ -1431,6 +1526,44 @@ CREATE TABLE `trade_buys` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for user_foreign_exchange_lists
+-- ----------------------------
+DROP TABLE IF EXISTS `user_foreign_exchange_lists`;
+CREATE TABLE `user_foreign_exchange_lists` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
+  `code_all` char(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '代码全称',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of user_foreign_exchange_lists
+-- ----------------------------
+INSERT INTO `user_foreign_exchange_lists` VALUES ('21', '1', 'ETHUSD', '2020-08-03 13:42:35', '2020-08-03 13:42:35');
+
+-- ----------------------------
+-- Table structure for user_poositions
+-- ----------------------------
+DROP TABLE IF EXISTS `user_poositions`;
+CREATE TABLE `user_poositions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `code_all` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `number` int(11) NOT NULL DEFAULT '0' COMMENT '币种数量',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_poosition_user_id_code_all_unique` (`user_id`,`code_all`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- Records of user_poositions
+-- ----------------------------
+INSERT INTO `user_poositions` VALUES ('1', '1', 'ETHUSD', '100', '2020-08-03 15:07:53', '2020-08-03 15:27:01');
+
+-- ----------------------------
 -- Table structure for users
 -- ----------------------------
 DROP TABLE IF EXISTS `users`;
@@ -1457,4 +1590,4 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'test0001', '18482526545', '3654688@qq.com', '2020-10-10 11:38:50', '$2y$10$t0PrWwRbpQv/e7Wyuw/CvOSoHqxPmuNe8Jt97cZt3Wd/pYtcWQkpO', '5720000.00000', '0.00000', '0', '0', '2020-07-30 11:38:50', null, '2020-07-30 11:40:43', '2020-07-31 15:12:19');
+INSERT INTO `users` VALUES ('1', 'test0001', '18482526545', '3654688@qq.com', '2020-10-10 11:38:50', '$2y$10$GkuQqhoWzKghSbeLREczE.exURwrBdMcBGDGDMJhcfxvYSR1sY8HS', '5683870.40000', '0.00000', '0', '0', '2020-07-30 11:38:50', null, '2020-07-30 11:40:43', '2020-08-03 15:27:01');

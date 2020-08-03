@@ -2,13 +2,13 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\ForeignExchangList;
+use App\Models\ForeignExchangeList;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class ForeignExchangListController extends AdminController
+class ForeignExchangeListController extends AdminController
 {
     /**
      * Title for current resource.
@@ -24,7 +24,7 @@ class ForeignExchangListController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new ForeignExchangList());
+        $grid = new Grid(new ForeignExchangeList());
 
         $grid->column('id', __('Id'));
         $grid->column('code_all', __('交易品种'));
@@ -44,7 +44,7 @@ class ForeignExchangListController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(ForeignExchangList::findOrFail($id));
+        $show = new Show(ForeignExchangeList::findOrFail($id));
 
         $show->field('id', __('Id'));
         $show->field('code_all', __('Code all'));
@@ -62,7 +62,7 @@ class ForeignExchangListController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new ForeignExchangList());
+        $form = new Form(new ForeignExchangeList());
 
         $form->text('code_all', __('代码全称'));
         //$form->text('name', __('名称'))->default('未命名');

@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Models\User;
 use App\Models\Configs;
-use App\Models\ForeignExchangList;
+use App\Models\ForeignExchangeList;
 use App\Models\Order;
 use App\Models\MoneyRecord;
+use App\Models\UserPoosition;
 use App\Http\Resources\OrdersResource;
 use App\Http\Requests\Api\OrdersRequest;
 use Illuminate\Auth\AuthenticationException;
@@ -41,7 +42,7 @@ class OrdersController extends Controller
      */
     public function buy(Request $request, OrdersRequest $query)
     {
-        $nowPrice = ForeignExchangList::where("code_all",$query->code_all)->first()->rate;
+        $nowPrice = ForeignExchangeList::where("code_all",$query->code_all)->first()->rate;
         if($query->type==2)
             $nowPrice = $query->buy_price??0;
         if(substr($query->code_all,3,3)!="USD")
@@ -126,6 +127,17 @@ class OrdersController extends Controller
                         'balance' => sprintf("%.5f",$request->user()->balance - $total_price)
                     ]
                 );
+                $userPoosition = UserPoosition::where(["user_id"=>$request->user()->id,"code_all"=>$query->code_all])->first();
+                if($userPoosition){
+                    $userPoosition->number += $query->number;
+                    $userPoosition->save();
+                }else{
+                    $userPoosition = new UserPoosition();
+                    $userPoosition->code_all = $query->code_all;
+                    $userPoosition->user_id = $request->user()->id;
+                    $userPoosition->number = $query->number;
+                    $userPoosition->save();
+                }
             }
             $moneyRecord = new MoneyRecord();
             $moneyRecord->create($moneyData);
@@ -157,7 +169,7 @@ class OrdersController extends Controller
             return $this->response->error('未持仓', 205);
 
         //print_r($request->user());
-        $sellPrice = ForeignExchangList::where("code_all",$order->code_all)->first()->rate;
+        $sellPrice = ForeignExchangeList::where("code_all",$order->code_all)->first()->rate;
         if(substr($order->code_all,3,3)!="USD")
             $sellPrice = sprintf("%.5f",1/$sellPrice);
         //卖出价格比例
@@ -215,6 +227,7 @@ class OrdersController extends Controller
                 ];
             }
             else {
+                //金流记录
                 $moneyData = [
                     "type"=>$request->type,
                     "user_id"=>$request->user()->id,
@@ -231,6 +244,10 @@ class OrdersController extends Controller
                         'balance' => sprintf("%.5f",$request->user()->balance + $total_price)
                     ]
                 );
+                //操作持仓
+                $userPoosition = UserPoosition::where(["user_id"=>$request->user()->id,"code_all"=>$order->code_all])->first();
+                $userPoosition->number = $userPoosition->number-$order->number;
+                $userPoosition->save();
             }
             $moneyRecord = new MoneyRecord();
             $moneyRecord->create($moneyData);
@@ -258,5 +275,78 @@ class OrdersController extends Controller
         $orderSn = $yCode[intval(date('Y')) - 2011] . strtoupper(dechex(date('m'))) . date('d') . substr(time(), -5) . substr(microtime(), 2, 5) . sprintf('%02d', rand(0, 99));
 
         return $orderSn;
+    }
+
+    /**
+     * @desc 撤单
+     */
+    public function removeOrder(Request $request,Order $order)
+    {
+        $this->authorize('update', $order);
+        if($order->status != 0)
+            return $this->response->error('该订单已完成交易', 208);
+        if($order->type == 2){ //撤销买入
+            $order->status = 2;
+            try {
+                //开启默认数据库的事务
+                DB::beginTransaction();
+            $order->save();
+            $frozen_balance = sprintf("%.5f",$request->user()->frozen_balance - $order->buy_total_price);
+            User::where('id', $request->user()->id)->update(
+                [
+                    'frozen_balance' => $frozen_balance>0?$frozen_balance:0
+                ]
+            );
+            $moneyData = [
+                "type"=>2,
+                "user_id"=>$request->user()->id,
+                "title"=>"撤销买入-" . $order->code_all,
+                "trade_number"=>$order ->trade_no,
+                "pre_user_money"=>sprintf("%.5f",$request->user()->balance),
+                "user_money"=>sprintf("%.5f",$request->user()->balance),
+                'pre_frozen_money'=>$request->user()->frozen_balance,
+                'after_frozen_money'=>$frozen_balance>0?$frozen_balance:0,
+                "money"=>0,
+                "frozen_money" => $order->buy_total_price
+            ];
+            $moneyRecord = new MoneyRecord();
+            $moneyRecord->create($moneyData);
+                if (true) {
+                    //一起提交
+                    DB::commit();
+                    return $order;
+                } else {
+                    //一起回滚
+                    DB::rollback();
+                    return false;
+                }
+            } catch (\Exception $exception) {
+                echo "catch some errors:".$exception->getMessage();
+            }
+        }
+        else if($order->type == 3){ //测销卖出
+            try {
+                //开启默认数据库的事务
+                DB::beginTransaction();
+            $order->update([
+                'status_type'=>0,
+                'status'=>2,
+            ]);
+                $oldOrder = Order::where('trade_no',$order->buy_trade)->first();
+                $oldOrder->status_type=1;
+                $oldOrder->save();
+                if (true) {
+                    //一起提交
+                    DB::commit();
+                    return $order;
+                } else {
+                    //一起回滚
+                    DB::rollback();
+                    return false;
+                }
+            } catch (\Exception $exception) {
+                echo "catch some errors:".$exception->getMessage();
+            }
+        }
     }
 }

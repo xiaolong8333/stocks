@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Models\ForeignExchangList;
+use App\Models\ForeignExchangeList;
 
 class UpdateForeignExchange extends Command
 {
@@ -41,14 +41,14 @@ class UpdateForeignExchange extends Command
         if($this->isWeekData())
             return false;
 
-        if($count = ForeignExchangList::count())
+        if($count = ForeignExchangeList::count())
         for($i=0;$i<=$count;$i+=10){
-            $foreignExchangeList = ForeignExchangList::select(['code_all'])->offset($i)->limit(10)->get()->toArray();
+            $foreignExchangeList = ForeignExchangeList::select(['code_all'])->offset($i)->limit(10)->get()->toArray();
             $symbols = $this->assembly($foreignExchangeList);
             $request_result = request_get_aliyun($symbols);
             $request_result = json_decode($request_result,true);
             foreach($request_result['Obj'] as $key=>$value){
-                $query = ForeignExchangList::where('code_all', $value['S'])->first();
+                $query = ForeignExchangeList::where('code_all', $value['S'])->first();
                 $query->rate = $value['P'];
                 $query->name = $value['N'];
                 $query->updated_at = date("Y-m-d H:i:s",$value['Tick']);

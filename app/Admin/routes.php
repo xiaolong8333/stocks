@@ -12,7 +12,7 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('home');
-    $router->resource('foreign-exchang-lists', ForeignExchangListController::class);
+    $router->resource('foreign-exchange-lists', ForeignExchangeListController::class);
     $router->resource('users', UserController::class);
     $router->resource('orders', OrdersController::class);
     $router->resource('money-records', MoneyRecordController::class);

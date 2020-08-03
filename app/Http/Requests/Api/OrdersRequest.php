@@ -16,7 +16,7 @@ class OrdersRequest extends FormRequest
             case 'POST':
                 return [
                     'number' => 'required|integer',
-                    'code_all' => 'required|string|exists:foreign_exchang_lists,code_all',
+                    'code_all' => 'required|string|exists:foreign_exchange_lists,code_all',
                     'type' => 'required|integer',
                 ];
                 break;
