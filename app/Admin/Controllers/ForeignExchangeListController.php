@@ -47,10 +47,10 @@ class ForeignExchangeListController extends AdminController
         $show = new Show(ForeignExchangeList::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('code_all', __('Code all'));
-        $show->field('name', __('Name'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
+        $show->field('code_all', __('代码全称'));
+        $show->field('name', __('名称'));
+        $show->field('created_at', __('创建时间'));
+        $show->field('updated_at', __('更改时间'));
 
         return $show;
     }

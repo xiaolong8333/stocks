@@ -72,11 +72,12 @@ $api->group([
         // 用户添加自选
         $api->post('foreignexchange/addlist', 'ForeignExchangeController@addList')
             ->name('foreignexchange.addlist');
-
         // 用户取消自选
         $api->delete('foreignexchange/deletelist', 'ForeignExchangeController@deleteList')
             ->name('foreignexchange.deleteList');
-
+        // 用户日志列表
+        $api->get('useroperationlog/index', 'UserOperationLogController@index')
+            ->name('useroperationlog.index');
         //买入外汇
         $api->post('buyforeign', 'OrdersController@buy')
             ->name('orders.buy');

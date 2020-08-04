@@ -6,6 +6,8 @@ use App\Http\Requests\Api\AuthorizationRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Auth\AuthenticationException;
 use App\Models\User;
+use App\Models\UserOperationLog;
+use Illuminate\Http\Request;
 use Dingo\Api\Routing\Helpers;
 
 class AuthorizationsController extends Controller
@@ -25,7 +27,12 @@ class AuthorizationsController extends Controller
         if(!$token = \Auth::guard('api')->attempt($credentials)) {
             throw new AuthenticationException('用户名或密码错误');
         }
-
+        $log = new UserOperationLog();
+        $log->user_id = User::where('name',$request->username)->first()->id;
+        $log->user_name = $request->username;
+        $log->content = '登录';
+        $log->login_ip = Request::createFromGlobals()->getClientIp();
+        $log->save();
         return $this->respondWithToken($token)->setStatusCode(201);
     }
 

@@ -26,6 +26,7 @@ class MoneyRecordController extends AdminController
     {
         $grid = new Grid(new MoneyRecord());
 
+        $grid->model()->orderBy('created_at','desc');
         $grid->column('id', __('Id'));
         $grid->column('user.name', __('用户名'));
         $grid->column('type', __('类型'))

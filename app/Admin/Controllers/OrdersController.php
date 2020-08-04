@@ -27,7 +27,7 @@ class OrdersController extends AdminController
     {
         $grid = new Grid(new Order());
 
-
+        $grid->model()->orderBy('created_at','desc');
         $grid->column('id', __('Id'));
         $grid->column('trade_no', __('订单号'))->label();
         $grid->column('user.name', __('用户'));
@@ -81,12 +81,12 @@ class OrdersController extends AdminController
         $show->field('sell_total_price', __('卖出总价'));
         $show->field('stop_loss', __('止损'));
         $show->field('stop_profit', __('盈利'));
-        $show->field('type', __('Type'));
-        $show->field('status', __('Status'));
+        $show->field('type', __('订单类型'));
+        $show->field('status', __('订单状态'));
         $show->field('floating', __('允许浮动价格'));
         $show->field('remark', __('备注'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
+        $show->field('created_at', __('创建时间'));
+        $show->field('updated_at', __('更新时间'));
 
         return $show;
     }
@@ -100,18 +100,18 @@ class OrdersController extends AdminController
     {
         $form = new Form(new Order());
 
-        $form->text('trade_no', __('Trade no'));
-        $form->number('user_id', __('User id'));
-        $form->number('number', __('Blance'));
-        $form->text('new_value', __('New value'));
-        $form->text('code_all', __('Code all'));
-        $form->text('buy_price', __('Buy price'));
-        $form->text('stop_loss', __('Stop loss'));
-        $form->text('stop_profit', __('Stop profit'));
-        $form->switch('type', __('Type'));
-        $form->switch('status', __('Status'));
-        $form->text('floating', __('Floating'));
-        $form->text('remark', __('Remark'));
+        $form->text('trade_no', __('订单号'));
+        $form->text('buy_trade', __('买入订单号'));
+        $form->number('user_id', __('用户ID'));
+        $form->number('number', __('交易量'));
+        $form->text('code_all', __('交易品种'));
+        $form->text('buy_price', __('购买价格'));
+        $form->text('stop_loss', __('止损'));
+        $form->text('stop_profit', __('盈利'));
+        $form->switch('type', __('订单类型'));
+        $form->switch('status', __('订单状态'));
+        $form->text('floating', __('允许浮动价格'));
+        $form->text('remark', __('备注'));
 
         return $form;
     }

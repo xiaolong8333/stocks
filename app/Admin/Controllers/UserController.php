@@ -34,7 +34,7 @@ class UserController extends AdminController
                 return yc_phone($phone);
 
             });
-        $grid->column('email', __('邮箱'));
+       //$grid->column('email', __('邮箱'));
         //$grid->column('email_verified_at', __('Email verified at'));
         //$grid->column('password', __('Password'));
         $grid->column('balance', __('余额'));
@@ -64,18 +64,19 @@ class UserController extends AdminController
         $show = new Show(User::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('name', __('Name'));
-        $show->field('phone', __('手机号'));
-        $show->field('email', __('Email'));
-        $show->field('email_verified_at', __('Email verified at'));
-        $show->field('password', __('Password'));
-        $show->field('balance', __('Balance'));
-        $show->field('status', __('Status'));
-        $show->field('level', __('Level'));
-        $show->field('end_time', __('End time'));
-        $show->field('remember_token', __('Remember token'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
+        $show->field('name', __('用户名'));
+        $show->field('phone', __('手机号'))
+;
+        //$show->field('email', __('Email'));
+        //$show->field('email_verified_at', __('Email verified at'));
+        //$show->field('password', __('Password'));
+        $show->field('balance', __('余额'));
+        $show->field('status', __('状态'));
+        $show->field('level', __('等级'));
+        $show->field('end_time', __('结束时间'));
+        //$show->field('remember_token', __('Remember token'));
+        $show->field('created_at', __('创建时间'));
+        $show->field('updated_at', __('更新时间'));
 
         return $show;
     }
@@ -89,16 +90,27 @@ class UserController extends AdminController
     {
         $form = new Form(new User());
 
-        $form->text('name', __('Name'));
-        $form->email('email', __('Email'));
+        $form->text('name', __('用户名'));
+        //$form->email('email', __('Email'));
         $form->text('phone', __('手机号'));
-        $form->datetime('email_verified_at', __('Email verified at'))->default(date('Y-m-d H:i:s'));
-        $form->password('password', __('Password'));
-        $form->number('balance', __('Balance'));
-        $form->switch('status', __('Status'));
-        $form->switch('level', __('Level'));
-        $form->datetime('end_time', __('End time'))->default(date('Y-m-d H:i:s'));
-        $form->text('remember_token', __('Remember token'));
+        //$form->datetime('email_verified_at', __('Email verified at'))->default(date('Y-m-d H:i:s'));
+        $form->password('password', __('密码'));
+        $form->text('balance', __('余额'))->default(0);
+        $states = [
+            'on'  => ['value' => 0, 'text' => '正常', 'color' => 'primary'],
+            'off' => ['value' => 1, 'text' => '冻结', 'color' => 'danger'],
+        ];
+
+        $form->switch('status', '状态')->states($states);
+        $directors = [
+            0 => '普通会员',
+            1 => 'Smith',
+            2 => 'Kate' ,
+        ];
+
+        $form->select('level', __('等级'))->options($directors);
+        $form->datetime('end_time', __('结束时间'))->default(date('Y-m-d H:i:s'));
+        //$form->text('remember_token', __('Remember token'));
         $form->saving(function (Form $form) {
             if ($form->password && $form->model()->password != $form->password) {
                 $form->password = password_hash($form->password, PASSWORD_DEFAULT);

@@ -30,8 +30,8 @@ class ConfigsController extends AdminController
         $grid->column('name', __('名称'));
         $grid->column('value', __('值'));
         $grid->column('remark', __('备注'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('created_at', __('创建时间'));
+        $grid->column('updated_at', __('更新时间'));
 
         return $grid;
     }
@@ -47,11 +47,11 @@ class ConfigsController extends AdminController
         $show = new Show(Configs::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('name', __('Name'));
-        $show->field('value', __('Value'));
-        $show->field('remark', __('Remark'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
+        $show->field('name', __('名称'));
+        $show->field('value', __('值'));
+        $show->field('remark', __('备注'));
+        $show->field('created_at', __('创建时间'));
+        $show->field('updated_at', __('更新时间'));
 
         return $show;
     }
@@ -65,9 +65,9 @@ class ConfigsController extends AdminController
     {
         $form = new Form(new Configs());
 
-        $form->text('name', __('Name'));
-        $form->text('value', __('Value'));
-        $form->textarea('remark', __('Remark'));
+        $form->text('name', __('名称'));
+        $form->text('value', __('值'));
+        $form->textarea('remark', __('备注'));
 
         return $form;
     }
