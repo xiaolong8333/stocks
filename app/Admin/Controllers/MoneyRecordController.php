@@ -25,7 +25,9 @@ class MoneyRecordController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new MoneyRecord());
-
+        $grid->disableActions();
+        $grid->disableBatchActions();
+        $grid->disableCreateButton();
         $grid->model()->orderBy('created_at','desc');
         $grid->column('id', __('Id'));
         $grid->column('user.name', __('用户名'));
@@ -37,6 +39,7 @@ class MoneyRecordController extends AdminController
                 2 => 'info',
                 3 => 'primary',
             ]);
+
         $grid->column('title', __('内容标题'));
         $grid->column('trade_number', __('订单号'));
         $grid->column('pre_user_money', __('交易前余额'));
@@ -46,12 +49,7 @@ class MoneyRecordController extends AdminController
         $grid->column('after_frozen_money', __('交易后冻结金额额'));
         $grid->column('frozen_money', __('变动冻结金'));
         $grid->column('remark', __('备注'));
-        $grid->column('in_out_id', __('In out id'));
-        $grid->column('is_show', __('Is show'));
-        $grid->column('sx', __('Sx'));
-        $grid->column('yh', __('Yh'));
-        $grid->column('ghf', __('Ghf'));
-        $grid->column('weituo_id', __('Weituo id'));
+        $grid->column('sx', __('手续费'));
         $grid->column('created_at', __('创建时间'));
         $grid->column('updated_at', __('更新时间'));
 

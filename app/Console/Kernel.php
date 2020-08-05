@@ -14,7 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\UpdateForeignExchange::class,
-        \App\Console\Commands\SellAndBuy::class
+        \App\Console\Commands\SellAndBuy::class,
+        \App\Console\Commands\ProfitLose::class
     ];
 
     /**
