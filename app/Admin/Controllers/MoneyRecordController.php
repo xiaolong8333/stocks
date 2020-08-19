@@ -41,7 +41,7 @@ class MoneyRecordController extends AdminController
             ]);
 
         $grid->column('title', __('内容标题'));
-        $grid->column('trade_number', __('订单号'));
+        $grid->column('trade_number', __('订单号'))->label();
         $grid->column('pre_user_money', __('交易前余额'));
         $grid->column('user_money', __('交易后余额'));
         $grid->column('money', __('变动金额'));

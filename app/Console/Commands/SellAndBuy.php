@@ -134,21 +134,31 @@ class SellAndBuy extends Command
 
         for($i=0;$i<count($buyOrder);$i++){
 
-            $sellPrice = $buyOrder[$i]['exchange_list']['rate'];
-        if(substr($buyOrder[$i]['code_all'],3,3)!="USD")
-            $sellPrice = sprintf("%.5f",1/$sellPrice);
+            $buyPrice = $buyOrder[$i]['exchange_list']['rate'];
 
-            if(($buyOrder[$i]['buy_price']-$buyOrder[$i]['floating'])>$sellPrice){
+            if(substr($buyOrder[$i]['code_all'],0,3)=="USD") {
+                $sellPrice = 1000;
+            } else if(substr($buyOrder[$i]['code_all'],3,3)=="USD") {
+                $sellPrice = $buyPrice * 1000;
+            }else{
+                //substr($buyOrder[$i]['code_all'],0,3)=="USD")
+                $sellPrice = $buyOrder * 1000;
+            }
+
+            $rate = Configs::where("name","fees")->first()->value;
+            $total_price = sprintf("%.5f",$sellPrice);
+
+
+            if(($buyOrder[$i]['buy_price']-$buyOrder[$i]['floating'])>$buyPrice){
                 echo "价格不{$buyOrder[$i]['id']}合适";
                 continue;
             }
 
-            if(($buyOrder[$i]['buy_price']+$buyOrder[$i]['floating'])<$sellPrice){
+            if(($buyOrder[$i]['buy_price']+$buyOrder[$i]['floating'])<$buyPrice){
                 echo "价格不{$buyOrder[$i]['id']}合适";
                 continue;
             }
 
-            $total_price = $buyOrder[$i]['exchange_list']['rate']*$buyOrder[$i]['number'];
             $rate = sprintf("%.5f",$rate*$buyOrder[$i]['exchange_list']['rate']);
             $total_price += $rate;
             if($total_price>($buyOrder[$i]['user']['balance']+$buyOrder[$i]['user']['frozen_balance'])){

@@ -25,7 +25,14 @@ class UserController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new User());
-
+        $grid->filter(function($filter){
+            // 去掉默认的id过滤器
+            $filter->disableIdFilter();
+            $filter->column(1/2, function ($filter) {
+                // 在这里添加字段过滤器
+                $filter->like('name', '用户名');
+            });
+        });
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
         $grid->column('phone', __('手机号'))
@@ -37,7 +44,9 @@ class UserController extends AdminController
        //$grid->column('email', __('邮箱'));
         //$grid->column('email_verified_at', __('Email verified at'));
         //$grid->column('password', __('Password'));
-        $grid->column('balance', __('余额'));
+        $grid->column('last_balance', __('结余'));
+        $grid->column('balance', __('可用预付款'));
+        $grid->column('advance', __('预付款'));
         $grid->column('status', __('状态'))
             ->using(['0' => '正常', '1' => '冻结'])
             ->label([
@@ -70,7 +79,9 @@ class UserController extends AdminController
         //$show->field('email', __('Email'));
         //$show->field('email_verified_at', __('Email verified at'));
         //$show->field('password', __('Password'));
-        $show->field('balance', __('余额'));
+        $show->field('last_balance', __('结余'));
+        $show->field('balance', __('可用预付款'));
+        $show->field('advance', __('预付款'));
         $show->field('status', __('状态'));
         $show->field('level', __('等级'));
         $show->field('end_time', __('结束时间'));
@@ -95,7 +106,9 @@ class UserController extends AdminController
         $form->text('phone', __('手机号'));
         //$form->datetime('email_verified_at', __('Email verified at'))->default(date('Y-m-d H:i:s'));
         $form->password('password', __('密码'));
-        $form->text('balance', __('余额'))->default(0);
+        $form->text('last_balance', __('结余'))->default(0);
+        $form->text('balance', __('可用预付款'))->default(0);
+        $form->text('advance', __('预付款'))->default(0);
         $states = [
             'on'  => ['value' => 0, 'text' => '正常', 'color' => 'primary'],
             'off' => ['value' => 1, 'text' => '冻结', 'color' => 'danger'],

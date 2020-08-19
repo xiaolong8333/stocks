@@ -27,9 +27,15 @@ class ForeignExchangeListController extends AdminController
         $grid = new Grid(new ForeignExchangeList());
 
         $grid->column('id', __('Id'));
-        $grid->column('code_all', __('交易品种'));
-        $grid->column('name', __('名称'));
-        $grid->column('rate', __('最新汇率'));
+        $grid->column('FS', __('品种代码'));
+        $grid->column('S', __('唯一完整编码 =M+S+C'));
+        $grid->column('type', __('分类'));
+        $grid->column('N', __('中文名'));
+        $grid->column('P', __('最新价'));
+        $grid->column('B1', __('买1'));
+        $grid->column('S1', __('卖1'));
+        $grid->column('L', __('当天最低价'));
+        $grid->column('H', __('当天最高价'));
         $grid->column('created_at', __('创建时间'));
         $grid->column('updated_at', __('更新时间'));
 
@@ -64,7 +70,8 @@ class ForeignExchangeListController extends AdminController
     {
         $form = new Form(new ForeignExchangeList());
 
-        $form->text('code_all', __('代码全称'));
+        $form->text('FS', __('代码全称'));
+        $form->select('type', __('分类'))->options(['Forex1' => '直接盘', 'Forex2' => '交叉盘'])->default('Forex1');
         //$form->text('name', __('名称'))->default('未命名');
 
         return $form;

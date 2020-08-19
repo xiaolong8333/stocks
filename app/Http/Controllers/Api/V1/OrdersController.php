@@ -40,21 +40,23 @@ class OrdersController extends Controller
      * @param OrdersRequest $query
      * @return OrdersResource|void
      */
-    public function buy(Request $request, OrdersRequest $query)
+    public function create(Request $request, OrdersRequest $query)
     {
         $nowPrice = ForeignExchangeList::where("code_all",$query->code_all)->first()->rate;
         if($query->type==2)
             $nowPrice = $query->buy_price??0;
-        if(substr($query->code_all,3,3)!="USD")
-            $nowPrice = sprintf("%.5f",1/$nowPrice);
+        if(substr($query->code_all,0,3)=="USD")
+            $nowPrice = 1000;
+        if(substr($query->code_all,3,3)=="USD")
+            $nowPrice = $nowPrice*1000;
         $rate = Configs::where("name","fees")->first()->value;
-        $total_price =$nowPrice*$query->number;
+        $total_price = sprintf("%.5f",$nowPrice);
         $rate = sprintf("%.5f",$rate*$nowPrice);
         $total_price += $rate;
         if($request->user()->balance-$request->user()->frozen_balance<$total_price){
             return $this->response->error('余额不足', 205);
         }
-        if($order = $this->buyAction($nowPrice,$rate,$total_price,$request,$query)) {
+        if($order = $this->createAction($nowPrice,$rate,$total_price,$request,$query)) {
             return new OrdersResource($order);
         }
         else{
@@ -63,7 +65,7 @@ class OrdersController extends Controller
     }
 
 
-    public function buyAction($nowPrice,$rate,$total_price,$request,$query)
+    public function createAction($nowPrice,$rate,$total_price,$request,$query)
     {
         $query->buy_price = $query->buy_price??0;
         $number = $this->createNumber();
@@ -124,7 +126,8 @@ class OrdersController extends Controller
 
                 User::where('id', $request->user()->id)->update(
                     [
-                        'balance' => sprintf("%.5f",$request->user()->balance - $total_price)
+                        'balance' => sprintf("%.5f",$request->user()->balance - $total_price),
+                        'advance' => sprintf("%.5f",$request->user()->advance + $total_price)
                     ]
                 );
                 $userPoosition = UserPoosition::where(["user_id"=>$request->user()->id,"code_all"=>$query->code_all])->first();
@@ -162,7 +165,7 @@ class OrdersController extends Controller
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
 
-    public function sell(Request $request,Order $order)
+    public function close(Request $request,Order $order)
     {
         $this->authorize('update', $order);
         if($order->status_type!=1)
@@ -181,11 +184,9 @@ class OrdersController extends Controller
         else{
             return $this->response->error('交易失败', 206);
         }
-
-
     }
 
-    public function sellAction($request,$sellPrice,$order)
+    public function closeAction($request,$sellPrice,$order)
     {
         //卖出总价
         $total_price = sprintf("%.5f",$sellPrice*$order->number);

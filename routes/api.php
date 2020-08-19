@@ -63,6 +63,9 @@ $api->group([
             ->name('user.notifications.read');
 
         // 外汇
+
+        $api->get('foreignexchange/onelist/{id}', 'ForeignExchangeController@oneList')
+                    ->name('foreignexchange.oneList');
         //外汇列表
         $api->get('foreignexchange/index', 'ForeignExchangeController@index')
             ->name('foreignexchange.index');

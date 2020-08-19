@@ -20,7 +20,12 @@ class ForeignExchangeController extends Controller
         $orders = ForeignExchangeList::orderBy('id','asc')->paginate(10);
         return ForeignExchangeListResource::collection($orders);
     }
+    public function oneList($id)
+    {
 
+        $model = ForeignExchangeList::where('id',$id)->first();
+        return new ForeignExchangeListResource($model);
+    }
     /**
      * @param Request $request
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection

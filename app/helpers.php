@@ -13,6 +13,21 @@ if (!function_exists('success')) {
 echo 'asdads';
     }
 }
+
+if (!function_exists('getPrice')) {
+    /**
+     * @param array $data
+     * @param string $msg
+     * @param int $code
+     *
+     * @return array
+     */
+    function getPrice($data = [])
+    {
+        echo 'asdads';
+    }
+}
+
 if (!function_exists('request_post')) {
     /**
      * 模拟post进行url请求

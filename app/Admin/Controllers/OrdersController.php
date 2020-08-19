@@ -26,12 +26,21 @@ class OrdersController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Order());
-
+        $grid->filter(function($filter){
+            // 去掉默认的id过滤器
+            $filter->disableIdFilter();
+            $filter->column(1/2, function ($filter) {
+                // 在这里添加字段过滤器
+                $filter->like('user.name', '用户名');
+                $filter->like('trade_no', '订单号');
+                $filter->between('created_at','创建时间')->datetime();
+            });
+        });
         $grid->model()->orderBy('created_at','desc');
         $grid->column('id', __('Id'));
         $grid->column('trade_no', __('订单号'))->label();
         $grid->column('user.name', __('用户'));
-        $grid->column('number', __('交易量'));
+        $grid->column('number', __('交易量'))->sortable();
         $grid->column('exchangeList.rate', __('最新价格'));
         $grid->column('code_all', __('交易品种'));
         $grid->column('status_type', __('持仓状态'))
@@ -50,6 +59,10 @@ class OrdersController extends AdminController
                 1 => 'success',
                 2 => 'warning',
             ]);
+        $grid->column('buy_price', __('购买价格'));
+        $grid->column('buy_total_price', __('购买总价'));
+        $grid->column('sell_price', __('卖出价格'));
+        $grid->column('sell_total_price', __('卖出总价'));
         $grid->column('floating', __('允许浮动价格'));
         $grid->column('remark', __('备注'));
         $grid->column('created_at', __('创建时间'));
