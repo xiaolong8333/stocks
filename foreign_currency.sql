@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50730
 File Encoding         : 65001
 
-Date: 2020-08-05 14:44:20
+Date: 2020-08-21 15:32:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -69,7 +69,7 @@ CREATE TABLE `admin_operation_log` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `admin_operation_log_user_id_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1474 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1992 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of admin_operation_log
@@ -1547,6 +1547,524 @@ INSERT INTO `admin_operation_log` VALUES ('1470', '1', 'admin/orders', 'GET', '1
 INSERT INTO `admin_operation_log` VALUES ('1471', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 13:04:32', '2020-08-05 13:04:32');
 INSERT INTO `admin_operation_log` VALUES ('1472', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 13:04:33', '2020-08-05 13:04:33');
 INSERT INTO `admin_operation_log` VALUES ('1473', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 13:04:34', '2020-08-05 13:04:34');
+INSERT INTO `admin_operation_log` VALUES ('1474', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 15:05:09', '2020-08-05 15:05:09');
+INSERT INTO `admin_operation_log` VALUES ('1475', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 15:05:43', '2020-08-05 15:05:43');
+INSERT INTO `admin_operation_log` VALUES ('1476', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 15:08:16', '2020-08-05 15:08:16');
+INSERT INTO `admin_operation_log` VALUES ('1477', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 15:09:11', '2020-08-05 15:09:11');
+INSERT INTO `admin_operation_log` VALUES ('1478', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 15:09:23', '2020-08-05 15:09:23');
+INSERT INTO `admin_operation_log` VALUES ('1479', '1', 'admin/orders/2', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 15:09:47', '2020-08-05 15:09:47');
+INSERT INTO `admin_operation_log` VALUES ('1480', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 15:10:02', '2020-08-05 15:10:02');
+INSERT INTO `admin_operation_log` VALUES ('1481', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 15:11:53', '2020-08-05 15:11:53');
+INSERT INTO `admin_operation_log` VALUES ('1482', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 15:12:07', '2020-08-05 15:12:07');
+INSERT INTO `admin_operation_log` VALUES ('1483', '1', 'admin/orders/21', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 15:12:13', '2020-08-05 15:12:13');
+INSERT INTO `admin_operation_log` VALUES ('1484', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 15:12:57', '2020-08-05 15:12:57');
+INSERT INTO `admin_operation_log` VALUES ('1485', '1', 'admin/configs/65/edit', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 15:13:01', '2020-08-05 15:13:01');
+INSERT INTO `admin_operation_log` VALUES ('1486', '1', 'admin/configs/65', 'PUT', '192.168.0.140', '{\"name\":\"sellrate\",\"value\":\"0.1\",\"remark\":\"\\u5356\\u51fa\\u4ef7\\u683c\\u6bd4\\u4f8b\",\"_token\":\"abORMVIJ7Iy51dUHJS34dIL5CMQGseSR9MubjBUc\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/configs\"}', '2020-08-05 15:13:07', '2020-08-05 15:13:07');
+INSERT INTO `admin_operation_log` VALUES ('1487', '1', 'admin/configs', 'GET', '192.168.0.140', '[]', '2020-08-05 15:13:07', '2020-08-05 15:13:07');
+INSERT INTO `admin_operation_log` VALUES ('1488', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 15:14:39', '2020-08-05 15:14:39');
+INSERT INTO `admin_operation_log` VALUES ('1489', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 15:21:16', '2020-08-05 15:21:16');
+INSERT INTO `admin_operation_log` VALUES ('1490', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 15:21:21', '2020-08-05 15:21:21');
+INSERT INTO `admin_operation_log` VALUES ('1491', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-05 17:56:34', '2020-08-05 17:56:34');
+INSERT INTO `admin_operation_log` VALUES ('1492', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-06 09:08:44', '2020-08-06 09:08:44');
+INSERT INTO `admin_operation_log` VALUES ('1493', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-06 09:08:49', '2020-08-06 09:08:49');
+INSERT INTO `admin_operation_log` VALUES ('1494', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 09:08:52', '2020-08-06 09:08:52');
+INSERT INTO `admin_operation_log` VALUES ('1495', '1', 'admin/user-operation-logs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 09:09:06', '2020-08-06 09:09:06');
+INSERT INTO `admin_operation_log` VALUES ('1496', '1', 'admin/announcements', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 09:09:10', '2020-08-06 09:09:10');
+INSERT INTO `admin_operation_log` VALUES ('1497', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 09:09:14', '2020-08-06 09:09:14');
+INSERT INTO `admin_operation_log` VALUES ('1498', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 09:10:06', '2020-08-06 09:10:06');
+INSERT INTO `admin_operation_log` VALUES ('1499', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 09:10:13', '2020-08-06 09:10:13');
+INSERT INTO `admin_operation_log` VALUES ('1500', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 09:32:36', '2020-08-06 09:32:36');
+INSERT INTO `admin_operation_log` VALUES ('1501', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 09:32:39', '2020-08-06 09:32:39');
+INSERT INTO `admin_operation_log` VALUES ('1502', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 09:32:41', '2020-08-06 09:32:41');
+INSERT INTO `admin_operation_log` VALUES ('1503', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 09:32:43', '2020-08-06 09:32:43');
+INSERT INTO `admin_operation_log` VALUES ('1504', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 10:15:15', '2020-08-06 10:15:15');
+INSERT INTO `admin_operation_log` VALUES ('1505', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 10:15:18', '2020-08-06 10:15:18');
+INSERT INTO `admin_operation_log` VALUES ('1506', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 10:15:21', '2020-08-06 10:15:21');
+INSERT INTO `admin_operation_log` VALUES ('1507', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 10:15:22', '2020-08-06 10:15:22');
+INSERT INTO `admin_operation_log` VALUES ('1508', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 10:16:30', '2020-08-06 10:16:30');
+INSERT INTO `admin_operation_log` VALUES ('1509', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 10:46:30', '2020-08-06 10:46:30');
+INSERT INTO `admin_operation_log` VALUES ('1510', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 13:17:11', '2020-08-06 13:17:11');
+INSERT INTO `admin_operation_log` VALUES ('1511', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 13:17:21', '2020-08-06 13:17:21');
+INSERT INTO `admin_operation_log` VALUES ('1512', '1', 'admin/user-operation-logs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 14:29:19', '2020-08-06 14:29:19');
+INSERT INTO `admin_operation_log` VALUES ('1513', '1', 'admin/announcements', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 14:29:21', '2020-08-06 14:29:21');
+INSERT INTO `admin_operation_log` VALUES ('1514', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 14:29:24', '2020-08-06 14:29:24');
+INSERT INTO `admin_operation_log` VALUES ('1515', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 14:29:25', '2020-08-06 14:29:25');
+INSERT INTO `admin_operation_log` VALUES ('1516', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 14:29:26', '2020-08-06 14:29:26');
+INSERT INTO `admin_operation_log` VALUES ('1517', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 14:29:28', '2020-08-06 14:29:28');
+INSERT INTO `admin_operation_log` VALUES ('1518', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 17:27:53', '2020-08-06 17:27:53');
+INSERT INTO `admin_operation_log` VALUES ('1519', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 17:28:08', '2020-08-06 17:28:08');
+INSERT INTO `admin_operation_log` VALUES ('1520', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 17:30:02', '2020-08-06 17:30:02');
+INSERT INTO `admin_operation_log` VALUES ('1521', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-06 17:30:08', '2020-08-06 17:30:08');
+INSERT INTO `admin_operation_log` VALUES ('1522', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-07 09:23:20', '2020-08-07 09:23:20');
+INSERT INTO `admin_operation_log` VALUES ('1523', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 09:23:26', '2020-08-07 09:23:26');
+INSERT INTO `admin_operation_log` VALUES ('1524', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 09:23:27', '2020-08-07 09:23:27');
+INSERT INTO `admin_operation_log` VALUES ('1525', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 09:23:29', '2020-08-07 09:23:29');
+INSERT INTO `admin_operation_log` VALUES ('1526', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 09:23:30', '2020-08-07 09:23:30');
+INSERT INTO `admin_operation_log` VALUES ('1527', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-07 11:05:39', '2020-08-07 11:05:39');
+INSERT INTO `admin_operation_log` VALUES ('1528', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 11:05:43', '2020-08-07 11:05:43');
+INSERT INTO `admin_operation_log` VALUES ('1529', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 11:05:44', '2020-08-07 11:05:44');
+INSERT INTO `admin_operation_log` VALUES ('1530', '1', 'admin/orders', 'GET', '192.168.0.140', '[]', '2020-08-07 13:08:14', '2020-08-07 13:08:14');
+INSERT INTO `admin_operation_log` VALUES ('1531', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 13:30:34', '2020-08-07 13:30:34');
+INSERT INTO `admin_operation_log` VALUES ('1532', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 13:30:39', '2020-08-07 13:30:39');
+INSERT INTO `admin_operation_log` VALUES ('1533', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 13:30:46', '2020-08-07 13:30:46');
+INSERT INTO `admin_operation_log` VALUES ('1534', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 13:30:49', '2020-08-07 13:30:49');
+INSERT INTO `admin_operation_log` VALUES ('1535', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 13:30:50', '2020-08-07 13:30:50');
+INSERT INTO `admin_operation_log` VALUES ('1536', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 13:30:52', '2020-08-07 13:30:52');
+INSERT INTO `admin_operation_log` VALUES ('1537', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 13:30:54', '2020-08-07 13:30:54');
+INSERT INTO `admin_operation_log` VALUES ('1538', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 13:30:59', '2020-08-07 13:30:59');
+INSERT INTO `admin_operation_log` VALUES ('1539', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 13:31:00', '2020-08-07 13:31:00');
+INSERT INTO `admin_operation_log` VALUES ('1540', '1', 'admin/orders/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 13:31:07', '2020-08-07 13:31:07');
+INSERT INTO `admin_operation_log` VALUES ('1541', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 13:52:25', '2020-08-07 13:52:25');
+INSERT INTO `admin_operation_log` VALUES ('1542', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 13:52:27', '2020-08-07 13:52:27');
+INSERT INTO `admin_operation_log` VALUES ('1543', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 13:52:29', '2020-08-07 13:52:29');
+INSERT INTO `admin_operation_log` VALUES ('1544', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 13:52:32', '2020-08-07 13:52:32');
+INSERT INTO `admin_operation_log` VALUES ('1545', '1', 'admin/user-operation-logs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 13:52:35', '2020-08-07 13:52:35');
+INSERT INTO `admin_operation_log` VALUES ('1546', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 13:52:43', '2020-08-07 13:52:43');
+INSERT INTO `admin_operation_log` VALUES ('1547', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 15:13:44', '2020-08-07 15:13:44');
+INSERT INTO `admin_operation_log` VALUES ('1548', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 15:13:44', '2020-08-07 15:13:44');
+INSERT INTO `admin_operation_log` VALUES ('1549', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 15:13:45', '2020-08-07 15:13:45');
+INSERT INTO `admin_operation_log` VALUES ('1550', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 15:13:49', '2020-08-07 15:13:49');
+INSERT INTO `admin_operation_log` VALUES ('1551', '1', 'admin/user-operation-logs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 15:13:52', '2020-08-07 15:13:52');
+INSERT INTO `admin_operation_log` VALUES ('1552', '1', 'admin/announcements', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 15:13:54', '2020-08-07 15:13:54');
+INSERT INTO `admin_operation_log` VALUES ('1553', '1', 'admin/user-operation-logs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-07 15:23:43', '2020-08-07 15:23:43');
+INSERT INTO `admin_operation_log` VALUES ('1554', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-10 08:58:41', '2020-08-10 08:58:41');
+INSERT INTO `admin_operation_log` VALUES ('1555', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 08:58:48', '2020-08-10 08:58:48');
+INSERT INTO `admin_operation_log` VALUES ('1556', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 08:58:49', '2020-08-10 08:58:49');
+INSERT INTO `admin_operation_log` VALUES ('1557', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 08:58:51', '2020-08-10 08:58:51');
+INSERT INTO `admin_operation_log` VALUES ('1558', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 08:58:56', '2020-08-10 08:58:56');
+INSERT INTO `admin_operation_log` VALUES ('1559', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:01:19', '2020-08-10 09:01:19');
+INSERT INTO `admin_operation_log` VALUES ('1560', '1', 'admin', 'GET', '192.168.0.154', '[]', '2020-08-10 09:02:35', '2020-08-10 09:02:35');
+INSERT INTO `admin_operation_log` VALUES ('1561', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.154', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:02:53', '2020-08-10 09:02:53');
+INSERT INTO `admin_operation_log` VALUES ('1562', '1', 'admin/users', 'GET', '192.168.0.154', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:03:23', '2020-08-10 09:03:23');
+INSERT INTO `admin_operation_log` VALUES ('1563', '1', 'admin/orders', 'GET', '192.168.0.154', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:03:31', '2020-08-10 09:03:31');
+INSERT INTO `admin_operation_log` VALUES ('1564', '1', 'admin/money-records', 'GET', '192.168.0.154', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:03:54', '2020-08-10 09:03:54');
+INSERT INTO `admin_operation_log` VALUES ('1565', '1', 'admin/configs', 'GET', '192.168.0.154', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:04:10', '2020-08-10 09:04:10');
+INSERT INTO `admin_operation_log` VALUES ('1566', '1', 'admin/configs', 'GET', '192.168.0.154', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:04:14', '2020-08-10 09:04:14');
+INSERT INTO `admin_operation_log` VALUES ('1567', '1', 'admin/announcements', 'GET', '192.168.0.154', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:04:23', '2020-08-10 09:04:23');
+INSERT INTO `admin_operation_log` VALUES ('1568', '1', 'admin/user-operation-logs', 'GET', '192.168.0.154', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:04:26', '2020-08-10 09:04:26');
+INSERT INTO `admin_operation_log` VALUES ('1569', '1', 'admin/auth/users', 'GET', '192.168.0.154', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:04:31', '2020-08-10 09:04:31');
+INSERT INTO `admin_operation_log` VALUES ('1570', '1', 'admin/auth/roles', 'GET', '192.168.0.154', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:04:33', '2020-08-10 09:04:33');
+INSERT INTO `admin_operation_log` VALUES ('1571', '1', 'admin/auth/permissions', 'GET', '192.168.0.154', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:04:36', '2020-08-10 09:04:36');
+INSERT INTO `admin_operation_log` VALUES ('1572', '1', 'admin/auth/menu', 'GET', '192.168.0.154', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:04:40', '2020-08-10 09:04:40');
+INSERT INTO `admin_operation_log` VALUES ('1573', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:05:08', '2020-08-10 09:05:08');
+INSERT INTO `admin_operation_log` VALUES ('1574', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:05:10', '2020-08-10 09:05:10');
+INSERT INTO `admin_operation_log` VALUES ('1575', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:05:12', '2020-08-10 09:05:12');
+INSERT INTO `admin_operation_log` VALUES ('1576', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:05:14', '2020-08-10 09:05:14');
+INSERT INTO `admin_operation_log` VALUES ('1577', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:05:19', '2020-08-10 09:05:19');
+INSERT INTO `admin_operation_log` VALUES ('1578', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:05:20', '2020-08-10 09:05:20');
+INSERT INTO `admin_operation_log` VALUES ('1579', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:05:22', '2020-08-10 09:05:22');
+INSERT INTO `admin_operation_log` VALUES ('1580', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:09:00', '2020-08-10 09:09:00');
+INSERT INTO `admin_operation_log` VALUES ('1581', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:09:03', '2020-08-10 09:09:03');
+INSERT INTO `admin_operation_log` VALUES ('1582', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:09:05', '2020-08-10 09:09:05');
+INSERT INTO `admin_operation_log` VALUES ('1583', '1', 'admin', 'GET', '192.168.0.154', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:21:39', '2020-08-10 09:21:39');
+INSERT INTO `admin_operation_log` VALUES ('1584', '1', 'admin/auth/setting', 'GET', '192.168.0.154', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:21:45', '2020-08-10 09:21:45');
+INSERT INTO `admin_operation_log` VALUES ('1585', '1', 'admin/auth/menu', 'GET', '192.168.0.154', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:22:30', '2020-08-10 09:22:30');
+INSERT INTO `admin_operation_log` VALUES ('1586', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.154', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:23:07', '2020-08-10 09:23:07');
+INSERT INTO `admin_operation_log` VALUES ('1587', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-10 09:53:46', '2020-08-10 09:53:46');
+INSERT INTO `admin_operation_log` VALUES ('1588', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 09:53:52', '2020-08-10 09:53:52');
+INSERT INTO `admin_operation_log` VALUES ('1589', '1', 'admin/orders/24', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 10:38:26', '2020-08-10 10:38:26');
+INSERT INTO `admin_operation_log` VALUES ('1590', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 10:38:37', '2020-08-10 10:38:37');
+INSERT INTO `admin_operation_log` VALUES ('1591', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 10:38:38', '2020-08-10 10:38:38');
+INSERT INTO `admin_operation_log` VALUES ('1592', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 11:27:57', '2020-08-10 11:27:57');
+INSERT INTO `admin_operation_log` VALUES ('1593', '1', 'admin/user-operation-logs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 11:28:03', '2020-08-10 11:28:03');
+INSERT INTO `admin_operation_log` VALUES ('1594', '1', 'admin/announcements', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 11:28:06', '2020-08-10 11:28:06');
+INSERT INTO `admin_operation_log` VALUES ('1595', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 11:28:10', '2020-08-10 11:28:10');
+INSERT INTO `admin_operation_log` VALUES ('1596', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 13:11:21', '2020-08-10 13:11:21');
+INSERT INTO `admin_operation_log` VALUES ('1597', '1', 'admin/user-operation-logs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 13:21:15', '2020-08-10 13:21:15');
+INSERT INTO `admin_operation_log` VALUES ('1598', '1', 'admin/user-operation-logs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 13:21:20', '2020-08-10 13:21:20');
+INSERT INTO `admin_operation_log` VALUES ('1599', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 13:21:28', '2020-08-10 13:21:28');
+INSERT INTO `admin_operation_log` VALUES ('1600', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 13:27:17', '2020-08-10 13:27:17');
+INSERT INTO `admin_operation_log` VALUES ('1601', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 13:54:00', '2020-08-10 13:54:00');
+INSERT INTO `admin_operation_log` VALUES ('1602', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 13:54:08', '2020-08-10 13:54:08');
+INSERT INTO `admin_operation_log` VALUES ('1603', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 13:54:15', '2020-08-10 13:54:15');
+INSERT INTO `admin_operation_log` VALUES ('1604', '1', 'admin/user-operation-logs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 14:05:03', '2020-08-10 14:05:03');
+INSERT INTO `admin_operation_log` VALUES ('1605', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-10 14:34:58', '2020-08-10 14:34:58');
+INSERT INTO `admin_operation_log` VALUES ('1606', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-10 15:14:31', '2020-08-10 15:14:31');
+INSERT INTO `admin_operation_log` VALUES ('1607', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-11 09:25:33', '2020-08-11 09:25:33');
+INSERT INTO `admin_operation_log` VALUES ('1608', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-11 09:25:42', '2020-08-11 09:25:42');
+INSERT INTO `admin_operation_log` VALUES ('1609', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-11 11:09:00', '2020-08-11 11:09:00');
+INSERT INTO `admin_operation_log` VALUES ('1610', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-11 11:09:01', '2020-08-11 11:09:01');
+INSERT INTO `admin_operation_log` VALUES ('1611', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-11 11:09:03', '2020-08-11 11:09:03');
+INSERT INTO `admin_operation_log` VALUES ('1612', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-11 14:29:41', '2020-08-11 14:29:41');
+INSERT INTO `admin_operation_log` VALUES ('1613', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-11 15:29:47', '2020-08-11 15:29:47');
+INSERT INTO `admin_operation_log` VALUES ('1614', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-12 09:11:20', '2020-08-12 09:11:20');
+INSERT INTO `admin_operation_log` VALUES ('1615', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-12 09:11:25', '2020-08-12 09:11:25');
+INSERT INTO `admin_operation_log` VALUES ('1616', '1', 'admin/orders', 'GET', '192.168.0.140', '[]', '2020-08-12 10:22:34', '2020-08-12 10:22:34');
+INSERT INTO `admin_operation_log` VALUES ('1617', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-12 11:02:10', '2020-08-12 11:02:10');
+INSERT INTO `admin_operation_log` VALUES ('1618', '1', 'admin/user-operation-logs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-12 16:16:23', '2020-08-12 16:16:23');
+INSERT INTO `admin_operation_log` VALUES ('1619', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-13 08:54:44', '2020-08-13 08:54:44');
+INSERT INTO `admin_operation_log` VALUES ('1620', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-13 08:54:50', '2020-08-13 08:54:50');
+INSERT INTO `admin_operation_log` VALUES ('1621', '1', 'admin/user-operation-logs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-13 16:27:51', '2020-08-13 16:27:51');
+INSERT INTO `admin_operation_log` VALUES ('1622', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-13 16:27:59', '2020-08-13 16:27:59');
+INSERT INTO `admin_operation_log` VALUES ('1623', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-14 09:23:07', '2020-08-14 09:23:07');
+INSERT INTO `admin_operation_log` VALUES ('1624', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-14 09:23:13', '2020-08-14 09:23:13');
+INSERT INTO `admin_operation_log` VALUES ('1625', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 09:23:17', '2020-08-14 09:23:17');
+INSERT INTO `admin_operation_log` VALUES ('1626', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 09:23:20', '2020-08-14 09:23:20');
+INSERT INTO `admin_operation_log` VALUES ('1627', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 09:23:24', '2020-08-14 09:23:24');
+INSERT INTO `admin_operation_log` VALUES ('1628', '1', 'admin/user-operation-logs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 09:23:28', '2020-08-14 09:23:28');
+INSERT INTO `admin_operation_log` VALUES ('1629', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 09:30:40', '2020-08-14 09:30:40');
+INSERT INTO `admin_operation_log` VALUES ('1630', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 09:30:43', '2020-08-14 09:30:43');
+INSERT INTO `admin_operation_log` VALUES ('1631', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 09:30:44', '2020-08-14 09:30:44');
+INSERT INTO `admin_operation_log` VALUES ('1632', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 09:30:46', '2020-08-14 09:30:46');
+INSERT INTO `admin_operation_log` VALUES ('1633', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-14 10:31:54', '2020-08-14 10:31:54');
+INSERT INTO `admin_operation_log` VALUES ('1634', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 13:12:10', '2020-08-14 13:12:10');
+INSERT INTO `admin_operation_log` VALUES ('1635', '1', 'admin/orders', 'GET', '192.168.0.140', '[]', '2020-08-14 16:20:41', '2020-08-14 16:20:41');
+INSERT INTO `admin_operation_log` VALUES ('1636', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 17:41:09', '2020-08-14 17:41:09');
+INSERT INTO `admin_operation_log` VALUES ('1637', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 17:42:01', '2020-08-14 17:42:01');
+INSERT INTO `admin_operation_log` VALUES ('1638', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 17:42:04', '2020-08-14 17:42:04');
+INSERT INTO `admin_operation_log` VALUES ('1639', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"code_all\":\"USDHKD\",\"_token\":\"51okZPUWVfIyEkJtaB5uC3lBFWKpcDuItPXF17sI\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/foreign-exchange-lists\"}', '2020-08-14 17:42:10', '2020-08-14 17:42:10');
+INSERT INTO `admin_operation_log` VALUES ('1640', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-14 17:42:11', '2020-08-14 17:42:11');
+INSERT INTO `admin_operation_log` VALUES ('1641', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 17:43:08', '2020-08-14 17:43:08');
+INSERT INTO `admin_operation_log` VALUES ('1642', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 17:43:57', '2020-08-14 17:43:57');
+INSERT INTO `admin_operation_log` VALUES ('1643', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 17:44:07', '2020-08-14 17:44:07');
+INSERT INTO `admin_operation_log` VALUES ('1644', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 17:45:53', '2020-08-14 17:45:53');
+INSERT INTO `admin_operation_log` VALUES ('1645', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 17:46:47', '2020-08-14 17:46:47');
+INSERT INTO `admin_operation_log` VALUES ('1646', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 17:48:11', '2020-08-14 17:48:11');
+INSERT INTO `admin_operation_log` VALUES ('1647', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-14 17:48:34', '2020-08-14 17:48:34');
+INSERT INTO `admin_operation_log` VALUES ('1648', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-17 09:27:33', '2020-08-17 09:27:33');
+INSERT INTO `admin_operation_log` VALUES ('1649', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-17 09:27:38', '2020-08-17 09:27:38');
+INSERT INTO `admin_operation_log` VALUES ('1650', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-17 09:27:42', '2020-08-17 09:27:42');
+INSERT INTO `admin_operation_log` VALUES ('1651', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-17 09:27:44', '2020-08-17 09:27:44');
+INSERT INTO `admin_operation_log` VALUES ('1652', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-17 09:27:46', '2020-08-17 09:27:46');
+INSERT INTO `admin_operation_log` VALUES ('1653', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-17 09:27:48', '2020-08-17 09:27:48');
+INSERT INTO `admin_operation_log` VALUES ('1654', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-17 09:27:49', '2020-08-17 09:27:49');
+INSERT INTO `admin_operation_log` VALUES ('1655', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-17 09:48:57', '2020-08-17 09:48:57');
+INSERT INTO `admin_operation_log` VALUES ('1656', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-17 09:48:58', '2020-08-17 09:48:58');
+INSERT INTO `admin_operation_log` VALUES ('1657', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-17 11:14:20', '2020-08-17 11:14:20');
+INSERT INTO `admin_operation_log` VALUES ('1658', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-17 11:14:23', '2020-08-17 11:14:23');
+INSERT INTO `admin_operation_log` VALUES ('1659', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-18 09:41:34', '2020-08-18 09:41:34');
+INSERT INTO `admin_operation_log` VALUES ('1660', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 09:41:37', '2020-08-18 09:41:37');
+INSERT INTO `admin_operation_log` VALUES ('1661', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 09:46:03', '2020-08-18 09:46:03');
+INSERT INTO `admin_operation_log` VALUES ('1662', '1', 'admin/users', 'GET', '192.168.0.140', '[]', '2020-08-18 13:44:58', '2020-08-18 13:44:58');
+INSERT INTO `admin_operation_log` VALUES ('1663', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 13:50:24', '2020-08-18 13:50:24');
+INSERT INTO `admin_operation_log` VALUES ('1664', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\",\"__search__\":\"test0001\"}', '2020-08-18 13:50:37', '2020-08-18 13:50:37');
+INSERT INTO `admin_operation_log` VALUES ('1665', '1', 'admin/users', 'GET', '192.168.0.140', '{\"__search__\":\"test0001\",\"_pjax\":\"#pjax-container\"}', '2020-08-18 13:52:46', '2020-08-18 13:52:46');
+INSERT INTO `admin_operation_log` VALUES ('1666', '1', 'admin/users', 'GET', '192.168.0.140', '{\"__search__\":\"test0001\",\"_pjax\":\"#pjax-container\"}', '2020-08-18 13:54:51', '2020-08-18 13:54:51');
+INSERT INTO `admin_operation_log` VALUES ('1667', '1', 'admin/users', 'GET', '192.168.0.140', '{\"__search__\":\"test0001\",\"_pjax\":\"#pjax-container\",\"_selector\":{\"brand\":\"3\"}}', '2020-08-18 13:54:55', '2020-08-18 13:54:55');
+INSERT INTO `admin_operation_log` VALUES ('1668', '1', 'admin/users', 'GET', '192.168.0.140', '{\"__search__\":\"test0001\",\"_selector\":{\"brand\":\"3\"},\"_pjax\":\"#pjax-container\"}', '2020-08-18 13:57:57', '2020-08-18 13:57:57');
+INSERT INTO `admin_operation_log` VALUES ('1669', '1', 'admin/users', 'GET', '192.168.0.140', '{\"__search__\":\"test0001\",\"_selector\":{\"brand\":\"3\"},\"_pjax\":\"#pjax-container\"}', '2020-08-18 13:58:19', '2020-08-18 13:58:19');
+INSERT INTO `admin_operation_log` VALUES ('1670', '1', 'admin/users', 'GET', '192.168.0.140', '{\"__search__\":\"test0001\",\"_selector\":{\"brand\":\"3\"},\"_pjax\":\"#pjax-container\"}', '2020-08-18 13:58:37', '2020-08-18 13:58:37');
+INSERT INTO `admin_operation_log` VALUES ('1671', '1', 'admin/users', 'GET', '192.168.0.140', '{\"__search__\":\"test0001\",\"_selector\":{\"brand\":\"3\"},\"_pjax\":\"#pjax-container\"}', '2020-08-18 13:58:39', '2020-08-18 13:58:39');
+INSERT INTO `admin_operation_log` VALUES ('1672', '1', 'admin/users', 'GET', '192.168.0.140', '{\"__search__\":\"test0001\",\"_selector\":{\"brand\":\"3\"},\"_pjax\":\"#pjax-container\"}', '2020-08-18 13:59:36', '2020-08-18 13:59:36');
+INSERT INTO `admin_operation_log` VALUES ('1673', '1', 'admin/users', 'GET', '192.168.0.140', '{\"__search__\":\"test0001\",\"_selector\":{\"brand\":\"3\"},\"_pjax\":\"#pjax-container\",\"name\":\"test0001\"}', '2020-08-18 13:59:42', '2020-08-18 13:59:42');
+INSERT INTO `admin_operation_log` VALUES ('1674', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 14:00:50', '2020-08-18 14:00:50');
+INSERT INTO `admin_operation_log` VALUES ('1675', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 14:01:24', '2020-08-18 14:01:24');
+INSERT INTO `admin_operation_log` VALUES ('1676', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 14:01:56', '2020-08-18 14:01:56');
+INSERT INTO `admin_operation_log` VALUES ('1677', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\",\"user\":{\"name\":null},\"trade_no\":\"J806061738637440\",\"created_at\":{\"start\":\"2020-08-18 00:00:00\",\"end\":null}}', '2020-08-18 14:02:12', '2020-08-18 14:02:12');
+INSERT INTO `admin_operation_log` VALUES ('1678', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\",\"user\":{\"name\":null},\"trade_no\":\"J806061738637440\",\"created_at\":{\"start\":\"2020-08-18 00:00:00\",\"end\":null}}', '2020-08-18 14:02:18', '2020-08-18 14:02:18');
+INSERT INTO `admin_operation_log` VALUES ('1679', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\",\"user\":{\"name\":null},\"trade_no\":\"J806061738637440\",\"created_at\":{\"start\":\"2018-12-14 00:00:00\",\"end\":\"2020-08-14 00:00:00\"}}', '2020-08-18 14:02:37', '2020-08-18 14:02:37');
+INSERT INTO `admin_operation_log` VALUES ('1680', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"user\":{\"name\":null},\"trade_no\":\"J806061738637440\",\"created_at\":{\"start\":\"2018-12-14 00:00:00\",\"end\":\"2020-08-14 00:00:00\"},\"_pjax\":\"#pjax-container\"}', '2020-08-18 14:05:00', '2020-08-18 14:05:00');
+INSERT INTO `admin_operation_log` VALUES ('1681', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 14:05:03', '2020-08-18 14:05:03');
+INSERT INTO `admin_operation_log` VALUES ('1682', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\",\"_sort\":{\"column\":\"number\",\"type\":\"desc\"}}', '2020-08-18 14:05:07', '2020-08-18 14:05:07');
+INSERT INTO `admin_operation_log` VALUES ('1683', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\",\"_sort\":{\"column\":\"number\",\"type\":\"asc\"}}', '2020-08-18 14:05:09', '2020-08-18 14:05:09');
+INSERT INTO `admin_operation_log` VALUES ('1684', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\",\"_sort\":{\"column\":\"number\",\"type\":\"desc\"}}', '2020-08-18 14:05:14', '2020-08-18 14:05:14');
+INSERT INTO `admin_operation_log` VALUES ('1685', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\",\"_sort\":{\"column\":\"number\",\"type\":\"asc\"}}', '2020-08-18 14:05:32', '2020-08-18 14:05:32');
+INSERT INTO `admin_operation_log` VALUES ('1686', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 14:09:48', '2020-08-18 14:09:48');
+INSERT INTO `admin_operation_log` VALUES ('1687', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 14:09:54', '2020-08-18 14:09:54');
+INSERT INTO `admin_operation_log` VALUES ('1688', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 14:10:00', '2020-08-18 14:10:00');
+INSERT INTO `admin_operation_log` VALUES ('1689', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 14:24:15', '2020-08-18 14:24:15');
+INSERT INTO `admin_operation_log` VALUES ('1690', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 15:04:48', '2020-08-18 15:04:48');
+INSERT INTO `admin_operation_log` VALUES ('1691', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 15:05:34', '2020-08-18 15:05:34');
+INSERT INTO `admin_operation_log` VALUES ('1692', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 15:05:37', '2020-08-18 15:05:37');
+INSERT INTO `admin_operation_log` VALUES ('1693', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"code_all\":\"USDHKD\",\"_token\":\"BZVBstXq6QIM8NzRiKOXLFcJbJtW9hSsuy2tebkG\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/foreign-exchange-lists\"}', '2020-08-18 15:05:49', '2020-08-18 15:05:49');
+INSERT INTO `admin_operation_log` VALUES ('1694', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-18 15:05:49', '2020-08-18 15:05:49');
+INSERT INTO `admin_operation_log` VALUES ('1695', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 15:06:41', '2020-08-18 15:06:41');
+INSERT INTO `admin_operation_log` VALUES ('1696', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 15:06:51', '2020-08-18 15:06:51');
+INSERT INTO `admin_operation_log` VALUES ('1697', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 15:14:18', '2020-08-18 15:14:18');
+INSERT INTO `admin_operation_log` VALUES ('1698', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"code_all\":\"USDHKD\",\"_token\":\"BZVBstXq6QIM8NzRiKOXLFcJbJtW9hSsuy2tebkG\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/foreign-exchange-lists\"}', '2020-08-18 15:14:22', '2020-08-18 15:14:22');
+INSERT INTO `admin_operation_log` VALUES ('1699', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-18 15:14:23', '2020-08-18 15:14:23');
+INSERT INTO `admin_operation_log` VALUES ('1700', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 15:34:48', '2020-08-18 15:34:48');
+INSERT INTO `admin_operation_log` VALUES ('1701', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"code_all\":\"AUDCHF\",\"_token\":\"BZVBstXq6QIM8NzRiKOXLFcJbJtW9hSsuy2tebkG\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/foreign-exchange-lists\"}', '2020-08-18 15:34:56', '2020-08-18 15:34:56');
+INSERT INTO `admin_operation_log` VALUES ('1702', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-18 15:34:56', '2020-08-18 15:34:56');
+INSERT INTO `admin_operation_log` VALUES ('1703', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 15:35:03', '2020-08-18 15:35:03');
+INSERT INTO `admin_operation_log` VALUES ('1704', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-18 16:08:48', '2020-08-18 16:08:48');
+INSERT INTO `admin_operation_log` VALUES ('1705', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-18 16:08:51', '2020-08-18 16:08:51');
+INSERT INTO `admin_operation_log` VALUES ('1706', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-18 16:08:54', '2020-08-18 16:08:54');
+INSERT INTO `admin_operation_log` VALUES ('1707', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-18 16:08:57', '2020-08-18 16:08:57');
+INSERT INTO `admin_operation_log` VALUES ('1708', '1', 'admin/_handle_action_', 'POST', '192.168.0.140', '{\"_key\":\"2\",\"_model\":\"App_Models_ForeignExchangeList\",\"_token\":\"BZVBstXq6QIM8NzRiKOXLFcJbJtW9hSsuy2tebkG\",\"_action\":\"Encore_Admin_Grid_Actions_Delete\",\"_input\":\"true\"}', '2020-08-18 16:09:09', '2020-08-18 16:09:09');
+INSERT INTO `admin_operation_log` VALUES ('1709', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:09:10', '2020-08-18 16:09:10');
+INSERT INTO `admin_operation_log` VALUES ('1710', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:09:13', '2020-08-18 16:09:13');
+INSERT INTO `admin_operation_log` VALUES ('1711', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"code_all\":\"AUDCHF\",\"_token\":\"BZVBstXq6QIM8NzRiKOXLFcJbJtW9hSsuy2tebkG\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/foreign-exchange-lists\"}', '2020-08-18 16:09:18', '2020-08-18 16:09:18');
+INSERT INTO `admin_operation_log` VALUES ('1712', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-18 16:09:18', '2020-08-18 16:09:18');
+INSERT INTO `admin_operation_log` VALUES ('1713', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:09:25', '2020-08-18 16:09:25');
+INSERT INTO `admin_operation_log` VALUES ('1714', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:09:27', '2020-08-18 16:09:27');
+INSERT INTO `admin_operation_log` VALUES ('1715', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:09:55', '2020-08-18 16:09:55');
+INSERT INTO `admin_operation_log` VALUES ('1716', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:30:09', '2020-08-18 16:30:09');
+INSERT INTO `admin_operation_log` VALUES ('1717', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:30:09', '2020-08-18 16:30:09');
+INSERT INTO `admin_operation_log` VALUES ('1718', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:30:12', '2020-08-18 16:30:12');
+INSERT INTO `admin_operation_log` VALUES ('1719', '1', 'admin/users/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:30:13', '2020-08-18 16:30:13');
+INSERT INTO `admin_operation_log` VALUES ('1720', '1', 'admin/users/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:32:03', '2020-08-18 16:32:03');
+INSERT INTO `admin_operation_log` VALUES ('1721', '1', 'admin/users', 'POST', '192.168.0.140', '{\"name\":\"test0001\",\"phone\":\"18482526545\",\"password\":\"123457\",\"last_balance\":\"100000\",\"balance\":\"100000\",\"advance\":\"0\",\"status\":\"on\",\"level\":\"0\",\"end_time\":\"2020-12-19 16:32:03\",\"_token\":\"BZVBstXq6QIM8NzRiKOXLFcJbJtW9hSsuy2tebkG\"}', '2020-08-18 16:32:31', '2020-08-18 16:32:31');
+INSERT INTO `admin_operation_log` VALUES ('1722', '1', 'admin/users', 'GET', '192.168.0.140', '[]', '2020-08-18 16:32:32', '2020-08-18 16:32:32');
+INSERT INTO `admin_operation_log` VALUES ('1723', '1', 'admin/_handle_action_', 'POST', '192.168.0.140', '{\"_key\":\"1\",\"_model\":\"App_Models_User\",\"_token\":\"BZVBstXq6QIM8NzRiKOXLFcJbJtW9hSsuy2tebkG\",\"_action\":\"Encore_Admin_Grid_Actions_Delete\",\"_input\":\"true\"}', '2020-08-18 16:38:22', '2020-08-18 16:38:22');
+INSERT INTO `admin_operation_log` VALUES ('1724', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:38:22', '2020-08-18 16:38:22');
+INSERT INTO `admin_operation_log` VALUES ('1725', '1', 'admin/users/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:38:26', '2020-08-18 16:38:26');
+INSERT INTO `admin_operation_log` VALUES ('1726', '1', 'admin/users', 'POST', '192.168.0.140', '{\"name\":\"test0001\",\"phone\":\"18482526545\",\"password\":\"123456\",\"last_balance\":\"100000\",\"balance\":\"100000\",\"advance\":\"0\",\"status\":\"on\",\"level\":\"0\",\"end_time\":\"2020-08-18 16:38:26\",\"_token\":\"BZVBstXq6QIM8NzRiKOXLFcJbJtW9hSsuy2tebkG\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/users\"}', '2020-08-18 16:38:42', '2020-08-18 16:38:42');
+INSERT INTO `admin_operation_log` VALUES ('1727', '1', 'admin/users', 'GET', '192.168.0.140', '[]', '2020-08-18 16:38:43', '2020-08-18 16:38:43');
+INSERT INTO `admin_operation_log` VALUES ('1728', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:39:22', '2020-08-18 16:39:22');
+INSERT INTO `admin_operation_log` VALUES ('1729', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:39:31', '2020-08-18 16:39:31');
+INSERT INTO `admin_operation_log` VALUES ('1730', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:44:25', '2020-08-18 16:44:25');
+INSERT INTO `admin_operation_log` VALUES ('1731', '1', 'admin/users/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:48:38', '2020-08-18 16:48:38');
+INSERT INTO `admin_operation_log` VALUES ('1732', '1', 'admin/users', 'POST', '192.168.0.140', '{\"name\":\"test0002\",\"phone\":\"18482526588\",\"password\":\"123456\",\"last_balance\":\"100000\",\"balance\":\"100000\",\"advance\":\"0\",\"status\":\"on\",\"level\":\"0\",\"end_time\":\"2020-08-18 16:48:39\",\"_token\":\"BZVBstXq6QIM8NzRiKOXLFcJbJtW9hSsuy2tebkG\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/users\"}', '2020-08-18 16:48:59', '2020-08-18 16:48:59');
+INSERT INTO `admin_operation_log` VALUES ('1733', '1', 'admin/users', 'GET', '192.168.0.140', '[]', '2020-08-18 16:48:59', '2020-08-18 16:48:59');
+INSERT INTO `admin_operation_log` VALUES ('1734', '1', 'admin', 'GET', '192.168.0.181', '[]', '2020-08-18 16:49:33', '2020-08-18 16:49:33');
+INSERT INTO `admin_operation_log` VALUES ('1735', '1', 'admin/users', 'GET', '192.168.0.181', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:49:43', '2020-08-18 16:49:43');
+INSERT INTO `admin_operation_log` VALUES ('1736', '1', 'admin', 'GET', '192.168.0.181', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:49:53', '2020-08-18 16:49:53');
+INSERT INTO `admin_operation_log` VALUES ('1737', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.181', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:49:57', '2020-08-18 16:49:57');
+INSERT INTO `admin_operation_log` VALUES ('1738', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.181', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:49:58', '2020-08-18 16:49:58');
+INSERT INTO `admin_operation_log` VALUES ('1739', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.181', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:50:01', '2020-08-18 16:50:01');
+INSERT INTO `admin_operation_log` VALUES ('1740', '1', 'admin/users', 'GET', '192.168.0.181', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 16:53:31', '2020-08-18 16:53:31');
+INSERT INTO `admin_operation_log` VALUES ('1741', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:02:51', '2020-08-18 17:02:51');
+INSERT INTO `admin_operation_log` VALUES ('1742', '1', 'admin/configs/64/edit', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:02:57', '2020-08-18 17:02:57');
+INSERT INTO `admin_operation_log` VALUES ('1743', '1', 'admin/configs/64', 'PUT', '192.168.0.140', '{\"name\":\"fees\",\"value\":\"20\",\"remark\":\"\\u624b\\u7eed\\u8d39\\u6bd4\\u4f8b\",\"_token\":\"BZVBstXq6QIM8NzRiKOXLFcJbJtW9hSsuy2tebkG\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/configs\"}', '2020-08-18 17:03:03', '2020-08-18 17:03:03');
+INSERT INTO `admin_operation_log` VALUES ('1744', '1', 'admin/configs', 'GET', '192.168.0.140', '[]', '2020-08-18 17:03:03', '2020-08-18 17:03:03');
+INSERT INTO `admin_operation_log` VALUES ('1745', '1', 'admin/configs', 'GET', '192.168.0.181', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:07:38', '2020-08-18 17:07:38');
+INSERT INTO `admin_operation_log` VALUES ('1746', '1', 'admin', 'GET', '192.168.0.181', '[]', '2020-08-18 17:10:39', '2020-08-18 17:10:39');
+INSERT INTO `admin_operation_log` VALUES ('1747', '1', 'admin/orders', 'GET', '192.168.0.181', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:22:02', '2020-08-18 17:22:02');
+INSERT INTO `admin_operation_log` VALUES ('1748', '1', 'admin/users', 'GET', '192.168.0.181', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:22:03', '2020-08-18 17:22:03');
+INSERT INTO `admin_operation_log` VALUES ('1749', '1', 'admin/orders', 'GET', '192.168.0.181', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:22:05', '2020-08-18 17:22:05');
+INSERT INTO `admin_operation_log` VALUES ('1750', '1', 'admin/configs/64/edit', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:36:34', '2020-08-18 17:36:34');
+INSERT INTO `admin_operation_log` VALUES ('1751', '1', 'admin/configs/64', 'PUT', '192.168.0.140', '{\"name\":\"fees\",\"value\":\"0\",\"remark\":\"\\u624b\\u7eed\\u8d39\\u6bd4\\u4f8b\",\"_token\":\"BZVBstXq6QIM8NzRiKOXLFcJbJtW9hSsuy2tebkG\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/configs\"}', '2020-08-18 17:36:38', '2020-08-18 17:36:38');
+INSERT INTO `admin_operation_log` VALUES ('1752', '1', 'admin/configs', 'GET', '192.168.0.140', '[]', '2020-08-18 17:36:39', '2020-08-18 17:36:39');
+INSERT INTO `admin_operation_log` VALUES ('1753', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:45:28', '2020-08-18 17:45:28');
+INSERT INTO `admin_operation_log` VALUES ('1754', '1', 'admin/users', 'GET', '192.168.0.181', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:46:46', '2020-08-18 17:46:46');
+INSERT INTO `admin_operation_log` VALUES ('1755', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:50:49', '2020-08-18 17:50:49');
+INSERT INTO `admin_operation_log` VALUES ('1756', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:51:12', '2020-08-18 17:51:12');
+INSERT INTO `admin_operation_log` VALUES ('1757', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:51:18', '2020-08-18 17:51:18');
+INSERT INTO `admin_operation_log` VALUES ('1758', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:51:24', '2020-08-18 17:51:24');
+INSERT INTO `admin_operation_log` VALUES ('1759', '1', 'admin/users/2/edit', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:51:37', '2020-08-18 17:51:37');
+INSERT INTO `admin_operation_log` VALUES ('1760', '1', 'admin/users/2', 'PUT', '192.168.0.140', '{\"name\":\"test0001\",\"phone\":\"18482526545\",\"password\":null,\"last_balance\":\"100000.00000\",\"balance\":\"100000\",\"advance\":\"0\",\"status\":\"on\",\"level\":\"0\",\"end_time\":\"2020-08-18 16:38:26\",\"_token\":\"BZVBstXq6QIM8NzRiKOXLFcJbJtW9hSsuy2tebkG\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/users\"}', '2020-08-18 17:51:51', '2020-08-18 17:51:51');
+INSERT INTO `admin_operation_log` VALUES ('1761', '1', 'admin/users/2/edit', 'GET', '192.168.0.140', '[]', '2020-08-18 17:51:52', '2020-08-18 17:51:52');
+INSERT INTO `admin_operation_log` VALUES ('1762', '1', 'admin/users/2', 'PUT', '192.168.0.140', '{\"name\":\"test0001\",\"phone\":\"18482526545\",\"password\":\"123456\",\"last_balance\":\"100000.00000\",\"balance\":\"100000\",\"advance\":\"0\",\"status\":\"on\",\"level\":\"0\",\"end_time\":\"2020-08-18 16:38:26\",\"_token\":\"BZVBstXq6QIM8NzRiKOXLFcJbJtW9hSsuy2tebkG\",\"_method\":\"PUT\"}', '2020-08-18 17:56:50', '2020-08-18 17:56:50');
+INSERT INTO `admin_operation_log` VALUES ('1763', '1', 'admin/users', 'GET', '192.168.0.140', '[]', '2020-08-18 17:56:51', '2020-08-18 17:56:51');
+INSERT INTO `admin_operation_log` VALUES ('1764', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:57:18', '2020-08-18 17:57:18');
+INSERT INTO `admin_operation_log` VALUES ('1765', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:57:28', '2020-08-18 17:57:28');
+INSERT INTO `admin_operation_log` VALUES ('1766', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:57:54', '2020-08-18 17:57:54');
+INSERT INTO `admin_operation_log` VALUES ('1767', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"code_all\":\"USDCHF\",\"_token\":\"BZVBstXq6QIM8NzRiKOXLFcJbJtW9hSsuy2tebkG\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/foreign-exchange-lists\"}', '2020-08-18 17:58:00', '2020-08-18 17:58:00');
+INSERT INTO `admin_operation_log` VALUES ('1768', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-18 17:58:01', '2020-08-18 17:58:01');
+INSERT INTO `admin_operation_log` VALUES ('1769', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-18 17:58:20', '2020-08-18 17:58:20');
+INSERT INTO `admin_operation_log` VALUES ('1770', '1', 'admin/users', 'GET', '192.168.0.140', '[]', '2020-08-19 08:55:48', '2020-08-19 08:55:48');
+INSERT INTO `admin_operation_log` VALUES ('1771', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 09:08:55', '2020-08-19 09:08:55');
+INSERT INTO `admin_operation_log` VALUES ('1772', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 09:12:52', '2020-08-19 09:12:52');
+INSERT INTO `admin_operation_log` VALUES ('1773', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 09:41:11', '2020-08-19 09:41:11');
+INSERT INTO `admin_operation_log` VALUES ('1774', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 09:44:16', '2020-08-19 09:44:16');
+INSERT INTO `admin_operation_log` VALUES ('1775', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 09:44:16', '2020-08-19 09:44:16');
+INSERT INTO `admin_operation_log` VALUES ('1776', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 09:44:22', '2020-08-19 09:44:22');
+INSERT INTO `admin_operation_log` VALUES ('1777', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 09:45:48', '2020-08-19 09:45:48');
+INSERT INTO `admin_operation_log` VALUES ('1778', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 09:46:22', '2020-08-19 09:46:22');
+INSERT INTO `admin_operation_log` VALUES ('1779', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 09:46:24', '2020-08-19 09:46:24');
+INSERT INTO `admin_operation_log` VALUES ('1780', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 09:47:23', '2020-08-19 09:47:23');
+INSERT INTO `admin_operation_log` VALUES ('1781', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 09:47:26', '2020-08-19 09:47:26');
+INSERT INTO `admin_operation_log` VALUES ('1782', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 09:47:27', '2020-08-19 09:47:27');
+INSERT INTO `admin_operation_log` VALUES ('1783', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 09:47:46', '2020-08-19 09:47:46');
+INSERT INTO `admin_operation_log` VALUES ('1784', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-19 14:11:50', '2020-08-19 14:11:50');
+INSERT INTO `admin_operation_log` VALUES ('1785', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 14:11:54', '2020-08-19 14:11:54');
+INSERT INTO `admin_operation_log` VALUES ('1786', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 14:12:03', '2020-08-19 14:12:03');
+INSERT INTO `admin_operation_log` VALUES ('1787', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 14:12:08', '2020-08-19 14:12:08');
+INSERT INTO `admin_operation_log` VALUES ('1788', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 14:16:57', '2020-08-19 14:16:57');
+INSERT INTO `admin_operation_log` VALUES ('1789', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"S\":\"EURUSD\",\"_token\":\"gJtoh7o3XCeLiHRjt7ZNpEcEOe487okKfx0vv0UO\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/foreign-exchange-lists\"}', '2020-08-19 14:17:19', '2020-08-19 14:17:19');
+INSERT INTO `admin_operation_log` VALUES ('1790', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-19 14:17:20', '2020-08-19 14:17:20');
+INSERT INTO `admin_operation_log` VALUES ('1791', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 14:19:02', '2020-08-19 14:19:02');
+INSERT INTO `admin_operation_log` VALUES ('1792', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"FS\":\"EURUSD\",\"_token\":\"gJtoh7o3XCeLiHRjt7ZNpEcEOe487okKfx0vv0UO\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/foreign-exchange-lists\"}', '2020-08-19 14:19:06', '2020-08-19 14:19:06');
+INSERT INTO `admin_operation_log` VALUES ('1793', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-19 14:19:06', '2020-08-19 14:19:06');
+INSERT INTO `admin_operation_log` VALUES ('1794', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 14:20:07', '2020-08-19 14:20:07');
+INSERT INTO `admin_operation_log` VALUES ('1795', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 14:20:55', '2020-08-19 14:20:55');
+INSERT INTO `admin_operation_log` VALUES ('1796', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 14:31:08', '2020-08-19 14:31:08');
+INSERT INTO `admin_operation_log` VALUES ('1797', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 14:32:10', '2020-08-19 14:32:10');
+INSERT INTO `admin_operation_log` VALUES ('1798', '1', 'admin/configs/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 14:32:16', '2020-08-19 14:32:16');
+INSERT INTO `admin_operation_log` VALUES ('1799', '1', 'admin/configs', 'POST', '192.168.0.140', '{\"name\":\"bar\",\"value\":\"100\",\"remark\":\"\\u6746\\u6760\",\"_token\":\"gJtoh7o3XCeLiHRjt7ZNpEcEOe487okKfx0vv0UO\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/configs\"}', '2020-08-19 14:32:41', '2020-08-19 14:32:41');
+INSERT INTO `admin_operation_log` VALUES ('1800', '1', 'admin/configs', 'GET', '192.168.0.140', '[]', '2020-08-19 14:32:41', '2020-08-19 14:32:41');
+INSERT INTO `admin_operation_log` VALUES ('1801', '1', 'admin/configs/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 14:33:07', '2020-08-19 14:33:07');
+INSERT INTO `admin_operation_log` VALUES ('1802', '1', 'admin/configs', 'POST', '192.168.0.140', '{\"name\":\"hand\",\"value\":\"100000\",\"remark\":\"\\u4e00\\u624b\",\"_token\":\"gJtoh7o3XCeLiHRjt7ZNpEcEOe487okKfx0vv0UO\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/configs\"}', '2020-08-19 14:33:26', '2020-08-19 14:33:26');
+INSERT INTO `admin_operation_log` VALUES ('1803', '1', 'admin/configs', 'GET', '192.168.0.140', '[]', '2020-08-19 14:33:26', '2020-08-19 14:33:26');
+INSERT INTO `admin_operation_log` VALUES ('1804', '1', 'admin/configs/64/edit', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 14:33:43', '2020-08-19 14:33:43');
+INSERT INTO `admin_operation_log` VALUES ('1805', '1', 'admin/configs/64', 'PUT', '192.168.0.140', '{\"name\":\"fees\",\"value\":\"20\",\"remark\":\"1000\\u4fdd\\u8bc1\\u91d1\\u5bf9\\u5e94\",\"_token\":\"gJtoh7o3XCeLiHRjt7ZNpEcEOe487okKfx0vv0UO\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/configs\"}', '2020-08-19 14:34:12', '2020-08-19 14:34:12');
+INSERT INTO `admin_operation_log` VALUES ('1806', '1', 'admin/configs', 'GET', '192.168.0.140', '[]', '2020-08-19 14:34:12', '2020-08-19 14:34:12');
+INSERT INTO `admin_operation_log` VALUES ('1807', '1', 'admin/_handle_action_', 'POST', '192.168.0.140', '{\"_key\":\"65\",\"_model\":\"App_Models_Configs\",\"_token\":\"gJtoh7o3XCeLiHRjt7ZNpEcEOe487okKfx0vv0UO\",\"_action\":\"Encore_Admin_Grid_Actions_Delete\",\"_input\":\"true\"}', '2020-08-19 14:34:20', '2020-08-19 14:34:20');
+INSERT INTO `admin_operation_log` VALUES ('1808', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 14:34:21', '2020-08-19 14:34:21');
+INSERT INTO `admin_operation_log` VALUES ('1809', '1', 'admin/configs/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 15:01:49', '2020-08-19 15:01:49');
+INSERT INTO `admin_operation_log` VALUES ('1810', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 15:01:55', '2020-08-19 15:01:55');
+INSERT INTO `admin_operation_log` VALUES ('1811', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 15:01:57', '2020-08-19 15:01:57');
+INSERT INTO `admin_operation_log` VALUES ('1812', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"FS\":\"AUDUSD\",\"type\":\"Forex1\",\"_token\":\"gJtoh7o3XCeLiHRjt7ZNpEcEOe487okKfx0vv0UO\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/foreign-exchange-lists\"}', '2020-08-19 15:02:40', '2020-08-19 15:02:40');
+INSERT INTO `admin_operation_log` VALUES ('1813', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-19 15:02:40', '2020-08-19 15:02:40');
+INSERT INTO `admin_operation_log` VALUES ('1814', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 15:02:53', '2020-08-19 15:02:53');
+INSERT INTO `admin_operation_log` VALUES ('1815', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 15:03:06', '2020-08-19 15:03:06');
+INSERT INTO `admin_operation_log` VALUES ('1816', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"FS\":\"EURUSD\",\"type\":\"Forex1\",\"_token\":\"gJtoh7o3XCeLiHRjt7ZNpEcEOe487okKfx0vv0UO\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/foreign-exchange-lists\"}', '2020-08-19 15:03:12', '2020-08-19 15:03:12');
+INSERT INTO `admin_operation_log` VALUES ('1817', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-19 15:03:13', '2020-08-19 15:03:13');
+INSERT INTO `admin_operation_log` VALUES ('1818', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 15:03:16', '2020-08-19 15:03:16');
+INSERT INTO `admin_operation_log` VALUES ('1819', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"FS\":\"GBPUSD\",\"type\":\"Forex1\",\"_token\":\"gJtoh7o3XCeLiHRjt7ZNpEcEOe487okKfx0vv0UO\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/foreign-exchange-lists\"}', '2020-08-19 15:03:29', '2020-08-19 15:03:29');
+INSERT INTO `admin_operation_log` VALUES ('1820', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-19 15:03:30', '2020-08-19 15:03:30');
+INSERT INTO `admin_operation_log` VALUES ('1821', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 15:03:39', '2020-08-19 15:03:39');
+INSERT INTO `admin_operation_log` VALUES ('1822', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"FS\":\"NZDUSD\",\"type\":null,\"_token\":\"gJtoh7o3XCeLiHRjt7ZNpEcEOe487okKfx0vv0UO\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/foreign-exchange-lists\"}', '2020-08-19 15:03:45', '2020-08-19 15:03:45');
+INSERT INTO `admin_operation_log` VALUES ('1823', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '[]', '2020-08-19 15:03:46', '2020-08-19 15:03:46');
+INSERT INTO `admin_operation_log` VALUES ('1824', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"FS\":\"NZDUSD\",\"type\":\"Forex1\",\"_token\":\"gJtoh7o3XCeLiHRjt7ZNpEcEOe487okKfx0vv0UO\"}', '2020-08-19 15:03:51', '2020-08-19 15:03:51');
+INSERT INTO `admin_operation_log` VALUES ('1825', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-19 15:03:51', '2020-08-19 15:03:51');
+INSERT INTO `admin_operation_log` VALUES ('1826', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 15:04:30', '2020-08-19 15:04:30');
+INSERT INTO `admin_operation_log` VALUES ('1827', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"FS\":\"USDCAD\",\"type\":\"Forex1\",\"_token\":\"gJtoh7o3XCeLiHRjt7ZNpEcEOe487okKfx0vv0UO\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/foreign-exchange-lists\"}', '2020-08-19 15:04:37', '2020-08-19 15:04:37');
+INSERT INTO `admin_operation_log` VALUES ('1828', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-19 15:04:37', '2020-08-19 15:04:37');
+INSERT INTO `admin_operation_log` VALUES ('1829', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 15:05:02', '2020-08-19 15:05:02');
+INSERT INTO `admin_operation_log` VALUES ('1830', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 15:32:53', '2020-08-19 15:32:53');
+INSERT INTO `admin_operation_log` VALUES ('1831', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 16:50:40', '2020-08-19 16:50:40');
+INSERT INTO `admin_operation_log` VALUES ('1832', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 16:50:43', '2020-08-19 16:50:43');
+INSERT INTO `admin_operation_log` VALUES ('1833', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 16:50:46', '2020-08-19 16:50:46');
+INSERT INTO `admin_operation_log` VALUES ('1834', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 17:34:18', '2020-08-19 17:34:18');
+INSERT INTO `admin_operation_log` VALUES ('1835', '1', 'admin/_handle_action_', 'POST', '192.168.0.140', '{\"_key\":\"1\",\"_model\":\"App_Models_ForeignExchangeList\",\"_token\":\"gJtoh7o3XCeLiHRjt7ZNpEcEOe487okKfx0vv0UO\",\"_action\":\"Encore_Admin_Grid_Actions_Delete\",\"_input\":\"true\"}', '2020-08-19 17:37:30', '2020-08-19 17:37:30');
+INSERT INTO `admin_operation_log` VALUES ('1836', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 17:37:30', '2020-08-19 17:37:30');
+INSERT INTO `admin_operation_log` VALUES ('1837', '1', 'admin/_handle_action_', 'POST', '192.168.0.140', '{\"_key\":\"4\",\"_model\":\"App_Models_ForeignExchangeList\",\"_token\":\"gJtoh7o3XCeLiHRjt7ZNpEcEOe487okKfx0vv0UO\",\"_action\":\"Encore_Admin_Grid_Actions_Delete\",\"_input\":\"true\"}', '2020-08-19 17:37:40', '2020-08-19 17:37:40');
+INSERT INTO `admin_operation_log` VALUES ('1838', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 17:37:41', '2020-08-19 17:37:41');
+INSERT INTO `admin_operation_log` VALUES ('1839', '1', 'admin/_handle_action_', 'POST', '192.168.0.140', '{\"_key\":\"5\",\"_model\":\"App_Models_ForeignExchangeList\",\"_token\":\"gJtoh7o3XCeLiHRjt7ZNpEcEOe487okKfx0vv0UO\",\"_action\":\"Encore_Admin_Grid_Actions_Delete\",\"_input\":\"true\"}', '2020-08-19 17:37:47', '2020-08-19 17:37:47');
+INSERT INTO `admin_operation_log` VALUES ('1840', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 17:37:48', '2020-08-19 17:37:48');
+INSERT INTO `admin_operation_log` VALUES ('1841', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-19 17:38:16', '2020-08-19 17:38:16');
+INSERT INTO `admin_operation_log` VALUES ('1842', '1', 'admin/users', 'GET', '192.168.0.140', '[]', '2020-08-20 08:55:43', '2020-08-20 08:55:43');
+INSERT INTO `admin_operation_log` VALUES ('1843', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 08:55:52', '2020-08-20 08:55:52');
+INSERT INTO `admin_operation_log` VALUES ('1844', '1', 'admin/configs/64/edit', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 08:56:11', '2020-08-20 08:56:11');
+INSERT INTO `admin_operation_log` VALUES ('1845', '1', 'admin/configs/64', 'PUT', '192.168.0.140', '{\"name\":\"fees\",\"value\":\"20\",\"remark\":\"1000\\u4fdd\\u8bc1\\u91d1\\u5bf9\\u5e94\\u624b\\u7eed\\u8d39\",\"_token\":\"vm2nmKlD2WuSlTpPgZxi7YPWjujPxOFeXP7JWH1t\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/configs\"}', '2020-08-20 08:56:21', '2020-08-20 08:56:21');
+INSERT INTO `admin_operation_log` VALUES ('1846', '1', 'admin/configs', 'GET', '192.168.0.140', '[]', '2020-08-20 08:56:21', '2020-08-20 08:56:21');
+INSERT INTO `admin_operation_log` VALUES ('1847', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 08:58:13', '2020-08-20 08:58:13');
+INSERT INTO `admin_operation_log` VALUES ('1848', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 09:13:05', '2020-08-20 09:13:05');
+INSERT INTO `admin_operation_log` VALUES ('1849', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 09:14:51', '2020-08-20 09:14:51');
+INSERT INTO `admin_operation_log` VALUES ('1850', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 09:15:45', '2020-08-20 09:15:45');
+INSERT INTO `admin_operation_log` VALUES ('1851', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"FS\":\"AUDCAD\",\"type\":\"Forex2\",\"_token\":\"vm2nmKlD2WuSlTpPgZxi7YPWjujPxOFeXP7JWH1t\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/foreign-exchange-lists\"}', '2020-08-20 09:16:02', '2020-08-20 09:16:02');
+INSERT INTO `admin_operation_log` VALUES ('1852', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-20 09:16:03', '2020-08-20 09:16:03');
+INSERT INTO `admin_operation_log` VALUES ('1853', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 09:16:51', '2020-08-20 09:16:51');
+INSERT INTO `admin_operation_log` VALUES ('1854', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 09:20:13', '2020-08-20 09:20:13');
+INSERT INTO `admin_operation_log` VALUES ('1855', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"FS\":\"AUDUSD\",\"type\":\"Forex1\",\"_token\":\"vm2nmKlD2WuSlTpPgZxi7YPWjujPxOFeXP7JWH1t\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/foreign-exchange-lists\"}', '2020-08-20 09:20:18', '2020-08-20 09:20:18');
+INSERT INTO `admin_operation_log` VALUES ('1856', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-20 09:20:18', '2020-08-20 09:20:18');
+INSERT INTO `admin_operation_log` VALUES ('1857', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 09:20:29', '2020-08-20 09:20:29');
+INSERT INTO `admin_operation_log` VALUES ('1858', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 09:31:55', '2020-08-20 09:31:55');
+INSERT INTO `admin_operation_log` VALUES ('1859', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 09:34:05', '2020-08-20 09:34:05');
+INSERT INTO `admin_operation_log` VALUES ('1860', '1', 'admin/foreign-exchange-lists/create', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 09:34:12', '2020-08-20 09:34:12');
+INSERT INTO `admin_operation_log` VALUES ('1861', '1', 'admin/foreign-exchange-lists', 'POST', '192.168.0.140', '{\"FS\":\"USDCAD\",\"type\":\"Forex1\",\"_token\":\"vm2nmKlD2WuSlTpPgZxi7YPWjujPxOFeXP7JWH1t\",\"_previous_\":\"http:\\/\\/192.168.0.150:8005\\/admin\\/foreign-exchange-lists\"}', '2020-08-20 09:34:32', '2020-08-20 09:34:32');
+INSERT INTO `admin_operation_log` VALUES ('1862', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-20 09:34:33', '2020-08-20 09:34:33');
+INSERT INTO `admin_operation_log` VALUES ('1863', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:18:09', '2020-08-20 11:18:09');
+INSERT INTO `admin_operation_log` VALUES ('1864', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:19:31', '2020-08-20 11:19:31');
+INSERT INTO `admin_operation_log` VALUES ('1865', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:19:36', '2020-08-20 11:19:36');
+INSERT INTO `admin_operation_log` VALUES ('1866', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:20:20', '2020-08-20 11:20:20');
+INSERT INTO `admin_operation_log` VALUES ('1867', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:20:22', '2020-08-20 11:20:22');
+INSERT INTO `admin_operation_log` VALUES ('1868', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:20:23', '2020-08-20 11:20:23');
+INSERT INTO `admin_operation_log` VALUES ('1869', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:20:25', '2020-08-20 11:20:25');
+INSERT INTO `admin_operation_log` VALUES ('1870', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:22:11', '2020-08-20 11:22:11');
+INSERT INTO `admin_operation_log` VALUES ('1871', '1', 'admin/auth/setting', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:22:23', '2020-08-20 11:22:23');
+INSERT INTO `admin_operation_log` VALUES ('1872', '1', 'admin/auth/setting', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:22:37', '2020-08-20 11:22:37');
+INSERT INTO `admin_operation_log` VALUES ('1873', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:22:41', '2020-08-20 11:22:41');
+INSERT INTO `admin_operation_log` VALUES ('1874', '1', 'admin', 'GET', '192.168.0.140', '[]', '2020-08-20 11:23:10', '2020-08-20 11:23:10');
+INSERT INTO `admin_operation_log` VALUES ('1875', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:23:13', '2020-08-20 11:23:13');
+INSERT INTO `admin_operation_log` VALUES ('1876', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:24:16', '2020-08-20 11:24:16');
+INSERT INTO `admin_operation_log` VALUES ('1877', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:25:16', '2020-08-20 11:25:16');
+INSERT INTO `admin_operation_log` VALUES ('1878', '1', 'admin/orders', 'GET', '192.168.0.140', '[]', '2020-08-20 11:31:15', '2020-08-20 11:31:15');
+INSERT INTO `admin_operation_log` VALUES ('1879', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:32:46', '2020-08-20 11:32:46');
+INSERT INTO `admin_operation_log` VALUES ('1880', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:33:23', '2020-08-20 11:33:23');
+INSERT INTO `admin_operation_log` VALUES ('1881', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:34:31', '2020-08-20 11:34:31');
+INSERT INTO `admin_operation_log` VALUES ('1882', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:34:52', '2020-08-20 11:34:52');
+INSERT INTO `admin_operation_log` VALUES ('1883', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:38:42', '2020-08-20 11:38:42');
+INSERT INTO `admin_operation_log` VALUES ('1884', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:39:00', '2020-08-20 11:39:00');
+INSERT INTO `admin_operation_log` VALUES ('1885', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:40:28', '2020-08-20 11:40:28');
+INSERT INTO `admin_operation_log` VALUES ('1886', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:42:06', '2020-08-20 11:42:06');
+INSERT INTO `admin_operation_log` VALUES ('1887', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 11:42:11', '2020-08-20 11:42:11');
+INSERT INTO `admin_operation_log` VALUES ('1888', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 13:04:02', '2020-08-20 13:04:02');
+INSERT INTO `admin_operation_log` VALUES ('1889', '1', 'admin/money-records', 'GET', '192.168.0.140', '[]', '2020-08-20 13:15:42', '2020-08-20 13:15:42');
+INSERT INTO `admin_operation_log` VALUES ('1890', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 13:24:38', '2020-08-20 13:24:38');
+INSERT INTO `admin_operation_log` VALUES ('1891', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 13:25:52', '2020-08-20 13:25:52');
+INSERT INTO `admin_operation_log` VALUES ('1892', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 13:25:56', '2020-08-20 13:25:56');
+INSERT INTO `admin_operation_log` VALUES ('1893', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 13:26:25', '2020-08-20 13:26:25');
+INSERT INTO `admin_operation_log` VALUES ('1894', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 13:27:44', '2020-08-20 13:27:44');
+INSERT INTO `admin_operation_log` VALUES ('1895', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 13:28:31', '2020-08-20 13:28:31');
+INSERT INTO `admin_operation_log` VALUES ('1896', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 13:32:40', '2020-08-20 13:32:40');
+INSERT INTO `admin_operation_log` VALUES ('1897', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 13:32:48', '2020-08-20 13:32:48');
+INSERT INTO `admin_operation_log` VALUES ('1898', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 13:34:20', '2020-08-20 13:34:20');
+INSERT INTO `admin_operation_log` VALUES ('1899', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 13:37:02', '2020-08-20 13:37:02');
+INSERT INTO `admin_operation_log` VALUES ('1900', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 14:46:56', '2020-08-20 14:46:56');
+INSERT INTO `admin_operation_log` VALUES ('1901', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 14:49:30', '2020-08-20 14:49:30');
+INSERT INTO `admin_operation_log` VALUES ('1902', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 14:50:49', '2020-08-20 14:50:49');
+INSERT INTO `admin_operation_log` VALUES ('1903', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 14:50:52', '2020-08-20 14:50:52');
+INSERT INTO `admin_operation_log` VALUES ('1904', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 14:51:48', '2020-08-20 14:51:48');
+INSERT INTO `admin_operation_log` VALUES ('1905', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 14:52:42', '2020-08-20 14:52:42');
+INSERT INTO `admin_operation_log` VALUES ('1906', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 14:52:58', '2020-08-20 14:52:58');
+INSERT INTO `admin_operation_log` VALUES ('1907', '1', 'admin/_handle_action_', 'POST', '192.168.0.140', '{\"_key\":\"7\",\"_model\":\"App_Models_Order\",\"_token\":\"6zS5ZhHXK6T3lTWqyw6lGdpLtLJgkLQ3Rst7aYNJ\",\"_action\":\"Encore_Admin_Grid_Actions_Delete\",\"_input\":\"true\"}', '2020-08-20 14:54:13', '2020-08-20 14:54:13');
+INSERT INTO `admin_operation_log` VALUES ('1908', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 14:54:14', '2020-08-20 14:54:14');
+INSERT INTO `admin_operation_log` VALUES ('1909', '1', 'admin/_handle_action_', 'POST', '192.168.0.140', '{\"_key\":\"8\",\"_model\":\"App_Models_Order\",\"_token\":\"6zS5ZhHXK6T3lTWqyw6lGdpLtLJgkLQ3Rst7aYNJ\",\"_action\":\"Encore_Admin_Grid_Actions_Delete\",\"_input\":\"true\"}', '2020-08-20 14:54:18', '2020-08-20 14:54:18');
+INSERT INTO `admin_operation_log` VALUES ('1910', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 14:54:18', '2020-08-20 14:54:18');
+INSERT INTO `admin_operation_log` VALUES ('1911', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 15:07:09', '2020-08-20 15:07:09');
+INSERT INTO `admin_operation_log` VALUES ('1912', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 15:14:34', '2020-08-20 15:14:34');
+INSERT INTO `admin_operation_log` VALUES ('1913', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 15:22:58', '2020-08-20 15:22:58');
+INSERT INTO `admin_operation_log` VALUES ('1914', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 15:31:24', '2020-08-20 15:31:24');
+INSERT INTO `admin_operation_log` VALUES ('1915', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 15:31:31', '2020-08-20 15:31:31');
+INSERT INTO `admin_operation_log` VALUES ('1916', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 15:39:07', '2020-08-20 15:39:07');
+INSERT INTO `admin_operation_log` VALUES ('1917', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 15:41:06', '2020-08-20 15:41:06');
+INSERT INTO `admin_operation_log` VALUES ('1918', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 15:42:32', '2020-08-20 15:42:32');
+INSERT INTO `admin_operation_log` VALUES ('1919', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 15:43:05', '2020-08-20 15:43:05');
+INSERT INTO `admin_operation_log` VALUES ('1920', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 15:43:08', '2020-08-20 15:43:08');
+INSERT INTO `admin_operation_log` VALUES ('1921', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 15:44:17', '2020-08-20 15:44:17');
+INSERT INTO `admin_operation_log` VALUES ('1922', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 15:44:26', '2020-08-20 15:44:26');
+INSERT INTO `admin_operation_log` VALUES ('1923', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 15:44:52', '2020-08-20 15:44:52');
+INSERT INTO `admin_operation_log` VALUES ('1924', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 15:45:33', '2020-08-20 15:45:33');
+INSERT INTO `admin_operation_log` VALUES ('1925', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 15:59:27', '2020-08-20 15:59:27');
+INSERT INTO `admin_operation_log` VALUES ('1926', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:00:11', '2020-08-20 16:00:11');
+INSERT INTO `admin_operation_log` VALUES ('1927', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:00:46', '2020-08-20 16:00:46');
+INSERT INTO `admin_operation_log` VALUES ('1928', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:02:52', '2020-08-20 16:02:52');
+INSERT INTO `admin_operation_log` VALUES ('1929', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:03:26', '2020-08-20 16:03:26');
+INSERT INTO `admin_operation_log` VALUES ('1930', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:03:55', '2020-08-20 16:03:55');
+INSERT INTO `admin_operation_log` VALUES ('1931', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:04:05', '2020-08-20 16:04:05');
+INSERT INTO `admin_operation_log` VALUES ('1932', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:04:45', '2020-08-20 16:04:45');
+INSERT INTO `admin_operation_log` VALUES ('1933', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:04:48', '2020-08-20 16:04:48');
+INSERT INTO `admin_operation_log` VALUES ('1934', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:07:27', '2020-08-20 16:07:27');
+INSERT INTO `admin_operation_log` VALUES ('1935', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:07:30', '2020-08-20 16:07:30');
+INSERT INTO `admin_operation_log` VALUES ('1936', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:07:32', '2020-08-20 16:07:32');
+INSERT INTO `admin_operation_log` VALUES ('1937', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:07:33', '2020-08-20 16:07:33');
+INSERT INTO `admin_operation_log` VALUES ('1938', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:07:36', '2020-08-20 16:07:36');
+INSERT INTO `admin_operation_log` VALUES ('1939', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:08:38', '2020-08-20 16:08:38');
+INSERT INTO `admin_operation_log` VALUES ('1940', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:08:40', '2020-08-20 16:08:40');
+INSERT INTO `admin_operation_log` VALUES ('1941', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:08:41', '2020-08-20 16:08:41');
+INSERT INTO `admin_operation_log` VALUES ('1942', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 16:08:48', '2020-08-20 16:08:48');
+INSERT INTO `admin_operation_log` VALUES ('1943', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 17:32:02', '2020-08-20 17:32:02');
+INSERT INTO `admin_operation_log` VALUES ('1944', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 17:35:57', '2020-08-20 17:35:57');
+INSERT INTO `admin_operation_log` VALUES ('1945', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 17:36:08', '2020-08-20 17:36:08');
+INSERT INTO `admin_operation_log` VALUES ('1946', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 17:36:28', '2020-08-20 17:36:28');
+INSERT INTO `admin_operation_log` VALUES ('1947', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 17:36:36', '2020-08-20 17:36:36');
+INSERT INTO `admin_operation_log` VALUES ('1948', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-20 17:59:16', '2020-08-20 17:59:16');
+INSERT INTO `admin_operation_log` VALUES ('1949', '1', 'admin/orders', 'GET', '192.168.0.140', '[]', '2020-08-21 09:08:49', '2020-08-21 09:08:49');
+INSERT INTO `admin_operation_log` VALUES ('1950', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 09:20:36', '2020-08-21 09:20:36');
+INSERT INTO `admin_operation_log` VALUES ('1951', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 09:29:56', '2020-08-21 09:29:56');
+INSERT INTO `admin_operation_log` VALUES ('1952', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 09:49:32', '2020-08-21 09:49:32');
+INSERT INTO `admin_operation_log` VALUES ('1953', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 09:49:53', '2020-08-21 09:49:53');
+INSERT INTO `admin_operation_log` VALUES ('1954', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 09:52:01', '2020-08-21 09:52:01');
+INSERT INTO `admin_operation_log` VALUES ('1955', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 09:52:04', '2020-08-21 09:52:04');
+INSERT INTO `admin_operation_log` VALUES ('1956', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 09:57:39', '2020-08-21 09:57:39');
+INSERT INTO `admin_operation_log` VALUES ('1957', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 09:57:52', '2020-08-21 09:57:52');
+INSERT INTO `admin_operation_log` VALUES ('1958', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 09:57:53', '2020-08-21 09:57:53');
+INSERT INTO `admin_operation_log` VALUES ('1959', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 09:58:22', '2020-08-21 09:58:22');
+INSERT INTO `admin_operation_log` VALUES ('1960', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 09:58:52', '2020-08-21 09:58:52');
+INSERT INTO `admin_operation_log` VALUES ('1961', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 09:59:44', '2020-08-21 09:59:44');
+INSERT INTO `admin_operation_log` VALUES ('1962', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 09:59:49', '2020-08-21 09:59:49');
+INSERT INTO `admin_operation_log` VALUES ('1963', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 09:59:55', '2020-08-21 09:59:55');
+INSERT INTO `admin_operation_log` VALUES ('1964', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 10:01:00', '2020-08-21 10:01:00');
+INSERT INTO `admin_operation_log` VALUES ('1965', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 10:01:12', '2020-08-21 10:01:12');
+INSERT INTO `admin_operation_log` VALUES ('1966', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 10:01:16', '2020-08-21 10:01:16');
+INSERT INTO `admin_operation_log` VALUES ('1967', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 10:02:26', '2020-08-21 10:02:26');
+INSERT INTO `admin_operation_log` VALUES ('1968', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 10:02:44', '2020-08-21 10:02:44');
+INSERT INTO `admin_operation_log` VALUES ('1969', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 10:08:25', '2020-08-21 10:08:25');
+INSERT INTO `admin_operation_log` VALUES ('1970', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 10:08:29', '2020-08-21 10:08:29');
+INSERT INTO `admin_operation_log` VALUES ('1971', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 10:08:33', '2020-08-21 10:08:33');
+INSERT INTO `admin_operation_log` VALUES ('1972', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 10:09:13', '2020-08-21 10:09:13');
+INSERT INTO `admin_operation_log` VALUES ('1973', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 10:09:20', '2020-08-21 10:09:20');
+INSERT INTO `admin_operation_log` VALUES ('1974', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 10:09:55', '2020-08-21 10:09:55');
+INSERT INTO `admin_operation_log` VALUES ('1975', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 10:12:32', '2020-08-21 10:12:32');
+INSERT INTO `admin_operation_log` VALUES ('1976', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 10:12:33', '2020-08-21 10:12:33');
+INSERT INTO `admin_operation_log` VALUES ('1977', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 10:12:35', '2020-08-21 10:12:35');
+INSERT INTO `admin_operation_log` VALUES ('1978', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 10:41:41', '2020-08-21 10:41:41');
+INSERT INTO `admin_operation_log` VALUES ('1979', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 11:02:50', '2020-08-21 11:02:50');
+INSERT INTO `admin_operation_log` VALUES ('1980', '1', 'admin/configs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 11:13:36', '2020-08-21 11:13:36');
+INSERT INTO `admin_operation_log` VALUES ('1981', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 11:13:40', '2020-08-21 11:13:40');
+INSERT INTO `admin_operation_log` VALUES ('1982', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 11:13:41', '2020-08-21 11:13:41');
+INSERT INTO `admin_operation_log` VALUES ('1983', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 11:13:44', '2020-08-21 11:13:44');
+INSERT INTO `admin_operation_log` VALUES ('1984', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 11:16:07', '2020-08-21 11:16:07');
+INSERT INTO `admin_operation_log` VALUES ('1985', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 11:16:11', '2020-08-21 11:16:11');
+INSERT INTO `admin_operation_log` VALUES ('1986', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 11:32:32', '2020-08-21 11:32:32');
+INSERT INTO `admin_operation_log` VALUES ('1987', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 11:40:34', '2020-08-21 11:40:34');
+INSERT INTO `admin_operation_log` VALUES ('1988', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 11:40:35', '2020-08-21 11:40:35');
+INSERT INTO `admin_operation_log` VALUES ('1989', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 11:43:32', '2020-08-21 11:43:32');
+INSERT INTO `admin_operation_log` VALUES ('1990', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 13:52:46', '2020-08-21 13:52:46');
+INSERT INTO `admin_operation_log` VALUES ('1991', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-21 13:54:06', '2020-08-21 13:54:06');
 
 -- ----------------------------
 -- Table structure for admin_permissions
@@ -1723,13 +2241,14 @@ CREATE TABLE `configs` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of configs
 -- ----------------------------
-INSERT INTO `configs` VALUES ('64', 'fees', '0.2', '手续费比例', '2020-07-30 10:18:39', '2020-08-03 17:04:18');
-INSERT INTO `configs` VALUES ('65', 'sellrate', '0', '卖出价格比例', '2020-07-30 10:19:17', '2020-07-31 15:02:58');
+INSERT INTO `configs` VALUES ('64', 'fees', '20', '1000保证金对应手续费', '2020-07-30 10:18:39', '2020-08-20 08:56:21');
+INSERT INTO `configs` VALUES ('66', 'bar', '100', '杆杠', '2020-08-19 14:32:41', '2020-08-19 14:32:41');
+INSERT INTO `configs` VALUES ('67', 'hand', '100000', '一手', '2020-08-19 14:33:26', '2020-08-19 14:33:26');
 
 -- ----------------------------
 -- Table structure for foreign_exchange_lists
@@ -1737,20 +2256,30 @@ INSERT INTO `configs` VALUES ('65', 'sellrate', '0', '卖出价格比例', '2020
 DROP TABLE IF EXISTS `foreign_exchange_lists`;
 CREATE TABLE `foreign_exchange_lists` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `code_all` char(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '代码全称',
-  `name` char(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '名称',
-  `rate` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '汇率',
+  `type` char(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '分类',
+  `FS` char(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '品种代码',
+  `S` char(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '唯一完整编码 =M+S+C',
+  `N` char(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '中文名',
+  `H` char(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '--当天最高价',
+  `L` char(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '--当天最低价',
+  `P` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '最新价',
+  `V` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '当天交易量',
+  `NV` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '最新成交量',
+  `B1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '最高价',
+  `S1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '最低价',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of foreign_exchange_lists
 -- ----------------------------
-INSERT INTO `foreign_exchange_lists` VALUES ('9', 'BTCUSD', '比特币/美元', '11149.9', '2020-07-28 02:28:53', '2020-08-03 11:33:33');
-INSERT INTO `foreign_exchange_lists` VALUES ('13', 'ETHUSD', '以太坊/美元', '380.648', '2020-07-28 02:29:32', '2020-08-03 11:33:39');
-INSERT INTO `foreign_exchange_lists` VALUES ('17', 'USDCNH', '美元/人民币', '6.97839', '2020-07-28 05:45:28', '2020-08-03 11:33:41');
+INSERT INTO `foreign_exchange_lists` VALUES ('2', 'Forex1', 'EURUSD', 'EURUSD', '欧元/美元', '1.18758', '1.18543', '1.18664', '15967', '2', '1.18664', '1.18684', '2020-08-19 15:03:12', '2020-08-21 09:51:56');
+INSERT INTO `foreign_exchange_lists` VALUES ('3', 'Forex1', 'GBPUSD', 'GBPUSD', '英镑/美元', '1.32335', '1.32051', '1.32257', '20121', '2', '1.32257', '1.32281', '2020-08-19 15:03:29', '2020-08-21 09:51:56');
+INSERT INTO `foreign_exchange_lists` VALUES ('4', 'Forex2', 'AUDCAD', 'AUDCAD', '澳元/加元', '0.94978', '0.94671', '0.94828', '12469', '1', '0.94828', '0.9487', '2020-08-20 09:16:02', '2020-08-21 09:51:56');
+INSERT INTO `foreign_exchange_lists` VALUES ('5', 'Forex1', 'AUDUSD', 'AUDUSD', '澳元/美元', '0.72151', '0.71841', '0.71996', '18062', '1', '0.71996', '0.72016', '2020-08-20 09:20:18', '2020-08-21 09:51:56');
+INSERT INTO `foreign_exchange_lists` VALUES ('6', 'Forex1', 'USDCAD', 'USDCAD', '美元/加元', '1.31868', '1.31626', '1.31711', '15101', '1', '1.82032', '1.33832', '2020-08-20 09:34:32', '2020-08-21 09:51:56');
 
 -- ----------------------------
 -- Table structure for migrations
@@ -1783,37 +2312,29 @@ CREATE TABLE `money_records` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `type` int(5) DEFAULT '0' COMMENT '类型',
   `title` varchar(90) DEFAULT '' COMMENT '内容标题',
-  `trade_number` varchar(30) DEFAULT '' COMMENT '交易单号',
-  `pre_user_money` decimal(15,5) DEFAULT '0.00000' COMMENT '交易前用户可用余额',
-  `user_money` decimal(15,5) DEFAULT '0.00000' COMMENT '交易后用户可用余额',
-  `pre_frozen_money` decimal(15,5) DEFAULT '0.00000' COMMENT '交易前冻结金额',
-  `after_frozen_money` decimal(15,5) DEFAULT '0.00000' COMMENT '交易后冻结金额',
-  `frozen_money` decimal(15,5) DEFAULT '0.00000' COMMENT '变动结金额',
-  `money` decimal(15,5) DEFAULT '0.00000' COMMENT '变动余额',
+  `trade_no` varchar(30) DEFAULT '' COMMENT '交易单号',
+  `pre_last_balance` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '交易前结余',
+  `pre_advance` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '交易前预付款',
+  `last_balance` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '结余',
+  `balance` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '可用预付款',
+  `pre_balance` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '交易前可用预付款',
+  `advance` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '预付款',
+  `money` decimal(15,5) DEFAULT '0.00000' COMMENT '变动预付款',
   `user_id` int(10) DEFAULT NULL COMMENT '用户id',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
-  `in_out_id` int(11) DEFAULT '0',
-  `is_show` int(3) DEFAULT '1',
-  `sx` decimal(10,5) DEFAULT '0.00000' COMMENT '手续费',
-  `yh` decimal(10,5) DEFAULT '0.00000' COMMENT '印花税',
-  `ghf` decimal(10,5) DEFAULT '0.00000' COMMENT '过户费',
-  `weituo_id` int(10) DEFAULT '0',
+  `inventory_charges` decimal(10,5) DEFAULT '0.00000' COMMENT '库存费',
+  `tax` decimal(10,5) DEFAULT '0.00000' COMMENT '税金',
+  `fees` decimal(10,5) DEFAULT '0.00000' COMMENT '手续费',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='用户资金变动记录表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户资金变动记录表';
 
 -- ----------------------------
 -- Records of money_records
 -- ----------------------------
-INSERT INTO `money_records` VALUES ('1', '0', '购买外汇-ETHUSD', 'J805955492587816', '25555196.00160', '25517055.07200', '2002000.00000', '2002000.00000', '0.00000', '38140.92960', '1', null, '0', '1', '76.12960', '0.00000', '0.00000', '0', '2020-08-05 10:45:49', '2020-08-05 10:45:49');
-INSERT INTO `money_records` VALUES ('2', '1', '卖出外汇-ETHUSD', 'J805955492587816', '25517055.07200', '25555119.87200', '2002000.00000', '2002000.00000', '0.00000', '38064.80000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-05 10:46:14', '2020-08-05 10:46:14');
-INSERT INTO `money_records` VALUES ('3', '0', '购买外汇-ETHUSD', 'J805955907158448', '25555119.87200', '25516978.94240', '2002000.00000', '2002000.00000', '0.00000', '38140.92960', '1', null, '0', '1', '76.12960', '0.00000', '0.00000', '0', '2020-08-05 10:46:30', '2020-08-05 10:46:30');
-INSERT INTO `money_records` VALUES ('4', '1', '卖出外汇-ETHUSD', 'J805956006949306', '25516978.94240', '25555043.74240', '2002000.00000', '2002000.00000', '0.00000', '38064.80000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-05 10:46:40', '2020-08-05 10:46:40');
-INSERT INTO `money_records` VALUES ('5', '2', '委托交易-ETHUSD', 'J805956243673146', '25555043.74240', '25555043.74240', '2002000.00000', '3004000.00000', '1002000.00000', '0.00000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-05 10:47:04', '2020-08-05 10:47:04');
-INSERT INTO `money_records` VALUES ('6', '2', '买入外汇-ETHUSD', 'J805956243673146', '25555043.74240', '28520902.81280', '3004000.00000', '2965859.07040', '3004000.00000', '2965859.07040', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-05 10:50:24', '2020-08-05 10:50:24');
-INSERT INTO `money_records` VALUES ('7', '1', '卖出外汇-ETHUSD', 'J805958558524934', '28520902.81280', '28558967.61280', '2965859.07040', '2965859.07040', '0.00000', '38064.80000', '1', null, '0', '1', '0.00000', '0.00000', '0.00000', '0', '2020-08-05 10:50:55', '2020-08-05 10:50:55');
+INSERT INTO `money_records` VALUES ('1', '0', '即时执行', 'J821897141474534', '100263.87765', '4000.00000', '100263.87765', '95263.87765', '96263.87765', '5000.00000', '1000.00000', '2', null, '0.00000', '0.00000', '20.00000', '2020-08-21 14:01:54', '2020-08-21 14:01:54');
 
 -- ----------------------------
 -- Table structure for orders
@@ -1822,39 +2343,37 @@ DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `trade_no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '订单号',
-  `buy_trade` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '买入订单号',
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
-  `number` int(11) NOT NULL DEFAULT '0' COMMENT '币种数量',
+  `trouble` int(11) NOT NULL DEFAULT '0' COMMENT '手数',
   `new_value` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '当前价值',
-  `code_all` char(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '交易品种',
-  `buy_price` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '购买价格',
-  `buy_total_price` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '购买总价',
-  `sell_price` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '卖出价格',
-  `sell_total_price` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '卖出总价',
-  `rate` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '手续费',
+  `FS` char(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '交易品种',
+  `create_price` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '建仓价格',
+  `create_total_price` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '购买总价',
+  `close_price` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '平仓价格',
+  `close_total_price` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '平仓总价',
+  `inventory_charges` decimal(10,5) DEFAULT '0.00000' COMMENT '库存费',
+  `tax` decimal(10,5) DEFAULT '0.00000' COMMENT '税金',
+  `fees` decimal(10,5) DEFAULT '0.00000' COMMENT '手续费',
   `stop_loss` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '止损',
   `stop_profit` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '盈利',
-  `type` tinyint(2) NOT NULL DEFAULT '0' COMMENT '0=>买，1=>卖,2=> 委托买, 3=> 委托卖',
-  `status_type` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态 0=>未持仓 1=>持仓',
-  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态 0=>交易未完成 1=>交易完成',
-  `floating` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '浮动价格',
+  `type` char(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'buy' COMMENT '订单类型',
+  `create_type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '建仓类型',
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态 0=>交易未完成 1=>交易持仓阶段 2=>交易已结算',
+  `deviation` int(5) NOT NULL DEFAULT '0' COMMENT '偏差',
+  `profit` decimal(10,5) DEFAULT '0.00000' COMMENT '盈亏',
   `remark` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '备注',
+  `cancel_time` int(11) NOT NULL DEFAULT '0' COMMENT '订单自动取消时间',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `trade_buys_trade_no_unique` (`trade_no`),
   KEY `trade_buys_user_id_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES ('1', 'J805955492587816', '', '1', '100', '0.00000', 'ETHUSD', '380.64800', '38140.92960', '380.64800', '38064.80000', '76.12960', '312.00000', '380.00000', '0', '0', '1', '5000.00000', '买币，，，', '2020-08-05 10:45:49', '2020-08-05 10:46:14');
-INSERT INTO `orders` VALUES ('2', 'J805955740652445', 'J805955492587816', '1', '100', '0.00000', 'ETHUSD', '0.00000', '0.00000', '380.64800', '38064.80000', '0.00000', '0.00000', '0.00000', '1', '0', '1', '200.00000', '5449879', '2020-08-05 10:46:14', '2020-08-05 10:46:14');
-INSERT INTO `orders` VALUES ('3', 'J805955907158448', '', '1', '100', '0.00000', 'ETHUSD', '380.64800', '38140.92960', '0.00000', '0.00000', '76.12960', '312.00000', '380.00000', '0', '0', '1', '5000.00000', '买币，，，', '2020-08-05 10:46:30', '2020-08-05 10:46:40');
-INSERT INTO `orders` VALUES ('4', 'J805956006949306', 'J805955907158448', '1', '100', '0.00000', 'ETHUSD', '0.00000', '0.00000', '380.64800', '38064.80000', '0.00000', '0.00000', '0.00000', '1', '0', '1', '0.00000', '预订盈利价格卖出', '2020-08-05 10:46:40', '2020-08-05 10:46:40');
-INSERT INTO `orders` VALUES ('5', 'J805956243673146', '', '1', '100', '0.00000', 'ETHUSD', '300.00000', '1002000.00000', '0.00000', '0.00000', '2000.00000', '312.00000', '380.00000', '2', '0', '1', '200.00000', '买币，，，', '2020-08-05 10:47:04', '2020-08-05 10:50:55');
-INSERT INTO `orders` VALUES ('6', 'J805958558524934', 'J805956243673146', '1', '100', '0.00000', 'ETHUSD', '0.00000', '0.00000', '380.64800', '38064.80000', '0.00000', '0.00000', '0.00000', '1', '0', '1', '0.00000', '预订盈利价格卖出', '2020-08-05 10:50:55', '2020-08-05 10:50:55');
+INSERT INTO `orders` VALUES ('1', 'J821897141474534', '2', '1', '0.00000', 'USDCAD', '1.33832', '1000.00000', '0.00000', '0.00000', '0.00000', '0.00000', '20.00000', '1.31432', '1.31632', 'buy', '0', '1', '200', '0.00000', '买币，，，', '0', '2020-08-21 14:01:54', '2020-08-21 14:01:54');
 
 -- ----------------------------
 -- Table structure for password_resets
@@ -1925,16 +2444,16 @@ DROP TABLE IF EXISTS `user_foreign_exchange_lists`;
 CREATE TABLE `user_foreign_exchange_lists` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
-  `code_all` char(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '代码全称',
+  `FS` char(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '代码全称',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of user_foreign_exchange_lists
 -- ----------------------------
-INSERT INTO `user_foreign_exchange_lists` VALUES ('21', '1', 'ETHUSD', '2020-08-03 13:42:35', '2020-08-03 13:42:35');
+INSERT INTO `user_foreign_exchange_lists` VALUES ('23', '2', 'EURUSD', '2020-08-21 11:37:05', '2020-08-21 11:37:05');
 
 -- ----------------------------
 -- Table structure for user_operation_logs
@@ -1950,13 +2469,16 @@ CREATE TABLE `user_operation_logs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='用户日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='用户日志表';
 
 -- ----------------------------
 -- Records of user_operation_logs
 -- ----------------------------
 INSERT INTO `user_operation_logs` VALUES ('1', '1', 'test0001', '登录', '0', '192.168.0.140', '2020-08-04 11:46:28', '2020-08-04 11:46:28');
 INSERT INTO `user_operation_logs` VALUES ('2', '1', 'test0001', '登录', '0', '192.168.0.140', '2020-08-04 11:46:49', '2020-08-04 11:46:49');
+INSERT INTO `user_operation_logs` VALUES ('3', '2', 'test0001', '登录', '0', '192.168.0.140', '2020-08-18 16:38:49', '2020-08-18 16:38:49');
+INSERT INTO `user_operation_logs` VALUES ('4', '2', 'test0001', '登录', '0', '192.168.0.140', '2020-08-18 16:58:57', '2020-08-18 16:58:57');
+INSERT INTO `user_operation_logs` VALUES ('5', '3', 'test0002', '登录', '0', '192.168.0.140', '2020-08-21 15:19:20', '2020-08-21 15:19:20');
 
 -- ----------------------------
 -- Table structure for user_poositions
@@ -1971,12 +2493,11 @@ CREATE TABLE `user_poositions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_poosition_user_id_code_all_unique` (`user_id`,`code_all`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of user_poositions
 -- ----------------------------
-INSERT INTO `user_poositions` VALUES ('1', '1', 'ETHUSD', '0', '2020-08-05 10:45:49', '2020-08-05 10:50:55');
 
 -- ----------------------------
 -- Table structure for users
@@ -1989,7 +2510,9 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `balance` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '余额',
+  `last_balance` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '结余',
+  `balance` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '可用预付款',
+  `advance` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '预付款',
   `frozen_balance` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '冻结资金',
   `status` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '状态 0 正常 1 冻结',
   `level` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '等级 0 普通会员 1 超级会员',
@@ -2000,13 +2523,10 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`),
   UNIQUE KEY `users_phone_unique` (`phone`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'test0001', '18482526545', '3654688@qq.com', '2020-10-10 11:38:50', '$2y$10$GkuQqhoWzKghSbeLREczE.exURwrBdMcBGDGDMJhcfxvYSR1sY8HS', '28558967.61280', '2965859.07040', '0', '0', '2020-07-30 11:38:50', null, '2020-07-30 11:40:43', '2020-08-05 10:50:55');
-INSERT INTO `users` VALUES ('2', 'test0002', '18482526546', '3654685558@qq.com', '2020-08-03 15:42:33', '$2y$10$BO8eXCKKG3KoYoVhWIVsc.aTiIBAWFwMDsulZFCWQXz.y461vfaWW', '8000.00000', '0.00000', '0', '0', '2020-10-23 15:42:33', null, '2020-08-03 15:43:27', '2020-08-03 15:43:27');
-INSERT INTO `users` VALUES ('3', 'test0003', '18482526599', '3654682228@qq.com', '2020-08-03 15:48:32', '$2y$10$OgJa8WXiZH3QBOoNDSei3ey9Okj2KdJg/sjV6P.ouF3SSkXb4yf6G', '0.00000', '0.00000', '0', '0', '2020-08-03 15:48:32', null, '2020-08-03 15:48:49', '2020-08-03 15:48:49');
-INSERT INTO `users` VALUES ('4', 'test0005', '18483638888', null, null, '$2y$10$bWifWTO9l04tBC.PjMFPzueNZPR60Uzkhaf7iO./f7HnQkkmXZe9y', '0.00000', '0.00000', '0', '0', '2020-08-04 13:16:03', null, '2020-08-04 13:16:28', '2020-08-04 13:16:28');
-INSERT INTO `users` VALUES ('5', 'test0011', '18482526542', null, null, '$2y$10$J3QAxD4V39HeZx1MVa10vOi50LPqYbNEFTRSYZcerfHDsNUSFOgpS', '0.00000', '0.00000', '0', '0', '2020-08-04 13:28:16', null, '2020-08-04 13:28:38', '2020-08-04 13:28:38');
+INSERT INTO `users` VALUES ('2', 'test0001', '18482526545', null, null, '$2y$10$KWmYwp4C34vIduTsWtPCLOJdrUTserThHaZ05xNOFFFbn7dAQztVG', '100263.87765', '95263.87765', '5000.00000', '0.00000', '0', '0', '2020-08-18 16:38:26', null, '2020-08-18 16:38:42', '2020-08-21 14:01:54');
+INSERT INTO `users` VALUES ('3', 'test0002', '18482526588', null, null, '$2y$10$aJ5ioAT6WkZSGF67R30vhuEYUqibeVgf.1GZIov7pN7xCKUhRAISq', '100000.00000', '100000.00000', '0.00000', '0.00000', '0', '0', '2020-08-18 16:48:39', null, '2020-08-18 16:48:59', '2020-08-18 16:48:59');

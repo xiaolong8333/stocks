@@ -15,9 +15,9 @@ class OrdersRequest extends FormRequest
         switch($this->method()){
             case 'POST':
                 return [
-                    'number' => 'required|integer',
-                    'code_all' => 'required|string|exists:foreign_exchange_lists,code_all',
-                    'type' => 'required|integer',
+                    'trouble' => 'required|integer',
+                    'FS' => 'required|string|exists:foreign_exchange_lists,FS',
+                    'type' => 'required|string',
                 ];
                 break;
             case 'PATCH':
@@ -32,8 +32,8 @@ class OrdersRequest extends FormRequest
     public function attributes()
     {
         return [
-            'number' => '交易数量',
-            'code_all' => '交易品种',
+            'trouble' => '交易手数',
+            'FS' => '交易品种',
             'type' => '交易类型',
             'trade_no' => '订单号',
         ];

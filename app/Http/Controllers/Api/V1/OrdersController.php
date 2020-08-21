@@ -22,15 +22,37 @@ class OrdersController extends Controller
     //
     public function index(Request $request)
     {
+        //获取配置
+        $config = Configs::get();
+        $configs = [];
+        foreach($config as $k=>$v){
+            $configs[$v->name]=$v->value;
+        }
+
         $where["user_id"]=$request->user()->id;
-        if($request->status_type)
-            $where["status_type"] = $request->status_type;
+        if($request->create_type)
+            $where["create_type"] = $request->create_type;
         if($request->status)
             $where["status"] = $request->status;
         if($request->type)
             $where["type"] = $request->type;
-        $orders = Order::where($where)->orderBy('id','asc')->paginate(10);
-
+        $orders = Order::with('exchangeList')
+            ->where($where)
+            ->orderBy('id','asc')
+            ->paginate(10)
+        ->map(function($item)use ($configs){
+            $toPriceList=[];
+            //不是直接盘
+            if($item->exchangeList->type!='Forex1'){
+                $indirect = substr($item->exchangeList->FS,0,3)."USD";
+                $toPriceList = ForeignExchangeList::where("FS",$indirect)->first();
+                if(!$toPriceList)
+                    return false;
+            }
+            //盈亏
+            $item->newProfit =  getProfit($item,$item->exchangeList,$configs,$toPriceList);
+            return $item;
+        });
         return OrdersResource::collection($orders);
 
     }
@@ -42,21 +64,29 @@ class OrdersController extends Controller
      */
     public function create(Request $request, OrdersRequest $query)
     {
-        $nowPrice = ForeignExchangeList::where("code_all",$query->code_all)->first()->rate;
-        if($query->type==2)
-            $nowPrice = $query->buy_price??0;
-        if(substr($query->code_all,0,3)=="USD")
-            $nowPrice = 1000;
-        if(substr($query->code_all,3,3)=="USD")
-            $nowPrice = $nowPrice*1000;
-        $rate = Configs::where("name","fees")->first()->value;
-        $total_price = sprintf("%.5f",$nowPrice);
-        $rate = sprintf("%.5f",$rate*$nowPrice);
-        $total_price += $rate;
-        if($request->user()->balance-$request->user()->frozen_balance<$total_price){
-            return $this->response->error('余额不足', 205);
+        $market = ForeignExchangeList::where("FS",$query->FS)->first();
+        $toPriceList=[];
+        //不是直接盘
+        if($market->type!='Forex1'){
+            $indirect = substr($market->FS,0,3)."USD";
+            $toPriceList = ForeignExchangeList::where("FS",$indirect)->first();
+            if(!$toPriceList)
+                return $this->response->error('此币种不能交易', 205);
         }
-        if($order = $this->createAction($nowPrice,$rate,$total_price,$request,$query)) {
+        //获取配置
+        $config = Configs::get();
+        $configs = [];
+        foreach($config as $k=>$v){
+            $configs[$v->name]=$v->value;
+        }
+        //总价格
+        $total_price =  getPrice($query,$market,$configs,$toPriceList);
+        //手续费
+        $fees = $configs['fees'];
+        if($request->user()->balance<($total_price)){
+            return $this->response->error('预付款金额不足', 205);
+        }
+        if($order = $this->createAction($market,$fees,$total_price,$request,$query)) {
             return new OrdersResource($order);
         }
         else{
@@ -65,85 +95,55 @@ class OrdersController extends Controller
     }
 
 
-    public function createAction($nowPrice,$rate,$total_price,$request,$query)
+    public function createAction($market,$fees,$total_price,$request,$query)
     {
         $query->buy_price = $query->buy_price??0;
-        $number = $this->createNumber();
+        $trade_no = $this->createNumber();
         try {
             //开启默认数据库的事务
             DB::beginTransaction();
             $order = new Order();
-            $order ->trade_no = $number;
+            $order ->trade_no = $trade_no;
             $order ->user_id = $request->user()->id;
             //$order ->new_value = $nowPrice;
-            $order ->number = $query->number;
-            $order ->code_all = $query->code_all;
-            $order ->buy_price = $query->type==0?$nowPrice:$query->buy_price;
-            $order ->buy_total_price = sprintf("%.5f",$total_price);
-            $order ->rate = $rate;
-            $order ->stop_loss = $query->stop_loss??'';
-            $order ->stop_profit = $query->stop_profit??'';
-            $order ->floating= $query->floating??0;
+            $order ->trouble = $query->trouble;
+            $order ->FS = $query->FS;
+            $order ->create_price = $query->create_type==0?($query->type=='buy'?$market->S1:$market->B1):$query->create_price;
+            $order ->create_total_price = sprintf("%.5f",$total_price);
+            $order ->fees = sprintf("%.5f",$fees);
+            $order ->stop_loss = sprintf("%.5f",$query->stop_loss??0);
+            $order ->stop_profit = sprintf("%.5f",$query->stop_profit??0);
+            $order ->deviation= $query->deviation??0;
             $order ->type = $query->type;
-            $order ->status = 1;
-            $order ->status_type = 1;
+            $order ->create_type = $query->create_type;
+            $order ->status = $query->create_type==0?1:0;
+            $order ->cancel_time = isset($query->cancel_time)?strtotime($query->cancel_time):0;
             $order ->remark = $query->remark??'';
-            if($query->type==2){
-                $order ->status = 0;
-                $order ->status_type = 0;
+            if($query->create_type==0){
+                $order ->create_price = $query->type=='buy'?$market->S1:$market->B1;
                 $moneyData = [
-                    'type'=>2,
+                    'type'=>0,
                     'user_id'=>$request->user()->id,
-                    'title'=>'委托交易-'.$query->code_all,
-                    'trade_number'=>$number,
-                    'pre_user_money'=>$request->user()->balance,
-                    'user_money'=>$request->user()->balance,
-                    'pre_frozen_money'=>$request->user()->frozen_balance,
-                    'after_frozen_money'=>sprintf("%.5f",$request->user()->frozen_balance+$total_price),
-                    'frozen_money'=>$total_price,
-                    'money'=> 0
+                    'title'=>TRADTYPE[$query->create_type],
+                    'trade_no'=>$trade_no,
+                    'pre_last_balance'=>$request->user()->last_balance,
+                    'last_balance'=>$request->user()->last_balance,
+                    'pre_balance'=>$request->user()->balance,
+                    'pre_advance'=>$request->user()->advance,
+                    'balance'=>sprintf("%.5f",$request->user()->balance-$total_price),
+                    'advance'=>sprintf("%.5f",$request->user()->advance+$total_price),
+                    'fees' =>sprintf("%.5f",$fees),
+                    'money'=>sprintf("%.5f",$total_price),
                 ];
+                $moneyRecord = new MoneyRecord();
+                $moneyRecord->create($moneyData);
                 User::where('id',$request->user()->id)->update(
                     [
-                        'frozen_balance' =>  sprintf("%.5f",$request->user()->frozen_balance+$total_price)
+                        'balance'=>sprintf("%.5f",$request->user()->balance-$total_price),
+                        'advance' => sprintf("%.5f",$request->user()->advance+$total_price),
                     ]
                 );
             }
-            else {
-
-                $moneyData = [
-                    "type"=>0,
-                    "user_id"=>$request->user()->id,
-                    "title"=>"购买外汇-" . $query->code_all,
-                    "trade_number"=>$number,
-                    "pre_user_money"=>sprintf("%.5f",$request->user()->balance),
-                    "user_money"=>sprintf("%.5f",$request->user()->balance - $total_price),
-                    'pre_frozen_money'=>$request->user()->frozen_balance,
-                    'after_frozen_money'=>$request->user()->frozen_balance,
-                    "money"=>$total_price,
-                    "sx"=>$rate,
-                ];
-
-                User::where('id', $request->user()->id)->update(
-                    [
-                        'balance' => sprintf("%.5f",$request->user()->balance - $total_price),
-                        'advance' => sprintf("%.5f",$request->user()->advance + $total_price)
-                    ]
-                );
-                $userPoosition = UserPoosition::where(["user_id"=>$request->user()->id,"code_all"=>$query->code_all])->first();
-                if($userPoosition){
-                    $userPoosition->number += $query->number;
-                    $userPoosition->save();
-                }else{
-                    $userPoosition = new UserPoosition();
-                    $userPoosition->code_all = $query->code_all;
-                    $userPoosition->user_id = $request->user()->id;
-                    $userPoosition->number = $query->number;
-                    $userPoosition->save();
-                }
-            }
-            $moneyRecord = new MoneyRecord();
-            $moneyRecord->create($moneyData);
             $order->save();
             if (true) {
                 //一起提交
@@ -159,6 +159,7 @@ class OrdersController extends Controller
         }
     }
 
+
     /**
      * @param OrdersRequest $query
      * @param Order $order
@@ -168,17 +169,27 @@ class OrdersController extends Controller
     public function close(Request $request,Order $order)
     {
         $this->authorize('update', $order);
-        if($order->status_type!=1)
-            return $this->response->error('未持仓', 205);
+        if($order->status!=1)
+            return $this->response->error('此订单不能平仓', 205);
+        $market = ForeignExchangeList::where("FS",$order->FS)->first();
+        $toPriceList=[];
+        //不是直接盘
+        if($market->type!='Forex1'){
+            $indirect = substr($market->FS,0,3)."USD";
+            $toPriceList = ForeignExchangeList::where("FS",$indirect)->first();
+            if(!$toPriceList)
+                return $this->response->error('此币种不能交易', 205);
+        }
+        //获取配置
+        $config = Configs::get();
+        $configs = [];
+        foreach($config as $k=>$v){
+            $configs[$v->name]=$v->value;
+        }
+        //盈亏
+        $profit =  getProfit($order,$market,$configs,$toPriceList);
 
-        //print_r($request->user());
-        $sellPrice = ForeignExchangeList::where("code_all",$order->code_all)->first()->rate;
-        if(substr($order->code_all,3,3)!="USD")
-            $sellPrice = sprintf("%.5f",1/$sellPrice);
-        //卖出价格比例
-        $sellrate = Configs::where("name","sellrate")->first()->value;
-        $sellPrice = $sellPrice*(1-$sellrate);
-        if($order = $this->sellAction($request,$sellPrice,$order)) {
+        if($order = $this->closeAction($profit,$order,$market,$request)) {
             return new OrdersResource($order);
         }
         else{
@@ -186,78 +197,44 @@ class OrdersController extends Controller
         }
     }
 
-    public function closeAction($request,$sellPrice,$order)
+    public function closeAction($profit,$order,$market,$request)
     {
         //卖出总价
-        $total_price = sprintf("%.5f",$sellPrice*$order->number);
-        $number = $this->createNumber();
         try {
             //开启默认数据库的事务
             DB::beginTransaction();
-            $order ->sell_price = sprintf("%.5f",$request->type==1?$sellPrice:$request->sell_price);
-            $order ->sell_total_price = sprintf("%.5f",$total_price);
-            $order ->status_type = 0;
-            $sellOrder = new Order();
-            $sellOrder->buy_trade = $order->trade_no;
-            $sellOrder->trade_no =  $number;
-            $sellOrder->user_id = $request->user()->id;
-            //$sellOrder->new_value = $sellPrice;
-            $sellOrder->number = $order->number;
-            $sellOrder->code_all = $order->code_all;
-            $sellOrder->sell_price = sprintf("%.5f",$request->type==1?$sellPrice:$request->sell_price);
-            $sellOrder->sell_total_price = sprintf("%.5f",$total_price);
-            $sellOrder->type = $request->type;
-            $sellOrder->floating= $request->floating??0;
-            $sellOrder->status = 1;
-            $sellOrder->status_type = 0;
-            $sellOrder->remark = $request->remark??'';
-            if($request->type==3){
-                $sellOrder->status = 0;
-                $sellOrder->status_type = 1;
+            $order ->close_price = $order->type=='buy'?$market->B1:$market->S1;
+            $order ->close_total_price = sprintf("%.5f",$order->create_total_price+$profit+$order->fees);
+            $order ->status = 2;
+            $order->profit = $profit;
                 $moneyData = [
-                    'type'=>3,
+                    'type'=>0,
                     'user_id'=>$request->user()->id,
-                    'title'=>'委托交易-'.$order->code_all,
-                    'trade_number'=>$number,
-                    'pre_user_money'=>$request->user()->balance,
-                    'user_money'=>$request->user()->balance,
-                    'pre_frozen_money'=>$request->user()->frozen_balance,
-                    'after_frozen_money'=>$request->user()->frozen_balance,
-                    'frozen_money'=>$total_price,
-                    'money'=> 0
-                ];
-            }
-            else {
-                //金流记录
-                $moneyData = [
-                    "type"=>$request->type,
-                    "user_id"=>$request->user()->id,
-                    "title"=>"卖出外汇-" . $order->code_all,
-                    "trade_number"=>$order ->trade_no,
-                    "pre_user_money"=>sprintf("%.5f",$request->user()->balance),
-                    "user_money"=>sprintf("%.5f",$request->user()->balance + $total_price),
-                    'pre_frozen_money'=>$request->user()->frozen_balance,
-                    'after_frozen_money'=>$request->user()->frozen_balance,
-                    "money"=>$total_price,
+                    'title'=>TRADTYPE[$order->create_type].'平仓',
+                    'trade_no'=>$order->trade_no,
+                    'pre_last_balance'=>$request->user()->last_balance,
+                    'last_balance'=>sprintf("%.5f",$request->user()->last_balance+$profit),
+                    'pre_balance'=>$request->user()->balance,
+                    'pre_advance'=>$request->user()->advance,
+                    'balance'=>sprintf("%.5f",$request->user()->balance+$order->create_total_price+$profit),
+                    'advance'=>sprintf("%.5f",$request->user()->advance-$order->create_total_price),
+                    'fees' =>sprintf("%.5f",$order->fees),
+                    'money'=>sprintf("%.5f",$order->create_total_price+$profit),
                 ];
                 User::where('id', $request->user()->id)->update(
                     [
-                        'balance' => sprintf("%.5f",$request->user()->balance + $total_price)
+                        'last_balance'=>sprintf("%.5f",$request->user()->last_balance+$profit),
+                        'advance'=> sprintf("%.5f",$request->user()->advance-$order->create_total_price),
+                        'balance' => sprintf("%.5f",$request->user()->balance+$order->create_total_price+$profit),
                     ]
                 );
-                //操作持仓
-                $userPoosition = UserPoosition::where(["user_id"=>$request->user()->id,"code_all"=>$order->code_all])->first();
-                $userPoosition->number = $userPoosition->number-$order->number;
-                $userPoosition->save();
-            }
             $moneyRecord = new MoneyRecord();
             $moneyRecord->create($moneyData);
-            $sellOrder->save();
             $order->save();
             if (true) {
                 //一起提交
                 DB::commit();
-                return $sellOrder;
+                return $order;
             } else {
                 //一起回滚
                 DB::rollback();
@@ -286,68 +263,13 @@ class OrdersController extends Controller
         $this->authorize('update', $order);
         if($order->status != 0)
             return $this->response->error('该订单已完成交易', 208);
-        if($order->type == 2){ //撤销买入
-            $order->status = 2;
-            try {
-                //开启默认数据库的事务
-                DB::beginTransaction();
-            $order->save();
-            $frozen_balance = sprintf("%.5f",$request->user()->frozen_balance - $order->buy_total_price);
-            User::where('id', $request->user()->id)->update(
-                [
-                    'frozen_balance' => $frozen_balance>0?$frozen_balance:0
-                ]
-            );
-            $moneyData = [
-                "type"=>2,
-                "user_id"=>$request->user()->id,
-                "title"=>"撤销买入-" . $order->code_all,
-                "trade_number"=>$order ->trade_no,
-                "pre_user_money"=>sprintf("%.5f",$request->user()->balance),
-                "user_money"=>sprintf("%.5f",$request->user()->balance),
-                'pre_frozen_money'=>$request->user()->frozen_balance,
-                'after_frozen_money'=>$frozen_balance>0?$frozen_balance:0,
-                "money"=>0,
-                "frozen_money" => $order->buy_total_price
-            ];
-            $moneyRecord = new MoneyRecord();
-            $moneyRecord->create($moneyData);
-                if (true) {
-                    //一起提交
-                    DB::commit();
-                    return $order;
-                } else {
-                    //一起回滚
-                    DB::rollback();
-                    return false;
-                }
-            } catch (\Exception $exception) {
-                echo "catch some errors:".$exception->getMessage();
-            }
-        }
-        else if($order->type == 3){ //测销卖出
-            try {
-                //开启默认数据库的事务
-                DB::beginTransaction();
-            $order->update([
-                'status_type'=>0,
-                'status'=>2,
-            ]);
-                $oldOrder = Order::where('trade_no',$order->buy_trade)->first();
-                $oldOrder->status_type=1;
-                $oldOrder->save();
-                if (true) {
-                    //一起提交
-                    DB::commit();
-                    return $order;
-                } else {
-                    //一起回滚
-                    DB::rollback();
-                    return false;
-                }
-            } catch (\Exception $exception) {
-                echo "catch some errors:".$exception->getMessage();
-            }
-        }
+            $order->status = 3;
+            if($order->save())
+                return $order;
+            return  $this->response->error('测单失败', 206);
+    }
+    public function userIndex(Request $request)
+    {
+
     }
 }

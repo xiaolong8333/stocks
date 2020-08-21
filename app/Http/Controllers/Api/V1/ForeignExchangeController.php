@@ -40,10 +40,10 @@ class ForeignExchangeController extends Controller
 
     public function addList(Request $request)
     {
-        if(UserForeignExchangeList::where(['user_id'=>$request->user()->id,'code_all'=>$request->code_all])->count())
+        if(UserForeignExchangeList::where(['user_id'=>$request->user()->id,'FS'=>$request->FS])->count())
             return  $this->response->error('添加失败,已存在该自选', 206);
         $model = new UserForeignExchangeList();
-        $model->code_all = $request->code_all;
+        $model->FS = $request->FS;
         $model->user_id = $request->user()->id;
         if($model->save())
             return new UserForeignExchangeListResource($model);
@@ -52,7 +52,7 @@ class ForeignExchangeController extends Controller
 
     public function deleteList(Request $request)
     {
-        $userForeignExchangeList = UserForeignExchangeList::where(['user_id'=>$request->user()->id,'code_all'=>$request->code_all])
+        $userForeignExchangeList = UserForeignExchangeList::where(['user_id'=>$request->user()->id,'FS'=>$request->FS])
             ->first();
         if($userForeignExchangeList && $userForeignExchangeList->delete())
             return response(null, 204);

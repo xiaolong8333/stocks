@@ -63,7 +63,6 @@ $api->group([
             ->name('user.notifications.read');
 
         // 外汇
-
         $api->get('foreignexchange/onelist/{id}', 'ForeignExchangeController@oneList')
                     ->name('foreignexchange.oneList');
         //外汇列表
@@ -81,19 +80,18 @@ $api->group([
         // 用户日志列表
         $api->get('useroperationlog/index', 'UserOperationLogController@index')
             ->name('useroperationlog.index');
-        //买入外汇
-        $api->post('buyforeign', 'OrdersController@buy')
-            ->name('orders.buy');
-        //卖出外汇
-        $api->patch('sellforeign/{order}', 'OrdersController@sell')
-            ->name('orders.sell');
+        //建仓
+        $api->post('create', 'OrdersController@create')
+            ->name('orders.create');
+        //平仓
+        $api->patch('close/{order}', 'OrdersController@close')
+            ->name('orders.close');
         //撤单
         $api->patch('removeorder/{order}', 'OrdersController@removeOrder')
             ->name('orders.removeOrder');
         //外汇列表
         $api->get('order_index', 'OrdersController@index')
             ->name('orders.index');
-
     });
 });
 

@@ -40,30 +40,29 @@ class OrdersController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('trade_no', __('订单号'))->label();
         $grid->column('user.name', __('用户'));
-        $grid->column('number', __('交易量'))->sortable();
-        $grid->column('exchangeList.rate', __('最新价格'));
-        $grid->column('code_all', __('交易品种'));
-        $grid->column('status_type', __('持仓状态'))
-            ->using(['0' => '未持仓', '1' => '持仓'])
-            ->label([
-                0 => 'default',
-                1 => 'success',
-            ]);
-        $grid->column('type', __('订单类型'))
-            ->using(['0' => '即时买', '1' => '即时卖','2' => '委托买', '3' => '委托卖'])
-            ->label('info');
+        $grid->column('trouble', __('交易量'))->sortable();
+        $grid->column('exchangeList.P', __('最新价格'));
+        $grid->column('FS', __('交易品种'));
+        $grid->column('type', __('订单类型'));
         $grid->column('status', __('状态'))
-            ->using(['0' => '未完成交易', '1' => '完成交易','2'=>'已撤单'])
+            ->using(['0' => '未完成交易', '1' => '交易已持仓','2'=>'交易已平仓','3'=>'已撤单'])
             ->label([
                 0 => 'default',
                 1 => 'success',
                 2 => 'warning',
+                3 => 'warning',
             ]);
-        $grid->column('buy_price', __('购买价格'));
-        $grid->column('buy_total_price', __('购买总价'));
-        $grid->column('sell_price', __('卖出价格'));
-        $grid->column('sell_total_price', __('卖出总价'));
-        $grid->column('floating', __('允许浮动价格'));
+        $grid->column('create_price', __('建仓价格'));
+        $grid->column('create_total_price', __('建仓总价'));
+        $grid->column('close_price', __('平仓价格'));
+        $grid->column('close_total_price', __('平仓总价'));
+        $grid->column('fees', __('手续费'));
+        $grid->column('deviation', __('偏差'));
+        $grid->column('cancel_time', __('订单自动取消时间'))->display(function ($cancel_time) {
+            if($cancel_time==0)
+                return '无';
+            return "<span style='color:blue'>".date('Y-m-d H:i:s',$cancel_time)."</span>";
+        });
         $grid->column('remark', __('备注'));
         $grid->column('created_at', __('创建时间'));
         $grid->column('updated_at', __('更新时间'));
@@ -85,7 +84,7 @@ class OrdersController extends AdminController
         $show->field('trade_no', __('订单号'));
         $show->field('buy_trade', __('买入订单号'));
         $show->field('user.name', __('用户名'));
-        $show->field('number', __('交易量'));
+        $show->field('trouble', __('交易量'));
         $show->field('new_value', __('最新价格'));
         $show->field('code_all', __('交易品种'));
         $show->field('buy_price', __('购买价格'));

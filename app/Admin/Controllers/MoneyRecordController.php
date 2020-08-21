@@ -41,15 +41,16 @@ class MoneyRecordController extends AdminController
             ]);
 
         $grid->column('title', __('内容标题'));
-        $grid->column('trade_number', __('订单号'))->label();
-        $grid->column('pre_user_money', __('交易前余额'));
-        $grid->column('user_money', __('交易后余额'));
+        $grid->column('trade_no', __('订单号'))->label();
         $grid->column('money', __('变动金额'));
-        $grid->column('pre_frozen_money', __('交易前冻结金额'));
-        $grid->column('after_frozen_money', __('交易后冻结金额额'));
-        $grid->column('frozen_money', __('变动冻结金'));
+        $grid->column('pre_last_balance', __('交易前结余'));
+        $grid->column('last_balance', __('交易后结余'));
+        $grid->column('pre_advance', __('交易前预付款'));
+        $grid->column('advance', __('交易后预付款'));
+        $grid->column('pre_balance', __('交易前可用预付款'));
+        $grid->column('balance', __('交易后可用预付款'));
         $grid->column('remark', __('备注'));
-        $grid->column('sx', __('手续费'));
+        $grid->column('fees', __('手续费'));
         $grid->column('created_at', __('创建时间'));
         $grid->column('updated_at', __('更新时间'));
 

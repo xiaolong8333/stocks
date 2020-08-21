@@ -16,17 +16,72 @@ echo 'asdads';
 
 if (!function_exists('getPrice')) {
     /**
-     * @param array $data
-     * @param string $msg
-     * @param int $code
-     *
-     * @return array
+     * @param $query
+     * @param $market
+     * @param $configs
+     * @param array $toPriceList
+     * @return float|int
      */
-    function getPrice($data = [])
+    function getPrice($query,$market,$configs,$toPriceList=[])
     {
-        echo 'asdads';
+        $total_price = 0;
+        if($query->type == 'buy') {
+            if ($market->type == 'Forex1') {
+                if (substr($market->FS, 0, 3) == 'USD')
+                    $total_price = $configs['hand'] * $query->trouble / $configs['bar'];
+                if (substr($market->FS, 0, 3) != 'USD')
+                    $total_price = $configs['hand'] * $query->trouble * $market->S1 / $configs['bar'];
+            } else {
+                $total_price = $configs['hand'] * $query->trouble * $toPriceList->S1 / $configs['bar'];
+            }
+        }else{
+            if ($market->type == 'Forex1') {
+                if (substr($market->FS, 0, 3) == 'USD')
+                    $total_price = $configs['hand'] * $query->trouble / $configs['bar'];
+                if (substr($market->FS, 0, 3) != 'USD')
+                    $total_price = $configs['hand'] * $query->trouble * $market->B1 / $configs['bar'];
+            } else {
+                $total_price = $configs['hand'] * $query->trouble * $toPriceList->B1 / $configs['bar'];
+            }
+        }
+        return sprintf("%.5f",$total_price);
     }
 }
+
+if (!function_exists('getProfit')) {
+    /**
+     * @param $order
+     * @param $market
+     * @param $configs
+     * @param $toPriceList
+     * @return float|int
+     */
+    function getProfit($order,$market,$configs,$toPriceList)
+    {
+        $profit = 0;
+        if($order->type == 'buy') {
+            if ($market->type == 'Forex1') {
+                if (substr($market->FS, 0, 3) == 'USD')
+                    $profit = ($market->B1 - $order->create_price) * $order->trouble * $configs['hand'] / $market->B1 - $order->fees;
+                if (substr($market->FS, 0, 3) != 'USD')
+                    $profit = ($market->B1-$order->create_price)*$order->trouble*$configs['hand']-$order->fees;
+            } else {
+                $profit = ($market->B1-$order->create_price)*$order->trouble*$configs['hand']/($market->B1/$toPriceList->S1)-$order->fees;
+            }
+        }else{
+            if ($market->type == 'Forex1') {
+                if (substr($market->FS, 0, 3) == 'USD')
+                    $profit = ($order->create_price-$market->S1)*$order->trouble*$configs['hand']/$market->S1-$order->fees;
+                if (substr($market->FS, 0, 3) != 'USD')
+                    $profit = ($order->create_price-$market->S1)*$order->trouble*$configs['hand']-$order->fees;
+            } else {
+                $profit = ($order->create_price-$market->S1)*$order->trouble*$configs['hand']/($market->S1/$toPriceList->B1)-$order->fees;
+            }
+        }
+        return sprintf("%.5f",$profit);
+    }
+}
+
 
 if (!function_exists('request_post')) {
     /**

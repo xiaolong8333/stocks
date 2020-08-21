@@ -13,7 +13,7 @@ class Order extends Model
     }
     public function exchangeList()
     {
-        return $this->hasOne('App\Models\ForeignExchangeList','code_all','code_all');
+        return $this->hasOne('App\Models\ForeignExchangeList','FS','FS');
     }
     protected $fillable = ['status_type','status'];
 }
