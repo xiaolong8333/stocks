@@ -36,8 +36,9 @@ $api->group([
     // 游客可以访问的接口
     $api->post('authorizations', 'AuthorizationsController@store')
         ->name('api.socials.authorizations.store');
+    $api->get('/login', 'AuthorizationsController@login')->name('login');
     // 登录后可以访问的接口
-    $api->group(['middleware' => 'token.canrefresh'], function ($api) {
+    $api->group(['middleware' => ['token.canrefresh']], function ($api) {
         $api->get('user', 'UsersController@me')
             ->name('user.show');
         // 刷新token

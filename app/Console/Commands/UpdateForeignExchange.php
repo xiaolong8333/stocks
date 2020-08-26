@@ -52,6 +52,7 @@ class UpdateForeignExchange extends Command
                 $query->N = $value['N'];
                 $query->H = $value['H'];
                 $query->L = $value['L'];
+                $query->O = $value['O'];
                 $query->S = $value['S'];
                 $query->FS = $value['FS'];
                 $query->V = $value['V'];

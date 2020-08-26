@@ -3,6 +3,8 @@
 namespace App\Admin\Controllers;
 
 use App\Models\User;
+use App\Models\DefaultForeignExchangeList;
+use App\Models\UserForeignExchangeList;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -113,7 +115,6 @@ class UserController extends AdminController
             'on'  => ['value' => 0, 'text' => '正常', 'color' => 'primary'],
             'off' => ['value' => 1, 'text' => '冻结', 'color' => 'danger'],
         ];
-
         $form->switch('status', '状态')->states($states);
         $directors = [
             0 => '普通会员',
@@ -127,6 +128,15 @@ class UserController extends AdminController
         $form->saving(function (Form $form) {
             if ($form->password && $form->model()->password != $form->password) {
                 $form->password = password_hash($form->password, PASSWORD_DEFAULT);
+            }
+        });
+        $form->saved(function (Form $form) {
+            $lists  = DefaultForeignExchangeList::get()->toarray();
+            for($i=0;$i<count($lists);$i++){
+                $model = new UserForeignExchangeList();
+                $model->user_id = $form->model()->id;
+                $model->FS = $lists[$i]['FS'];
+                $model->save();
             }
         });
         return $form;

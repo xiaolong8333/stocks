@@ -14,6 +14,20 @@ echo 'asdads';
     }
 }
 
+if (!function_exists('getFloor')) {
+    /**
+     * @param array $data
+     * @param string $msg
+     * @param int $code
+     *
+     * @return float|int
+     */
+    function getFloor($value)
+    {
+        return (int)trim(strrchr($value, '.'),'.');
+    }
+}
+
 if (!function_exists('getPrice')) {
     /**
      * @param $query

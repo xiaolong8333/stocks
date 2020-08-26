@@ -13,6 +13,10 @@ use Dingo\Api\Routing\Helpers;
 class AuthorizationsController extends Controller
 {
     use Helpers;
+    public function login()
+    {
+        return $this->response->error('未登录', 500);
+    }
     public function store(AuthorizationRequest $request)
     {
 /*        /*$username = $request->username;
@@ -26,6 +30,7 @@ class AuthorizationsController extends Controller
 
         if(!$token = \Auth::guard('api')->attempt($credentials)) {
             throw new AuthenticationException('用户名或密码错误');
+            //return $this->response->error('用户名或密码错误', 500);
         }
         $log = new UserOperationLog();
         $log->user_id = User::where('name',$request->username)->first()->id;
@@ -33,7 +38,7 @@ class AuthorizationsController extends Controller
         $log->content = '登录';
         $log->login_ip = Request::createFromGlobals()->getClientIp();
         $log->save();
-        return $this->respondWithToken($token)->setStatusCode(201);
+        return $this->respondWithToken($token)->setStatusCode(200);
     }
 
 
@@ -49,14 +54,14 @@ class AuthorizationsController extends Controller
         if(!\Auth::attempt($credentials))
             return $this->response->error('原密码错误', 206);
         if($request->password!=$request->repassword)
-            return $this->response->error('两次密码输入不一致', 206);
+            return $this->response->error('两次密码输入不一致', 200);
 
         $result = User::where('id',$request->user()->id)
             ->update([
                 'password' => password_hash($request->password, PASSWORD_DEFAULT)
             ]);
         if(!$result)
-            return $this->response->error('修改密码失败', 206);
+            return $this->response->error('修改密码失败', 200);
 
         return $this->response->error('修改密码成功', 200);
 
@@ -65,7 +70,7 @@ class AuthorizationsController extends Controller
     public function destroy()
     {
         auth('api')->logout();
-        return response(null,204);
+        return response(null,200);
     }
 
     protected function respondWithToken($token)

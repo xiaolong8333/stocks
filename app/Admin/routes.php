@@ -19,6 +19,7 @@ Route::group([
     $router->resource('money-records', MoneyRecordController::class);
     $router->resource('configs', ConfigsController::class);
     $router->resource('user-operation-logs', UserOperationLogController::class);
+    $router->resource('default-foreign-exchange-lists', DefaultForeignExchangeListController::class);
 
 
 });

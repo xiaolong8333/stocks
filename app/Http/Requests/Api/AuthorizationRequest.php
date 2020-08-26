@@ -38,4 +38,11 @@ class AuthorizationRequest extends FormRequest
             'repassword' => '重复密码'
         ];
     }
+    public function messages()
+    {
+        return [
+            'username.required' => '用户名不能为空',
+            'password.required' => '密码不能为空',
+        ];
+    }
 }

@@ -15,11 +15,16 @@ class ForeignExchangeController extends Controller
 {
     use Helpers;
     //
-    public function index()
+    public function index(Request $request)
     {
-        $orders = ForeignExchangeList::orderBy('id','asc')->paginate(10);
+
+        $orders = ForeignExchangeList::where('FS','like','%'.$request->get('FS').'%')->orderBy('id','asc')->paginate(10)->map(function($item){
+            $item['deviation'] = getFloor(abs(bcsub($item['B1'],$item['S1'],5)));
+            return $item;
+        });
         return ForeignExchangeListResource::collection($orders);
     }
+
     public function oneList($id)
     {
 
@@ -28,14 +33,20 @@ class ForeignExchangeController extends Controller
     }
     /**
      * @param Request $request
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return UserForeignExchangeListResource
      */
     public function list(Request $request)
     {
         $orders = UserForeignExchangeList::where('user_id',$request->user()->id)
             ->with(["exchangeList"])
-            ->orderBy('id','asc')->paginate(10);
-        return UserForeignExchangeListResource::collection($orders);
+            ->orderBy('id','asc')->paginate(10)->toArray();
+            if($orders['data'])
+            foreach($orders['data'] as $k=>$v){
+
+                $orders['data'][$k] = $v['exchange_list'];
+                $orders['data'][$k]['deviation'] = getFloor(abs(bcsub($orders['data'][$k]['B1'],$orders['data'][$k]['S1'],5)));
+            }
+        return new UserForeignExchangeListResource($orders);
     }
 
     public function addList(Request $request)
