@@ -70,4 +70,35 @@ class ForeignExchangeController extends Controller
             return $this->response->error('删除失败', 206);
 
     }
+
+    public function history(Request $request)
+    {
+        $period=$request->get('period')??'15M';
+        $pidx=$request->get('pidx')??1;
+        $psize=$request->get('psize')??100;
+        $symbol=$request->get('symbol')??'GBPUS';
+        $host = "http://alirm-gbfsb.konpn.com";
+        $path = "/query/comkm";
+        $method = "GET";
+        $appcode = "b03ff507efed446899e55c5bc615c682";
+        $headers = array();
+        array_push($headers, "Authorization:APPCODE " . $appcode);
+        $querys = "period={$period}&pidx={$pidx}&psize={$psize}&symbol={$symbol}&withlast=0";
+        $bodys = "";
+        $url = $host . $path . "?" . $querys;
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($curl, CURLOPT_FAILONERROR, false);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HEADER, false);
+        if (1 == strpos("$".$host, "https://"))
+        {
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        }
+        return curl_exec($curl);
+    }
 }

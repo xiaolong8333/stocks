@@ -89,7 +89,7 @@ class UpdateForeignExchange extends Command
         $timeBegin1 = strtotime($checkDayStr."09:00".":00");
         $timeEnd1 = strtotime($checkDayStr."16:00".":00");
         //if (date('w', strtotime($time)) == 0 || !($time >= $timeBegin1 && $time <= $timeEnd1))
-        if (date('w', strtotime($time)) == 0)
+        if (date('w', strtotime($time)) == 0 || date('w', strtotime($time)) == 6)
             return true;
         return false;
     }

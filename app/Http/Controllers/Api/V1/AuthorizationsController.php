@@ -32,6 +32,9 @@ class AuthorizationsController extends Controller
             throw new AuthenticationException('用户名或密码错误');
             //return $this->response->error('用户名或密码错误', 500);
         }
+        User::where('name',$request->username)->update(
+            ['remember_token'=>$token]
+        );
         $log = new UserOperationLog();
         $log->user_id = User::where('name',$request->username)->first()->id;
         $log->user_name = $request->username;
@@ -45,6 +48,9 @@ class AuthorizationsController extends Controller
     public function update()
     {
         $token = auth('api')->refresh();
+        User::where('name',$request->username)->update(
+            ['remember_token'=>$token]
+        );
         return $this->respondWithToken($token);
     }
     public function updatePass(AuthorizationRequest $request)

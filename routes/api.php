@@ -93,6 +93,9 @@ $api->group([
         //外汇列表
         $api->get('order_index', 'OrdersController@index')
             ->name('orders.index');
+        //外汇历史列表
+        $api->get('foreignexchange/history', 'ForeignExchangeController@history')
+            ->name('foreignexchange.history');
     });
 });
 
