@@ -19,7 +19,7 @@ var webSocket = new WebSocket("ws://192.168.0.150:9501");
 	  $("#sendMessage").click(function(){
 			  console.log('发送消息')
 			  //api_name  getuserfor=>用户自选外汇列表 userorderlist=》用户持仓列表
-			var data =  '{"api_name":"userorderlist","begin":"1","limit":"20","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xOTIuMTY4LjAuMTUwOjgwMDVcL2FwaVwvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1OTg5Mjk4OTEsImV4cCI6MTYwMjUyOTg5MSwibmJmIjoxNTk4OTI5ODkxLCJqdGkiOiI5bXZ5TVVXQlFBMkR0cjdMIiwic3ViIjoyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.-gU-L8Gf56Tx-Umh57lu8u8eG-BaQAlAYpyZ-hQAa_U" }' ;
+			var data =  '{"api_name":"get_one_for_list","id":12,"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xOTIuMTY4LjAuMTUwOjgwMDVcL2FwaVwvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1OTkxMDI3MjIsImV4cCI6MTYwMjcwMjcyMiwibmJmIjoxNTk5MTAyNzIyLCJqdGkiOiJ5c2ZQYjNHWkI3WVNLVUpHIiwic3ViIjoyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.e1_9EHavSpHiPINi2LuiG3TXe3kOoMUHjrznejzMntM" }' ;
 		//var data = {'id':2,'token':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xOTIuMTY4LjAuMTUwOjgwMDVcL2FwaVwvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1OTg4NTE1MzMsImV4cCI6MTYwMjQ1MTUzMywibmJmIjoxNTk4ODUxNTMzLCJqdGkiOiJFY2RUbVdQM3g1YjJyTks5Iiwic3ViIjoyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.eb5iKXjNEZv-Il2iIo7ndLo2egiZhDnLfLX7okLPrNk'};
 	  webSocket.send(data);
 	  })

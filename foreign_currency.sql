@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50730
 File Encoding         : 65001
 
-Date: 2020-08-26 16:04:28
+Date: 2020-09-04 13:26:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -70,7 +70,7 @@ CREATE TABLE `admin_operation_log` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `admin_operation_log_user_id_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2122 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of admin_operation_log
@@ -2177,6 +2177,25 @@ INSERT INTO `admin_operation_log` VALUES ('2099', '1', 'admin/foreign-exchange-l
 INSERT INTO `admin_operation_log` VALUES ('2100', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-26 13:48:08', '2020-08-26 13:48:08');
 INSERT INTO `admin_operation_log` VALUES ('2101', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '[]', '2020-08-26 14:29:26', '2020-08-26 14:29:26');
 INSERT INTO `admin_operation_log` VALUES ('2102', '1', 'admin/foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-26 14:29:38', '2020-08-26 14:29:38');
+INSERT INTO `admin_operation_log` VALUES ('2103', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-26 16:41:25', '2020-08-26 16:41:25');
+INSERT INTO `admin_operation_log` VALUES ('2104', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-26 17:57:49', '2020-08-26 17:57:49');
+INSERT INTO `admin_operation_log` VALUES ('2105', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-26 17:57:51', '2020-08-26 17:57:51');
+INSERT INTO `admin_operation_log` VALUES ('2106', '1', 'admin/default-foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-26 17:57:58', '2020-08-26 17:57:58');
+INSERT INTO `admin_operation_log` VALUES ('2107', '1', 'admin/user-operation-logs', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-26 17:58:03', '2020-08-26 17:58:03');
+INSERT INTO `admin_operation_log` VALUES ('2108', '1', 'admin/orders', 'GET', '192.168.0.140', '[]', '2020-08-27 10:34:40', '2020-08-27 10:34:40');
+INSERT INTO `admin_operation_log` VALUES ('2109', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-27 10:34:44', '2020-08-27 10:34:44');
+INSERT INTO `admin_operation_log` VALUES ('2110', '1', 'admin/default-foreign-exchange-lists', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-08-27 10:34:48', '2020-08-27 10:34:48');
+INSERT INTO `admin_operation_log` VALUES ('2111', '1', 'admin/orders', 'GET', '192.168.0.140', '[]', '2020-08-31 09:03:56', '2020-08-31 09:03:56');
+INSERT INTO `admin_operation_log` VALUES ('2112', '1', 'admin/orders', 'GET', '192.168.0.140', '[]', '2020-09-02 10:24:19', '2020-09-02 10:24:19');
+INSERT INTO `admin_operation_log` VALUES ('2113', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-09-02 10:24:23', '2020-09-02 10:24:23');
+INSERT INTO `admin_operation_log` VALUES ('2114', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-09-02 10:24:25', '2020-09-02 10:24:25');
+INSERT INTO `admin_operation_log` VALUES ('2115', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-09-02 10:24:28', '2020-09-02 10:24:28');
+INSERT INTO `admin_operation_log` VALUES ('2116', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-09-02 10:24:28', '2020-09-02 10:24:28');
+INSERT INTO `admin_operation_log` VALUES ('2117', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-09-02 10:24:36', '2020-09-02 10:24:36');
+INSERT INTO `admin_operation_log` VALUES ('2118', '1', 'admin/money-records', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-09-02 10:24:39', '2020-09-02 10:24:39');
+INSERT INTO `admin_operation_log` VALUES ('2119', '1', 'admin/users', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-09-02 10:24:41', '2020-09-02 10:24:41');
+INSERT INTO `admin_operation_log` VALUES ('2120', '1', 'admin/orders', 'GET', '192.168.0.140', '{\"_pjax\":\"#pjax-container\"}', '2020-09-02 11:36:08', '2020-09-02 11:36:08');
+INSERT INTO `admin_operation_log` VALUES ('2121', '1', 'admin/orders', 'GET', '192.168.0.140', '[]', '2020-09-04 10:06:05', '2020-09-04 10:06:05');
 
 -- ----------------------------
 -- Table structure for admin_permissions
@@ -2470,7 +2489,7 @@ CREATE TABLE `money_records` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='用户资金变动记录表';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='用户资金变动记录表';
 
 -- ----------------------------
 -- Records of money_records
@@ -2481,6 +2500,7 @@ INSERT INTO `money_records` VALUES ('3', '0', '即时执行', 'J824343268277567'
 INSERT INTO `money_records` VALUES ('4', '0', '即时执行平仓', 'J821897141474534', '100263.87765', '7000.00000', '126722.73851', '120722.73851', '93263.87765', '6000.00000', '27458.86086', '2', null, '0.00000', '0.00000', '20.00000', '2020-08-24 09:58:57', '2020-08-24 09:58:57');
 INSERT INTO `money_records` VALUES ('5', '0', '即时执行', 'J824368359256375', '126722.73851', '6000.00000', '126722.73851', '119722.73851', '120722.73851', '7000.00000', '1000.00000', '2', null, '0.00000', '0.00000', '20.00000', '2020-08-24 10:40:35', '2020-08-24 10:40:35');
 INSERT INTO `money_records` VALUES ('6', '0', '即时执行平仓', 'J824343268277567', '126722.73851', '7000.00000', '153181.59937', '147181.59937', '119722.73851', '6000.00000', '27458.86086', '2', null, '0.00000', '0.00000', '20.00000', '2020-08-24 10:40:41', '2020-08-24 10:40:41');
+INSERT INTO `money_records` VALUES ('7', '0', '即时执行', 'J827933754402702', '153181.59937', '6000.00000', '153181.59937', '146181.59937', '147181.59937', '7000.00000', '1000.00000', '2', null, '0.00000', '0.00000', '20.00000', '2020-08-27 09:56:15', '2020-08-27 09:56:15');
 
 -- ----------------------------
 -- Table structure for orders
@@ -2511,18 +2531,21 @@ CREATE TABLE `orders` (
   `cancel_time` int(11) NOT NULL DEFAULT '0' COMMENT '订单自动取消时间',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `newProfit` decimal(15,5) DEFAULT NULL,
+  `toprice` decimal(15,5) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `trade_buys_trade_no_unique` (`trade_no`),
   KEY `trade_buys_user_id_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES ('1', 'J821897141474534', '2', '1', '0.00000', 'USDCAD', '1.33832', '1000.00000', '1.82032', '27478.86086', '0.00000', '0.00000', '20.00000', '1.31432', '1.31632', 'buy', '0', '2', '200', '26458.86086', '买币，，，', '0', '2020-08-21 14:01:54', '2020-08-24 09:58:57');
-INSERT INTO `orders` VALUES ('2', 'J824338643029196', '2', '1', '0.00000', 'USDCAD', '1.33832', '1000.00000', '0.00000', '0.00000', '0.00000', '0.00000', '20.00000', '1.31432', '1.31632', 'buy', '0', '1', '200', '0.00000', '买币，，，', '0', '2020-08-24 09:51:04', '2020-08-24 09:51:04');
-INSERT INTO `orders` VALUES ('3', 'J824343268277567', '2', '1', '0.00000', 'USDCAD', '1.33832', '1000.00000', '1.82032', '27478.86086', '0.00000', '0.00000', '20.00000', '1.31432', '1.31632', 'buy', '0', '2', '200', '26458.86086', '买币，，，', '0', '2020-08-24 09:58:46', '2020-08-24 10:40:41');
-INSERT INTO `orders` VALUES ('4', 'J824368359256375', '2', '1', '0.00000', 'USDCAD', '1.33832', '1000.00000', '0.00000', '0.00000', '0.00000', '0.00000', '20.00000', '1.31432', '1.31632', 'buy', '0', '1', '200', '0.00000', '买币，，，', '0', '2020-08-24 10:40:35', '2020-08-24 10:40:35');
+INSERT INTO `orders` VALUES ('1', 'J821897141474534', '2', '1', '0.00000', 'USDCAD', '1.33832', '1000.00000', '1.82032', '27478.86086', '0.00000', '0.00000', '20.00000', '1.31432', '1.31632', 'buy', '0', '2', '200', '26458.86086', '买币，，，', '0', '2020-08-21 14:01:54', '2020-08-24 09:58:57', null, null);
+INSERT INTO `orders` VALUES ('2', 'J824338643029196', '2', '1', '0.00000', 'USDCAD', '1.33832', '1000.00000', '0.00000', '0.00000', '0.00000', '0.00000', '20.00000', '1.31432', '1.31632', 'buy', '0', '1', '200', '0.00000', '买币，，，', '0', '2020-08-24 09:51:04', '2020-09-02 09:11:26', '-1523.99320', null);
+INSERT INTO `orders` VALUES ('3', 'J824343268277567', '3', '1', '0.00000', 'USDCAD', '1.33832', '1000.00000', '1.82032', '27478.86086', '0.00000', '0.00000', '20.00000', '1.31432', '1.31632', 'buy', '0', '2', '200', '26458.86086', '买币，，，', '0', '2020-08-24 09:58:46', '2020-08-24 10:40:41', null, null);
+INSERT INTO `orders` VALUES ('4', 'J824368359256375', '2', '1', '0.00000', 'USDCAD', '1.33832', '1000.00000', '0.00000', '0.00000', '0.00000', '0.00000', '20.00000', '1.31432', '1.31632', 'buy', '0', '1', '200', '0.00000', '买币，，，', '0', '2020-08-24 10:40:35', '2020-09-02 09:11:26', '-1523.99320', null);
+INSERT INTO `orders` VALUES ('5', 'J827933754402702', '2', '1', '0.00000', 'USDCAD', '1.31869', '1000.00000', '0.00000', '0.00000', '0.00000', '0.00000', '20.00000', '1.31432', '1.31632', 'buy', '0', '1', '200', '0.00000', '买币，，，', '0', '2020-08-27 09:56:15', '2020-09-02 09:11:26', '-35.16887', null);
 
 -- ----------------------------
 -- Table structure for password_resets
@@ -2603,8 +2626,8 @@ CREATE TABLE `user_foreign_exchange_lists` (
 -- Records of user_foreign_exchange_lists
 -- ----------------------------
 INSERT INTO `user_foreign_exchange_lists` VALUES ('23', '3', 'EURUSD', '2020-08-21 11:37:05', '2020-08-21 11:37:05');
-INSERT INTO `user_foreign_exchange_lists` VALUES ('24', '3', 'AUDUSD', '2020-08-26 11:07:21', '2020-08-26 11:07:21');
-INSERT INTO `user_foreign_exchange_lists` VALUES ('25', '3', 'USDCAD', '2020-08-26 11:07:21', '2020-08-26 11:07:21');
+INSERT INTO `user_foreign_exchange_lists` VALUES ('24', '2', 'AUDUSD', '2020-08-26 11:07:21', '2020-08-26 11:07:21');
+INSERT INTO `user_foreign_exchange_lists` VALUES ('25', '2', 'USDCAD', '2020-08-26 11:07:21', '2020-08-26 11:07:21');
 
 -- ----------------------------
 -- Table structure for user_operation_logs
@@ -2620,7 +2643,7 @@ CREATE TABLE `user_operation_logs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 COMMENT='用户日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8 COMMENT='用户日志表';
 
 -- ----------------------------
 -- Records of user_operation_logs
@@ -2684,6 +2707,34 @@ INSERT INTO `user_operation_logs` VALUES ('56', '2', 'test0001', '登录', '0', 
 INSERT INTO `user_operation_logs` VALUES ('57', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-08-26 13:36:39', '2020-08-26 13:36:39');
 INSERT INTO `user_operation_logs` VALUES ('58', '3', 'test0002', '登录', '0', '192.168.0.137', '2020-08-26 13:38:43', '2020-08-26 13:38:43');
 INSERT INTO `user_operation_logs` VALUES ('59', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-08-26 13:40:18', '2020-08-26 13:40:18');
+INSERT INTO `user_operation_logs` VALUES ('60', '2', 'test0001', '登录', '0', '192.168.0.140', '2020-08-27 09:55:05', '2020-08-27 09:55:05');
+INSERT INTO `user_operation_logs` VALUES ('61', '2', 'test0001', '登录', '0', '192.168.0.140', '2020-08-31 13:25:33', '2020-08-31 13:25:33');
+INSERT INTO `user_operation_logs` VALUES ('62', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 09:53:08', '2020-09-01 09:53:08');
+INSERT INTO `user_operation_logs` VALUES ('63', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 09:55:17', '2020-09-01 09:55:17');
+INSERT INTO `user_operation_logs` VALUES ('64', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 09:56:07', '2020-09-01 09:56:07');
+INSERT INTO `user_operation_logs` VALUES ('65', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 09:58:36', '2020-09-01 09:58:36');
+INSERT INTO `user_operation_logs` VALUES ('66', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 10:21:04', '2020-09-01 10:21:04');
+INSERT INTO `user_operation_logs` VALUES ('67', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 10:34:02', '2020-09-01 10:34:02');
+INSERT INTO `user_operation_logs` VALUES ('68', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 10:34:23', '2020-09-01 10:34:23');
+INSERT INTO `user_operation_logs` VALUES ('69', '2', 'test0001', '登录', '0', '192.168.0.140', '2020-09-01 10:37:24', '2020-09-01 10:37:24');
+INSERT INTO `user_operation_logs` VALUES ('70', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 10:37:27', '2020-09-01 10:37:27');
+INSERT INTO `user_operation_logs` VALUES ('71', '2', 'test0001', '登录', '0', '192.168.0.140', '2020-09-01 10:39:13', '2020-09-01 10:39:13');
+INSERT INTO `user_operation_logs` VALUES ('72', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 10:55:33', '2020-09-01 10:55:33');
+INSERT INTO `user_operation_logs` VALUES ('73', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 11:05:34', '2020-09-01 11:05:34');
+INSERT INTO `user_operation_logs` VALUES ('74', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 11:05:47', '2020-09-01 11:05:47');
+INSERT INTO `user_operation_logs` VALUES ('75', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 11:06:32', '2020-09-01 11:06:32');
+INSERT INTO `user_operation_logs` VALUES ('76', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 11:07:44', '2020-09-01 11:07:44');
+INSERT INTO `user_operation_logs` VALUES ('77', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 11:08:34', '2020-09-01 11:08:34');
+INSERT INTO `user_operation_logs` VALUES ('78', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 11:09:54', '2020-09-01 11:09:54');
+INSERT INTO `user_operation_logs` VALUES ('79', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 11:10:40', '2020-09-01 11:10:40');
+INSERT INTO `user_operation_logs` VALUES ('80', '2', 'test0001', '登录', '0', '192.168.0.181', '2020-09-01 11:11:31', '2020-09-01 11:11:31');
+INSERT INTO `user_operation_logs` VALUES ('81', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 11:11:38', '2020-09-01 11:11:38');
+INSERT INTO `user_operation_logs` VALUES ('82', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-01 11:13:56', '2020-09-01 11:13:56');
+INSERT INTO `user_operation_logs` VALUES ('83', '2', 'test0001', '登录', '0', '192.168.0.181', '2020-09-02 10:44:48', '2020-09-02 10:44:48');
+INSERT INTO `user_operation_logs` VALUES ('84', '2', 'test0001', '登录', '0', '192.168.0.181', '2020-09-02 10:53:04', '2020-09-02 10:53:04');
+INSERT INTO `user_operation_logs` VALUES ('85', '2', 'test0001', '登录', '0', '192.168.0.181', '2020-09-02 10:53:54', '2020-09-02 10:53:54');
+INSERT INTO `user_operation_logs` VALUES ('86', '3', 'test0002', '登录', '0', '192.168.0.181', '2020-09-02 15:28:14', '2020-09-02 15:28:14');
+INSERT INTO `user_operation_logs` VALUES ('87', '2', 'test0001', '登录', '0', '192.168.0.140', '2020-09-03 11:12:02', '2020-09-03 11:12:02');
 
 -- ----------------------------
 -- Table structure for user_poositions
@@ -2710,11 +2761,11 @@ CREATE TABLE `user_poositions` (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) NOT NULL,
   `last_balance` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '结余',
   `balance` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '可用预付款',
   `advance` decimal(15,5) NOT NULL DEFAULT '0.00000' COMMENT '预付款',
@@ -2722,17 +2773,107 @@ CREATE TABLE `users` (
   `status` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '状态 0 正常 1 冻结',
   `level` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '等级 0 普通会员 1 超级会员',
   `end_time` timestamp NOT NULL COMMENT '到期时间',
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(500) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `users_email_unique` (`email`),
+  UNIQUE KEY `users_name_unique` (`name`),
   UNIQUE KEY `users_phone_unique` (`phone`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('2', 'test0001', '18482526545', null, null, '$2y$10$KWmYwp4C34vIduTsWtPCLOJdrUTserThHaZ05xNOFFFbn7dAQztVG', '153181.59937', '147181.59937', '6000.00000', '0.00000', '0', '0', '2020-08-18 16:38:26', null, '2020-08-18 16:38:42', '2020-08-24 10:40:41');
-INSERT INTO `users` VALUES ('3', 'test0002', '18482526588', null, null, '$2y$10$aJ5ioAT6WkZSGF67R30vhuEYUqibeVgf.1GZIov7pN7xCKUhRAISq', '100000.00000', '100000.00000', '0.00000', '0.00000', '0', '0', '2020-08-18 16:48:39', null, '2020-08-18 16:48:59', '2020-08-18 16:48:59');
+INSERT INTO `users` VALUES ('2', 'test0001', '18482526545', null, null, '$2y$10$KWmYwp4C34vIduTsWtPCLOJdrUTserThHaZ05xNOFFFbn7dAQztVG', '153181.59937', '146181.59937', '7000.00000', '0.00000', '0', '0', '2020-08-18 16:38:26', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xOTIuMTY4LjAuMTUwOjgwMDVcL2FwaVwvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1OTkxMDI3MjIsImV4cCI6MTYwMjcwMjcyMiwibmJmIjoxNTk5MTAyNzIyLCJqdGkiOiJ5c2ZQYjNHWkI3WVNLVUpHIiwic3ViIjoyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.e1_9EHavSpHiPINi2LuiG3TXe3kOoMUHjrznejzMntM', '2020-08-18 16:38:42', '2020-09-03 11:12:02');
+INSERT INTO `users` VALUES ('3', 'test0002', '18482526588', null, null, '$2y$10$aJ5ioAT6WkZSGF67R30vhuEYUqibeVgf.1GZIov7pN7xCKUhRAISq', '100000.00000', '100000.00000', '0.00000', '0.00000', '0', '0', '2020-08-18 16:48:39', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xOTIuMTY4LjAuMTUwOjgwMDVcL2FwaVwvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1OTkwMzE2OTQsImV4cCI6MTYwMjYzMTY5NCwibmJmIjoxNTk5MDMxNjk0LCJqdGkiOiJFTVdsU0l5NWFSeUlwMENvIiwic3ViIjozLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.COGau-enp0czNr4cpkDT3H1S46ClbLpgM9BoZ_X3jH4', '2020-08-18 16:48:59', '2020-09-02 15:28:14');
 INSERT INTO `users` VALUES ('4', 'test0003', '18483631555', null, null, '$2y$10$cg6fRmzxVpepppAI9eNADuV30ldGQkLAr3DyvPE2SvTf.8sZgZax6', '0.00000', '0.00000', '0.00000', '0.00000', '0', '0', '2020-08-26 11:07:05', null, '2020-08-26 11:07:21', '2020-08-26 11:07:21');
+
+-- ----------------------------
+-- Procedure structure for get_one_for_list
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `get_one_for_list`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `get_one_for_list`(_id int(11))
+BEGIN
+select * from foreign_exchange_lists where id = _id;
+end
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for get_user_for_count
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `get_user_for_count`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `get_user_for_count`(_id int(11))
+begin
+select count(*) as total_count from user_foreign_exchange_lists where id=_id;
+end
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for get_user_order_count
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `get_user_order_count`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `get_user_order_count`(_id int(11))
+begin
+select count(*) as total_count from orders where user_id=_id && status!=2;
+end
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for user_for_list
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `user_for_list`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `user_for_list`(_user_id int(11),_begin int(11),_limit int(2))
+begin
+     declare __count int default 0;
+     select count(*) into __count from user_foreign_exchange_lists where user_id=_user_id;
+	 if _begin>= __count then
+	 set _begin = 0;
+	 end if;
+select b.* from user_foreign_exchange_lists a
+left join foreign_exchange_lists b 
+on a.FS = b.FS
+where a.user_id =_user_id
+	 limit _begin,_limit;
+end
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for user_order_list
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `user_order_list`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `user_order_list`(_user_id int(11),_begin int(11),_limit int(2))
+begin
+     declare __count int default 0;
+     select count(*) into __count from orders where user_id=_user_id;
+	 if _begin>= __count then
+	 set _begin = 0;
+	 end if;
+select a.*,b.* from orders a
+left join foreign_exchange_lists b 
+on a.FS = b.FS
+where a.user_id =_user_id && status!=2
+	 limit _begin,_limit ;
+end
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for user_token
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `user_token`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `user_token`( _remember_token varchar(1000))
+begin
+select id,name from users where  remember_token=_remember_token;
+end
+;;
+DELIMITER ;

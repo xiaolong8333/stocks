@@ -51,8 +51,29 @@ class ProfitLose extends Command
                 || IF(orders.type='buy',foreign_exchange_lists.B1<stop_loss,foreign_exchange_lists.S1>stop_loss)")
             ->get();
 
+        $config = Configs::get();
+        $configs = [];
+        foreach($config as $k=>$v){
+            $configs[$v->name]=$v->value;
+        }
+        $orders = Order::with('exchangeList')
+            ->where(['status'=>1])
+            ->get()
+            ->map(function($item)use ($configs) {
+                $toPriceList = [];
+                //不是直接盘
+                if ($item->exchangeList->type != 'Forex1') {
+                    $indirect = substr($item->exchangeList->FS, 0, 3) . "USD";
+                    $toPriceList = ForeignExchangeList::where("FS", $indirect)->first();
+                    if (!$toPriceList)
+                        return false;
+                }
+                //盈亏
+                $item->newProfit = getProfit($item, $item->exchangeList, $configs, $toPriceList);
+                $item->save();
+                return $item;
+            });
         $this->closeAction($orders);
-
     }
 
     public function closeAction($orders)
@@ -81,11 +102,11 @@ class ProfitLose extends Command
             $market->S1 = $value->S1;
             //盈亏
             $profit =  getProfit($value,$market,$configs,$toPriceList);
-            if(!$order = $this->closeAction1($profit,$value,$market))
+            if(!$order = $this->closeAction1($profit,$value,$market,$toPriceList))
                 continue;
         }
     }
-    public function closeAction1($profit,$order,$market)
+    public function closeAction1($profit,$order,$market,$toPriceList)
     {
         $user = User::where('id',$order->user_id)->first();
         try {
@@ -96,6 +117,8 @@ class ProfitLose extends Command
             $updateOrder ->close_total_price = sprintf("%.5f",$order->create_total_price+$profit+$order->fees);
             $updateOrder ->status = 2;
             $updateOrder->profit = $profit;
+            if(!empty($toPriceList))
+                $updateOrder->toprice = $toPriceList->S1;
             $moneyData = [
                 'type'=>0,
                 'user_id'=>$user->id,
@@ -132,7 +155,5 @@ class ProfitLose extends Command
         } catch (\Exception $exception) {
             return false;
         }
-
     }
-
 }

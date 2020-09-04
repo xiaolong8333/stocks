@@ -49,6 +49,9 @@ class index_list
                     case 'userorderlist':
                         $data = $this->getUserOrderList($db, $result[0]['id'], $user->begin, $user->limit);
                         break;
+                    case 'get_one_for_list':
+                        $data = $this->getOneForlist($db, $user->id)[0];
+                        break;
                     default:
                 }
                 $this->pushMessage($ws, $frame->fd, $data);
@@ -60,10 +63,13 @@ class index_list
                     case 'userorderlist':
                         $data = $this->getUserOrderList($db, $result[0]['id'], $user->begin, $user->limit);
                         break;
+                    case 'get_one_for_list':
+                        $data = $this->getOneForlist($db, $user->id)[0];
+                        break;
                     default:
                         $data = $this->status['error3'];
                 }
-                $this->pushMessage($ws, $frame->fd, $data);
+                $this->pushMessage($ws, $frame->fd,$data,$user->api_name);
                 });
             }
         });
@@ -85,11 +91,18 @@ class index_list
     {
         return $db->__call('user_order_list',[$uid,$begin,$limit]);
     }
-    //消息推送
-    public function pushMessage($ws,$fd,$result)
+
+    public function getOneForlist($db,$id)
     {
+        return $db->__call('get_one_for_list',[$id]);
+    }
+    //消息推送
+    public function pushMessage($ws,$fd,$result,$api_name='')
+    {
+        $result= ['code'=>200,'message'=>'success','api_name'=>$api_name,'data'=>$result];
         $ws->push($fd,json_encode($result,JSON_UNESCAPED_UNICODE));
     }
+
 }
 $model = new index_list();
 

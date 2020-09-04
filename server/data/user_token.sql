@@ -63,6 +63,15 @@ end
 $$
 delimiter ;
 
+drop procedure if exists get_one_for_list;
+delimiter $$
+create procedure get_one_for_list(_id int(11))
+BEGIN
+select * from foreign_exchange_lists where id = _id;
+end 
+$$
+delimiter ;
+
 
 
 
