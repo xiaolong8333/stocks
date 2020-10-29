@@ -15,14 +15,14 @@ class OrdersRequest extends FormRequest
         switch($this->method()){
             case 'POST':
                 return [
-                    'trouble' => 'required|integer',
+/*                    'trouble' => 'required',
                     'FS' => 'required|string|exists:foreign_exchange_lists,FS',
-                    'type' => 'required|string',
+                    'type' => 'required|string',*/
                 ];
                 break;
             case 'PATCH':
                 return [
-                    'type' => 'required|integer',
+/*                    'type' => 'required|integer',*/
                 ];
                 break;
         }
@@ -46,6 +46,7 @@ class OrdersRequest extends FormRequest
      */
     public function messages()
     {
-        return [];
+        return [
+        ];
     }
 }

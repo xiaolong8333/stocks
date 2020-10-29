@@ -13,7 +13,7 @@ class Database
         'db_pwd'=>'123456',
         'db_name'=>'foreign_currency'
     ];
-    public  function __construct()
+    private function __construct()
     {
         $this->mysqli = new \mysqli($this->mysqlMes['db_host'], $this->mysqlMes['db_user'], $this->mysqlMes['db_pwd'], $this->mysqlMes['db_name']);
         if(mysqli_connect_error()){
@@ -38,13 +38,16 @@ class Database
     public function querySql(string $sql)
     {
         $result = $this->mysqli->query($sql);
-        if(is_bool($result))
-        {
-            return $result;
+        $data = [];
+        if (!$result) {
+            $this->re_connect();
+            $result = $this->mysqli->query($sql);
         }
-        $data = $result->fetch_all(MYSQLI_ASSOC);
-        //移动指针到下一条sql
-        $this->mysqli->next_result();
+        if ($result) {
+            $data = $result->fetch_all(MYSQLI_ASSOC);
+            //移动指针到下一条sql
+            $this->mysqli->next_result();
+        }
         return $data;
     }
     public function __call(string $name,array $args=[])
@@ -56,8 +59,12 @@ class Database
             $args = implode(',',array_map(array($this,'escape'), $args));
             $sql = "call {$name} ({$args})";
         }
-
         return $this->querySql($sql);
+    }
+    private function re_connect()
+    {
+        return $this->mysqli->connect($this->mysqlMes['db_host'], $this->mysqlMes['db_user'], $this->mysqlMes['db_pwd'], $this->mysqlMes['db_name']);
+        $this->mysqli->refresh(MYSQLI_REFRESH_HOSTS);
     }
     private function __close()
     {

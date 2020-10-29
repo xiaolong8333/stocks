@@ -28,7 +28,9 @@ class OrdersController extends Controller
         foreach($config as $k=>$v){
             $configs[$v->name]=$v->value;
         }
-
+        $field = $request->field??'id';
+        $sort = $request->sort??'desc';
+        $limit = $request->limit??15;
         $where["user_id"]=$request->user()->id;
         if($request->create_type)
             $where["create_type"] = $request->create_type;
@@ -38,8 +40,8 @@ class OrdersController extends Controller
             $where["type"] = $request->type;
         $orders = Order::with('exchangeList')
             ->where($where)
-            ->orderBy('id','asc')
-            ->paginate(10)
+            ->orderBy($field,$sort)
+            ->paginate($limit)
         ->map(function($item)use ($configs){
             $toPriceList=[];
             //不是直接盘
@@ -64,6 +66,12 @@ class OrdersController extends Controller
      */
     public function create(Request $request, OrdersRequest $query)
     {
+        if(!isset($query->FS))
+            return $this->response->error('交易币种不能为空', 422);
+        if(!isset($query->trouble))
+            return $this->response->error('交易手数不能为空', 422);
+        if(!isset($query->type))
+            return $this->response->error('交易类型不能为空', 422);
         $market = ForeignExchangeList::where("FS",$query->FS)->first();
         $toPriceList=[];
         //不是直接盘
@@ -71,7 +79,7 @@ class OrdersController extends Controller
             $indirect = substr($market->FS,0,3)."USD";
             $toPriceList = ForeignExchangeList::where("FS",$indirect)->first();
             if(!$toPriceList)
-                return $this->response->error('此币种不能交易', 205);
+                return $this->response->error('此币种不能交易', 407);
         }
         //获取配置
         $config = Configs::get();
@@ -84,13 +92,13 @@ class OrdersController extends Controller
         //手续费
         $fees = $configs['fees'];
         if($request->user()->balance<($total_price)){
-            return $this->response->error('预付款金额不足', 205);
+            return $this->response->error('预付款金额不足', 405);
         }
         if($order = $this->createAction($market,$fees,$total_price,$request,$query)) {
             return new OrdersResource($order);
         }
         else{
-            return $this->response->error('交易失败', 206);
+            return $this->response->error('交易失败', 406);
         }
     }
 
@@ -170,7 +178,7 @@ class OrdersController extends Controller
     {
         $this->authorize('update', $order);
         if($order->status!=1)
-            return $this->response->error('此订单不能平仓', 205);
+            return $this->response->error('此订单不能平仓', 506);
         $market = ForeignExchangeList::where("FS",$order->FS)->first();
         $toPriceList=[];
         //不是直接盘
@@ -178,7 +186,7 @@ class OrdersController extends Controller
             $indirect = substr($market->FS,0,3)."USD";
             $toPriceList = ForeignExchangeList::where("FS",$indirect)->first();
             if(!$toPriceList)
-                return $this->response->error('此币种不能交易', 205);
+                return $this->response->error('此币种不能交易', 507);
         }
         //获取配置
         $config = Configs::get();
@@ -193,7 +201,7 @@ class OrdersController extends Controller
             return new OrdersResource($order);
         }
         else{
-            return $this->response->error('交易失败', 206);
+            return $this->response->error('交易失败', 508);
         }
     }
 

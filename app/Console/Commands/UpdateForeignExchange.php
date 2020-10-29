@@ -48,17 +48,17 @@ class UpdateForeignExchange extends Command
             $request_result = json_decode($request_result,true);
             foreach($request_result['Obj'] as $key=>$value){
                 $query = ForeignExchangeList::where('FS', $value['FS'])->first();
-                $query->P = $value['P'];
+                $query->P = sprintf("%01.5f",$value['P']);
                 $query->N = $value['N'];
-                $query->H = $value['H'];
-                $query->L = $value['L'];
-                $query->O = $value['O'];
+                $query->H = sprintf("%01.5f",$value['H']);
+                $query->L = sprintf("%01.5f",$value['L']);
+                $query->O = sprintf("%01.5f",$value['O']);
                 $query->S = $value['S'];
                 $query->FS = $value['FS'];
                 $query->V = $value['V'];
                 $query->NV = $value['NV'];
-                $query->B1 = $value['B1'];
-                $query->S1 = $value['S1'];
+                $query->B1 = sprintf("%01.5f",$value['B1']);
+                $query->S1 = sprintf("%01.5f",$value['S1']);
                 $query->updated_at = date("Y-m-d H:i:s",$value['Tick']);
                 $query->save();
             }

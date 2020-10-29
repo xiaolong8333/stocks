@@ -19,11 +19,19 @@ var webSocket = new WebSocket("ws://192.168.0.150:9501");
 	  $("#sendMessage").click(function(){
 			  console.log('发送消息')
 			  //api_name  getuserfor=>用户自选外汇列表 userorderlist=》用户持仓列表
-			var data =  '{"api_name":"get_one_for_list","id":12,"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xOTIuMTY4LjAuMTUwOjgwMDVcL2FwaVwvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1OTkxMDI3MjIsImV4cCI6MTYwMjcwMjcyMiwibmJmIjoxNTk5MTAyNzIyLCJqdGkiOiJ5c2ZQYjNHWkI3WVNLVUpHIiwic3ViIjoyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.e1_9EHavSpHiPINi2LuiG3TXe3kOoMUHjrznejzMntM" }' ;
+			  
+			  
+																		  //eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xOTIuMTY4LjAuMTUwOjgwMDVcL2FwaVwvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1OTk0NDQ3MjYsImV4cCI6MTYwMzA0NDcyNiwibmJmIjoxNTk5NDQ0NzI2LCJqdGkiOiJGTm9ycVBlcXIzSWkxMzZXIiwic3ViIjozLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.KAbJJs_wZRvtIxBpi7R-21-ci5hsEpCIZ32F6FzKZaY
+			
+			
+			//field 订单 id ,时间 created_at,交易品种  FS ， 利润 profit
+			//sortd 排序  正排序  asc  逆排序 desc
+			var data =  '{"id":"12","api_name":"userorderlist","field":"created_at","sortd":"asc","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xOTIuMTY4LjAuMTUwOjgwMDVcL2FwaVwvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE2MDM5MzY5OTEsImV4cCI6MTYwNzUzNjk5MSwibmJmIjoxNjAzOTM2OTkxLCJqdGkiOiJPRlBEZ0NDelNGczd4Z3BWIiwic3ViIjozLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.AFNpeT_H7rEq8LvVIsmNWMJ8LEmRk3rwlr45wsOq8kI"}' ;
 		//var data = {'id':2,'token':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xOTIuMTY4LjAuMTUwOjgwMDVcL2FwaVwvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1OTg4NTE1MzMsImV4cCI6MTYwMjQ1MTUzMywibmJmIjoxNTk4ODUxNTMzLCJqdGkiOiJFY2RUbVdQM3g1YjJyTks5Iiwic3ViIjoyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.eb5iKXjNEZv-Il2iIo7ndLo2egiZhDnLfLX7okLPrNk'};
 	  webSocket.send(data);
 	  })
 });
+
 </script>
 </head>
 <body>

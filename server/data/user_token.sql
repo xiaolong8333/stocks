@@ -20,18 +20,13 @@ delimiter ;
 
 drop procedure if exists user_for_list;
 delimiter $$
-create procedure user_for_list(_user_id int(11),_begin int(11),_limit int(2)) 
+create procedure user_for_list(_user_id int(11)) 
 begin
-     declare __count int default 0;
-     select count(*) into __count from user_foreign_exchange_lists where user_id=_user_id;
-	 if _begin>= __count then
-	 set _begin = 0;
-	 end if;
+
 select b.* from user_foreign_exchange_lists a
 left join foreign_exchange_lists b 
 on a.FS = b.FS
-where a.user_id =_user_id
-	 limit _begin,_limit;
+where a.user_id =_user_id;
 end
 $$
 delimiter ;
@@ -47,21 +42,49 @@ delimiter ;
 
 drop procedure if exists user_order_list;
 delimiter $$
-create procedure user_order_list(_user_id int(11),_begin int(11),_limit int(2)) 
+create procedure user_order_list(_user_id int(11),_field char(50),_sort char(50)) 
 begin
-     declare __count int default 0;
-     select count(*) into __count from order where user_id=_user_id;
-	 if _begin>= __count then
-	 set _begin = 0;
-	 end if;
-select a.* from orders a
+if _sort='desc' then
+select a.*,b.B1,b.S1 from orders a
 left join foreign_exchange_lists b 
 on a.FS = b.FS
-where a.user_id =_user_id
-	 limit _begin,_limit && status!=2;
+where a.user_id =_user_id && status!=2 order by  (case _field   
+         when 'created_at' then a.created_at
+					when 'FS' then a.FS
+					when 'profit' then a.profit
+         else a.id end) desc;
+else
+select a.*,b.B1,b.S1 from orders a
+left join foreign_exchange_lists b 
+on a.FS = b.FS
+where a.user_id =_user_id && status!=2 order by  (case _field   
+         when 'created_at' then a.created_at
+					when 'FS' then a.FS
+					when 'profit' then a.profit
+         else a.id end) asc;
+end if;
 end
 $$
 delimiter ;
+
+drop procedure if exists user_info;
+delimiter $$
+create procedure user_info(_user_id int(11))
+begin
+select a.id,
+a.name,
+a.phone,
+a.last_balance,
+(a.balance+sum(b.profit)) as balance,
+sum(b.profit) as profit,
+a.advance,
+a.frozen_balance 
+from users a 
+left join orders b on a.id = b.user_id && (b.status=2 || b.status=1) where a.id =_user_id;
+end
+$$
+delimiter ;
+
 
 drop procedure if exists get_one_for_list;
 delimiter $$

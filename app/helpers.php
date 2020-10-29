@@ -73,6 +73,7 @@ if (!function_exists('getProfit')) {
     function getProfit($order,$market,$configs,$toPriceList)
     {
         $profit = 0;
+
         if($order->type == 'buy') {
             if ($market->type == 'Forex1') {
                 if (substr($market->FS, 0, 3) == 'USD')

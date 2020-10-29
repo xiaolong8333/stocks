@@ -18,8 +18,12 @@ class ForeignExchangeController extends Controller
     public function index(Request $request)
     {
 
-        $orders = ForeignExchangeList::where('FS','like','%'.$request->get('FS').'%')->orderBy('id','asc')->paginate(10)->map(function($item){
+        $orders = ForeignExchangeList::where('FS','like','%'.$request->get('FS').'%')->orderBy('id','asc')->paginate(10)->map(function($item) use($request){
             $item['deviation'] = getFloor(abs(bcsub($item['B1'],$item['S1'],5)));
+            $exists = UserForeignExchangeList::where(['FS'=>$item['FS'],'user_id'=>$request->user()->id])->first();
+            $item['isadd']=0;
+            if($exists)
+                $item['isadd']=1;
             return $item;
         });
         return ForeignExchangeListResource::collection($orders);
@@ -57,7 +61,8 @@ class ForeignExchangeController extends Controller
         $model->FS = $request->FS;
         $model->user_id = $request->user()->id;
         if($model->save())
-            return new UserForeignExchangeListResource($model);
+            return $this->response->error('添加成功', 200);
+            //return new UserForeignExchangeListResource($model);
         return $this->response->error('添加失败', 206);
     }
 

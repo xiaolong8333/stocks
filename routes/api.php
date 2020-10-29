@@ -48,7 +48,7 @@ $api->group([
         $api->delete('authorizations/current', 'AuthorizationsController@destroy')
             ->name('authorizations.destroy');
         // 修改密码
-        $api->patch('authorizations/updatepass', 'AuthorizationsController@updatePass')
+        $api->post('authorizations/updatepass', 'AuthorizationsController@updatePass')
             ->name('authorizations.updatepass');
         // 上传图片
         $api->post('images', 'ImagesController@store')
@@ -85,10 +85,10 @@ $api->group([
         $api->post('create', 'OrdersController@create')
             ->name('orders.create');
         //平仓
-        $api->patch('close/{order}', 'OrdersController@close')
+        $api->post('close/{order}', 'OrdersController@close')
             ->name('orders.close');
         //撤单
-        $api->patch('removeorder/{order}', 'OrdersController@removeOrder')
+        $api->post('removeorder/{order}', 'OrdersController@removeOrder')
             ->name('orders.removeOrder');
         //外汇列表
         $api->get('order_index', 'OrdersController@index')

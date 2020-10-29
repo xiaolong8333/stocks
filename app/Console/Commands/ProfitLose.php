@@ -56,7 +56,8 @@ class ProfitLose extends Command
         foreach($config as $k=>$v){
             $configs[$v->name]=$v->value;
         }
-        $orders = Order::with('exchangeList')
+        //计算盈亏
+        Order::with('exchangeList')
             ->where(['status'=>1])
             ->get()
             ->map(function($item)use ($configs) {
@@ -69,7 +70,8 @@ class ProfitLose extends Command
                         return false;
                 }
                 //盈亏
-                $item->newProfit = getProfit($item, $item->exchangeList, $configs, $toPriceList);
+               $item->newProfit = sprintf("%.5f",getProfit($item, $item->exchangeList, $configs, $toPriceList));
+                $item->profit  = $item->newProfit;
                 $item->save();
                 return $item;
             });
@@ -85,6 +87,7 @@ class ProfitLose extends Command
             $configs[$v->name]=$v->value;
         }
         foreach($orders as $key=>$value){
+
             if($value->status!=1)
                 continue;
             $toPriceList=[];
@@ -100,8 +103,9 @@ class ProfitLose extends Command
             $market->FS = $value->FS;
             $market->B1 = $value->B1;
             $market->S1 = $value->S1;
+
             //盈亏
-            $profit =  getProfit($value,$market,$configs,$toPriceList);
+            $profit =  sprintf("%.5f",getProfit($value,$market,$configs,$toPriceList));
             if(!$order = $this->closeAction1($profit,$value,$market,$toPriceList))
                 continue;
         }
