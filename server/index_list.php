@@ -72,7 +72,7 @@ class index_list
                         $data = $this->getUserOrderList($db, $result[0]['id'],$user->field,$user->sortd);
                         break;
                     case 'get_one_for_list':
-                        $data = $this->getOneForlist($db, $user->id);
+                        $data = $this->getOneForlist($db, $user->FS);
                         $data=empty($data)?[]:$data[0];
                         break;
 					case 'user_info':
@@ -89,15 +89,15 @@ class index_list
 				}
 				if($user->api_name=='get_one_for_list'){
 					$this->timer[$frame->fd.'get_one_for_list'] = \Swoole\Timer::tick(1000, function () use ($ws, $frame, $user,$result,$db) {
-					$data = $this->getOneForlist($db, $user->id);
+					$data = $this->getOneForlist($db, $user->FS);
 					$data=empty($data)?[]:$data[0];
 					$this->pushMessage($ws, $frame->fd,$data,'get_one_for_list');
 					});
 				}
 
-				if(isset($this->timer[$frame->fd.'userorderlist']) && $user->api_name = 'userorderlist'){
+ 				if(isset($this->timer[$frame->fd.'userorderlist']) && $user->api_name = 'userorderlist'){
 					\Swoole\Timer::clear($this->timer[$frame->fd.'userorderlist']);
-				}
+				} 
 				if($user->api_name=='userorderlist'){
 					$this->timer[$frame->fd.'userorderlist'] = \Swoole\Timer::tick(1000, function () use ($ws, $frame, $user,$result,$db) {
 					$data = $this->getUserOrderList($db, $result[0]['id'],$user->field,$user->sortd);
@@ -135,9 +135,9 @@ class index_list
         $ws_server->start();
     }
 
-    public function getUserForList($db,$uid)
+    public function getUserForList($db,$FS)
     {
-        return  $db->__call('user_for_list',[$uid]);
+        return  $db->__call('user_for_list',[$FS]);
     }
 	public function getUserInfo($db,$uid)
     {

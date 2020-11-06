@@ -9,6 +9,7 @@ use App\Models\UserForeignExchangeList;
 use App\Http\Resources\ForeignExchangeListResource;
 use App\Http\Resources\UserForeignExchangeListResource;
 use App\Models\User;
+use App\Models\Order;
 use Dingo\Api\Routing\Helpers;
 
 class ForeignExchangeController extends Controller
@@ -81,7 +82,7 @@ class ForeignExchangeController extends Controller
         $period=$request->get('period')??'15M';
         $pidx=$request->get('pidx')??1;
         $psize=$request->get('psize')??100;
-        $symbol=$request->get('symbol')??'GBPUS';
+        $symbol=$request->get('symbol')??'GBPUSD';
         $host = "http://alirm-gbfsb.konpn.com";
         $path = "/query/comkm";
         $method = "GET";
@@ -104,6 +105,8 @@ class ForeignExchangeController extends Controller
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
         }
+        //$orders = Order::select(['trade_no','trouble'])->where('FS',$request->get('symbol'))->get();
         return curl_exec($curl);
+        //return $this->response->array(['orders'=>$orders,'data'=>curl_exec($curl)]);
     }
 }

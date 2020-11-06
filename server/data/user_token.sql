@@ -75,8 +75,8 @@ select a.id,
 a.name,
 a.phone,
 a.last_balance,
-(a.balance+sum(b.profit)) as balance,
-sum(b.profit) as profit,
+(a.balance+IFNULL(sum(b.profit),0)) as balance,
+IFNULL(sum(b.profit),0) as profit,
 a.advance,
 a.frozen_balance 
 from users a 
@@ -88,13 +88,12 @@ delimiter ;
 
 drop procedure if exists get_one_for_list;
 delimiter $$
-create procedure get_one_for_list(_id int(11))
+create procedure get_one_for_list(_FS char(50))
 BEGIN
-select * from foreign_exchange_lists where id = _id;
+select * from foreign_exchange_lists where FS=_FS;
 end 
 $$
 delimiter ;
-
 
 
 

@@ -90,6 +90,9 @@ $api->group([
         //撤单
         $api->post('removeorder/{order}', 'OrdersController@removeOrder')
             ->name('orders.removeOrder');
+        //获取单个订单
+        $api->get('getorder/{order}', 'OrdersController@getOrder')
+            ->name('orders.getorder');
         //外汇列表
         $api->get('order_index', 'OrdersController@index')
             ->name('orders.index');

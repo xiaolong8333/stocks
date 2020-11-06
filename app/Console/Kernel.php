@@ -28,6 +28,12 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->command('profitlose')//Test.php中的name
+        ->everyMinute();//每1分钟执行一次
+        $schedule->command('createorclose')//Test.php中的name
+        ->everyMinute();//每1分钟执行一次
+        $schedule->command('updateforeignexchange')//Test.php中的name
+        ->everyMinute();//每1分钟执行一次
     }
 
     /**

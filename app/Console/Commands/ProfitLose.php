@@ -47,8 +47,9 @@ class ProfitLose extends Command
         $orders = DB::table('orders')
             ->selectRaw('orders.*,foreign_exchange_lists.B1,foreign_exchange_lists.S1,foreign_exchange_lists.type as mtype')
             ->leftJoin('foreign_exchange_lists', 'orders.FS', '=', 'foreign_exchange_lists.FS')
-            ->whereRaw("IF(orders.type='buy',foreign_exchange_lists.B1>stop_profit,foreign_exchange_lists.S1<stop_profit)
-                || IF(orders.type='buy',foreign_exchange_lists.B1<stop_loss,foreign_exchange_lists.S1>stop_loss)")
+            ->whereRaw("IF(orders.type='buy',foreign_exchange_lists.B1>stop_profit && stop_profit!=0.00000,foreign_exchange_lists.S1<stop_profit && stop_profit!=0.00000)
+                || IF(orders.type='sell',foreign_exchange_lists.B1<stop_loss && stop_loss!=0.00000,foreign_exchange_lists.S1>stop_loss && stop_loss!=0.00000)")
+            ->whereRaw("orders.status!=2")
             ->get();
 
         $config = Configs::get();

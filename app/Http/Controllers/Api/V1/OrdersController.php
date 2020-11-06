@@ -31,6 +31,11 @@ class OrdersController extends Controller
         $field = $request->field??'id';
         $sort = $request->sort??'desc';
         $limit = $request->limit??15;
+        $whereRaw = '1=1';
+        if(isset($request->beginTime) && !empty($request->beginTime))
+        $whereRaw  .=  " && updated_at>'{$request->beginTime}'";
+        if(isset($request->endTime) && !empty($request->endTime))
+            $whereRaw  .= " && updated_at<'{$request->endTime}'";
         $where["user_id"]=$request->user()->id;
         if($request->create_type)
             $where["create_type"] = $request->create_type;
@@ -40,10 +45,11 @@ class OrdersController extends Controller
             $where["type"] = $request->type;
         $orders = Order::with('exchangeList')
             ->where($where)
+            ->whereRaw($whereRaw)
             ->orderBy($field,$sort)
             ->paginate($limit)
         ->map(function($item)use ($configs){
-            $toPriceList=[];
+/*            $toPriceList=[];
             //不是直接盘
             if($item->exchangeList->type!='Forex1'){
                 $indirect = substr($item->exchangeList->FS,0,3)."USD";
@@ -52,13 +58,32 @@ class OrdersController extends Controller
                     return false;
             }
             //盈亏
-            $item->newProfit =  getProfit($item,$item->exchangeList,$configs,$toPriceList);
+            $item->newProfit =  getProfit($item,$item->exchangeList,$configs,$toPriceList);*/
             return $item;
         });
-        return OrdersResource::collection($orders);
+        $whereRawNew = $whereRaw;
+        $whereRaw .= ' && create_type!=5';
+        $whereRawNew.= ' && create_type=5';
+        $totalProfit = Order::where($where)
+            ->whereRaw($whereRaw)
+            ->orderBy($field,$sort)
+            ->paginate($limit)->sum('profit');
+        $balance = Order::where($where)
+            ->whereRaw($whereRawNew)
+            ->orderBy($field,$sort)
+            ->paginate($limit)->sum('profit');
+        //return OrdersResource::collection($orders);
+        $jieyu = sprintf("%.5f",$balance+$totalProfit);
+        return $this->response->array(['jieyu'=>$jieyu,'profit'=>sprintf("%.5f",$totalProfit),'balance'=>sprintf("%.5f",$balance),'data'=> $orders->toArray()]);
 
     }
-
+    public function getOrder(Order $order)
+    {
+        $this->authorize('update', $order);
+        if($order->status == 2)
+            return $this->response->error('该订单已完成交易', 208);
+        return  $this->response->array($order->toArray());
+    }
     /**
      * @param Request $request
      * @param OrdersRequest $query
