@@ -13,9 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Console\Commands\UpdateForeignExchange::class,
-        \App\Console\Commands\CreateOrClose::class,
-        \App\Console\Commands\ProfitLose::class
+        //
     ];
 
     /**
@@ -26,14 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
-        $schedule->command('profitlose')//Test.php中的name
-        ->everyMinute();//每1分钟执行一次
-        $schedule->command('createorclose')//Test.php中的name
-        ->everyMinute();//每1分钟执行一次
-        $schedule->command('updateforeignexchange')//Test.php中的name
-        ->everyMinute();//每1分钟执行一次
+        // $schedule->command('inspire')->hourly();
     }
 
     /**
